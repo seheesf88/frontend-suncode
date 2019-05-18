@@ -1,26 +1,44 @@
 import React from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import { Route, Switch } from 'react-router-dom'
+//Component...
+import HomeContainer from './HomeContainer';
+import RegisterLoginContainer from './RegisterLoginContainer';
+import MyAccountContainer from './MyAccountContainer';
+import CreateContainer from './CreateContainer';
 
-function App() {
+const My404 = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      ...error...
     </div>
-  );
+  )
 }
 
+const App = () => {
+  return (
+    <main>
+      <Switch>
+        <Route exact path="/" component={ RegisterLoginContainer } />
+        <Route exact path="/home" component={ HomeContainer } />
+        <Route exact path="/myaccount/:id/edit" component={ MyAccountContainer } />
+        <Route exact path="/create" component={ CreateContainer } />
+        <Route component={ My404 } />
+      </Switch>
+    </main>
+  )
+}
+
+
 export default App;
+
+
+
+// function App() {
+//   return (
+//     <div className="App">
+//
+//     </div>
+//   );
+// }
