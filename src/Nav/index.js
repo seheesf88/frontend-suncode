@@ -36,13 +36,7 @@ render(){
     <div>
       <ul className="nav">
         <li className="nav-item mx-3">
-            <Link to="/home" >Home</Link>
-        </li>
-        <li className="nav-item mx-3">
-            <Link to="/myhouse" >My House</Link>
-        </li>
-        <li className="nav-item mx-3">
-            <Link to="/about" >About us</Link>
+            <Link to="/home" >home</Link>
         </li>
         <li className="nav-item mx-3" id="logout">
             <button onClick={this.logout}>Logout</button>

@@ -4,9 +4,13 @@ import './App.css';
 import { Route, Switch } from 'react-router-dom'
 //Component...
 import HomeContainer from './HomeContainer';
+import AdminHome from './AdminHome';
 import RegisterLoginContainer from './RegisterLoginContainer';
 import MyAccountContainer from './MyAccountContainer';
 import CreateContainer from './CreateContainer';
+import ShowHouseContainer from './ShowHouseContainer';
+import EditHouseContainer from './EditHouseContainer';
+
 
 const My404 = () => {
   return (
@@ -22,8 +26,11 @@ const App = () => {
       <Switch>
         <Route exact path="/" component={ RegisterLoginContainer } />
         <Route exact path="/home" component={ HomeContainer } />
+        <Route exact path="/adminhome" component={ AdminHome } />
         <Route exact path="/myaccount/:id/edit" component={ MyAccountContainer } />
         <Route exact path="/create" component={ CreateContainer } />
+        <Route exact path="/:id" component={ ShowHouseContainer } />
+        <Route exact path="/:id/edit" component={ EditHouseContainer } />
         <Route component={ My404 } />
       </Switch>
     </main>

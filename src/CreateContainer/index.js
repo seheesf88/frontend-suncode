@@ -12,6 +12,10 @@ class CreateContainer extends Component {
         zipcode: '',
         year: '',
         sqft: '',
+        pic1: '',
+        pic2: '',
+        pic3: '',
+        pic4: '',
         memo: '',
       },
     }
@@ -107,11 +111,27 @@ class CreateContainer extends Component {
                 </div>
                 <div className="form-group">
                   <label className="mb-0" htmlFor="year">Year:</label>
-                    <input name="year" id="year" type="year" className="form-control" onChange={this.handleInput} value={this.state.house.year} placeholder="ex)YYYY" />
+                    <input name="year" id="year" type="text" className="form-control" onChange={this.handleInput} value={this.state.house.year} placeholder="ex)YYYY" />
                 </div>
                 <div className="form-group">
                   <label className="mb-0" htmlFor="sqft">Sqft:</label>
                     <input name="sqft" id="sqft" type="text" className="form-control" onChange={this.handleInput} value={this.state.house.sqft} placeholder="ex)960" />
+                </div>
+                <div className="form-group">
+                  <label className="mb-0" htmlFor="pic1">Photo1:</label>
+                    <input name="pic1" id="pic1" type="url" className="form-control" onChange={this.handleInput} value={this.state.house.pic1} placeholder="" />
+                </div>
+                <div className="form-group">
+                  <label className="mb-0" htmlFor="pic2">Photo2:</label>
+                    <input name="pic2" id="pic2" type="url" className="form-control" onChange={this.handleInput} value={this.state.house.pic2} placeholder="" />
+                </div>
+                <div className="form-group">
+                  <label className="mb-0" htmlFor="pic3">Photo3:</label>
+                    <input name="pic3" id="pic3" type="url" className="form-control" onChange={this.handleInput} value={this.state.house.pic3} placeholder="" />
+                </div>
+                <div className="form-group">
+                  <label className="mb-0" htmlFor="pic4">Photo4:</label>
+                    <input name="pic4" id="pic4" type="url" className="form-control" onChange={this.handleInput} value={this.state.house.pic4} placeholder="" />
                 </div>
                 <div className="form-group">
                   <label className="" htmlFor="memo">Memo:</label>

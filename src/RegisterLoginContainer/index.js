@@ -81,6 +81,8 @@ class RegisterLoginContainer extends Component{
      localStorage.setItem('username', parsedResponse.username)
 
      this.props.history.push('/home')
+
+
    }catch(err){
      console.log('fetch regi func fail');
    }
@@ -140,7 +142,14 @@ class RegisterLoginContainer extends Component{
 
        localStorage.setItem('userId', parsedResponse.userId)
        localStorage.setItem('username', parsedResponse.username)
-       this.props.history.push('/home')//###################################
+
+       if(parsedResponse.userId === '5ce078a9ba00866361956c39'){
+         this.props.history.push('/adminhome')
+       }else{
+       this.props.history.push('/home')
+      }
+
+
      }else{
        alert('login fail1')
      }
@@ -154,6 +163,7 @@ class RegisterLoginContainer extends Component{
   render(){
     return(
       <div>
+      <div className="title"><span><img src="" /></span>ElectricCasa</div>
         <div className="container">
           <div className="row">
             <div className="col-4 offset-1 form-group">
