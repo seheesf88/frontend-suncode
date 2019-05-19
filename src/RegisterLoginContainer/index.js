@@ -163,8 +163,8 @@ class RegisterLoginContainer extends Component{
   render(){
     return(
       <div>
-      <div className="title"><span><img src="" /></span>ElectricCasa</div>
-        <div className="container">
+      <div className="ml-5 mt-5"><span><img src="Logo_ElectriCasa-05.png" /></span><span className="h1 ml-4 pb-0">ElectricCasa</span></div>
+        <div className="container mt-5 pt-5">
           <div className="row">
             <div className="col-4 offset-1 form-group">
               <h2 className="mb-3">Login</h2>

@@ -13,11 +13,7 @@ code {
 } */
 
 
-.title {
-  width: 200px;
-  height: 47px;
-  left:100px;
-  top: 94px;
-  font-family: raleway;
-
+img {
+  height: 60px;
+  width: 60px;
 }
