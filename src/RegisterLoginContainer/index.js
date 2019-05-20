@@ -43,7 +43,8 @@ class RegisterLoginContainer extends Component{
         register: {
           username: '',
           email: '',
-          password: ''
+          password: '',
+          name: '',
         }
       })
     }else{
