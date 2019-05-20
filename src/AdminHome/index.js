@@ -27,7 +27,7 @@ class AdminHome extends Component {
       const userId = localStorage.getItem('userId');
       console.log(userId);
       try{
-        const response = await fetch(`http://localhost:9000/api/v1/users/` + userId, {
+        const response = await fetch(`${process.env.REACT_APP_API}/api/v1/users/` + userId, {
           credentials: 'include'
         })
 
@@ -49,7 +49,7 @@ class AdminHome extends Component {
 
     getMyHouse = async() => {
       try{
-        const response = await fetch(`http://localhost:9000/api/v1/house`, {
+        const response = await fetch(`${process.env.REACT_APP_API}/api/v1/house`, {
           credentials: 'include'
         })
 
@@ -70,7 +70,7 @@ class AdminHome extends Component {
     deleteHouse = async(id, e) => {
       e.preventDefault();
       try {
-        const deleteHouse = await fetch(`http://localhost:9000/api/v1/house/` + id, {
+        const deleteHouse = await fetch(`${process.env.REACT_APP_API}/api/v1/house/` + id, {
           method: 'DELETE',
           credentials: 'include'
         })

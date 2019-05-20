@@ -51,7 +51,7 @@ class CreateContainer extends Component {
 
   addHouse = async(updatedHouse) => {
     try{
-        const response = await fetch(`http://localhost:9000/api/v1/house`, {
+        const response = await fetch(`${process.env.REACT_APP_API}/api/v1/house`, {
           method: 'POST',
           credentials: 'include',
           body: JSON.stringify(updatedHouse),
