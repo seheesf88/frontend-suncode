@@ -59,12 +59,12 @@ class CreateContainer extends Component {
             'Content-Type' : 'application/json'
           }
         });
-
+        console.log("response", response);
 
         if(!response.ok){
           throw Error(response.statusText)
         }
-
+        console.log("3");
         // console.log('addreport=>', response);
         const parsedCreateHouse = await response.json();
         // console.log('out....', parsedCreateReport);
@@ -95,7 +95,7 @@ class CreateContainer extends Component {
               <form onSubmit={this.handleSubmit}>
                 <div className="form-group">
                   <label className="mb-0" htmlFor="address">Address:</label>
-                    <input name="address" id="address" type="text" className="form-control" onChange={this.handleInput} placeholder="ex)1330 Broadway" value={this.state.house.address} required/>
+                    <input name="address" id="address" type="text" className="form-control" onChange={this.handleInput} placeholder="ex)1330 Broadway" value={this.state.house.address} />
                 </div>
                 <div className="form-group">
                   <label className="mb-0" htmlFor="Address2">Address2:</label>
@@ -120,6 +120,7 @@ class CreateContainer extends Component {
                 <div className="form-group">
                   <label className="mb-0" htmlFor="pic1">Photo1:</label>
                     <input name="pic1" id="pic1" type="url" className="form-control" onChange={this.handleInput} value={this.state.house.pic1} placeholder="" />
+                    // <input name="pic1" type="file" accept="image/*" className="form-control" onChange={this.handleInput} value={this.state.house.pic1} placeholder="" />
                 </div>
                 <div className="form-group">
                   <label className="mb-0" htmlFor="pic2">Photo2:</label>
