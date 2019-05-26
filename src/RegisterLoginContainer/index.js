@@ -16,7 +16,8 @@ class RegisterLoginContainer extends Component{
         email: '',
         password:'',
         name: '',
-      }
+      },
+      loginButton: false
     }
   }
 
@@ -37,14 +38,19 @@ class RegisterLoginContainer extends Component{
       ...this.state.register
     }
 
+    // const strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{6,})");
+    // strongRegex.test(updatedRegister.password)
+    // console.log("yea??", strongRegex.test(updatedRegister.password));
+    // ======================== if statement =========
+
     if(true){
       this.fetchRegister(updatedRegister)
       this.setState({
         register: {
+          name: '',
           username: '',
           email: '',
           password: '',
-          name: '',
         }
       })
     }else{
@@ -114,8 +120,8 @@ class RegisterLoginContainer extends Component{
  }
 
  fetchLogin = async(updatedLogin) => {
-   console.log('fetchloging', updatedLogin);
-   console.log('??', JSON.stringify(updatedLogin));
+   // console.log('fetchloging', updatedLogin);
+   // console.log('??', JSON.stringify(updatedLogin));
    try{
      const response = await fetch(`${process.env.REACT_APP_API}/api/v1/auth/login`, {
        method: 'POST',
@@ -130,9 +136,9 @@ class RegisterLoginContainer extends Component{
        throw Error(response.statusText);
      }
 
-     console.log('login response?', response);
+     // console.log('login response?', response);
      const parsedResponse = await response.json();
-     console.log("login parsedResponse?", parsedResponse)
+     // console.log("login parsedResponse?", parsedResponse)
      if(parsedResponse.status !== 401){
      // if(parsedResponse.status === 200){
        updatedLogin.successful = true;
@@ -144,49 +150,92 @@ class RegisterLoginContainer extends Component{
        localStorage.setItem('userId', parsedResponse.userId)
        localStorage.setItem('username', parsedResponse.username)
 
-       if(parsedResponse.userId === '5ce078a9ba00866361956c39'){
-         this.props.history.push('/adminhome')
-       }else{
-       this.props.history.push('/home')
-      }
+      //  if(parsedResponse.userId === '5ce078a9ba00866361956c39'){
+      //    this.props.history.push('/adminhome')
+      //  }else{
+        this.props.history.push('/home')
+      // }
 
 
      }else{
-       alert('login fail1')
+       alert('fetch fail')
      }
    }catch(err){
-     alert("login fail2")
+     alert("catch err")
    }
  }
 
+ buttonChange = (e) => {
+   e.preventDefault();
+   this.setState({
+     loginButton: !this.state.loginButton
+   });
+ }
 
 
   render(){
+
+    const changeOne = (
+      <button onClick={this.buttonChange} className="btn btn-primary">New</button>
+    );
+
+    const changeTwo = (
+      <button onClick={this.buttonChange} className="btn btn-primary">Login</button>
+    );
+
+
+
     return(
       <div>
-      <div className="ml-5 mt-5"><span><img src="Logo_ElectriCasa-05.png" /></span><span className="h1 ml-4 pb-0">ElectricCasa</span></div>
-        <div className="container mt-5 pt-5">
-          <div className="row">
-            <div className="col-4 offset-1 form-group">
-              <h2 className="mb-3">Login</h2>
-                <form onSubmit={this.handleLoginSubmit}>
-                  <div className="mt-4">Username:<input className="form-control" name="username" value={this.state.login.username} onChange={this.handleLoginChange} /></div>
-                  <div className="mt-3">Password: <input className="form-control" name="password" value={this.state.login.password} onChange={this.handleLoginChange}/></div>
-                  <div className="text-right mt-3"><button className="btn btn-primary" type="submit">Login</button></div>
-                </form>
-            </div>
-            <div className="col-4 offset-1 form-group">
-              <h2>Register</h2>
-                <form onSubmit={this.handleRegisterSubmit}>
-                  <div className="mt-3">Username: <input className="form-control" name="username" value={this.state.register.username} onChange={this.handleRegisterChange}/></div>
-                  <div className="mt-3">Email: <input className="form-control" name="email" value={this.state.register.email} onChange={this.handleRegisterChange}/></div>
-                  <div className="mt-3">Password: <input className="form-control" name="password" value={this.state.register.password} onChange={this.handleRegisterChange}/></div>
-                  <div className="mt-3">Name: <input className="form-control" name="name" value={this.state.register.name} onChange={this.handleRegisterChange}/></div>
-                  <div className="text-right mt-3"><button className="btn btn-primary" type="submit">Register</button></div>
-                </form>
+        <div><span><img src="Logo_ElectriCasa-05.png" /></span><span>ElectriCasa</span></div>
+          <div>
+          { !this.state.loginButton ?
+              <div>
+                <h2>Login</h2>
+                  <form onSubmit={this.handleLoginSubmit}>
+                    <div>
+                      <label htmlFor="username">Username:</label>
+                      <input name="username" id="username" type="text" value={this.state.login.username} onChange={this.handleLoginChange} required />
+                    </div>
+                    <div>
+                      <label htmlFor="password">Password:</label>
+                      <input name="password" id="password" type="text" value={this.state.login.password} onChange={this.handleLoginChange} required />
+                    </div>
+                    <div>
+                      <button className="btn btn-primary" type="submit">Login</button>
+                      <div>{changeOne}</div>
+                    </div>
+                  </form>
               </div>
-            </div>
-          </div>
+
+            :
+              <div>
+                <h2>Register</h2>
+                  <form onSubmit={this.handleRegisterSubmit}>
+                    <div>
+                      <label htmlFor="name">Name:</label>
+                      <input id="name" name="name" type="text" value={this.state.register.name} onChange={this.handleRegisterChange} required />
+                    </div>
+                    <div>
+                      <label htmlFor="username">Username:</label>
+                      <input name="username" id="username" type="text" value={this.state.register.username} onChange={this.handleRegisterChange} required/>
+                    </div>
+                    <div>
+                      <label htmlFor="email">Email:</label>
+                      <input id="email" name="email" type="text" value={this.state.register.email} onChange={this.handleRegisterChange} required/>
+                    </div>
+                    <div>
+                      <label htmlFor="password">Password:</label>
+                      <input id="password" name="password" type="text" value={this.state.register.password} onChange={this.handleRegisterChange} required/>
+                    </div>
+                    <div>
+                      <div><button className="btn btn-primary" type="submit">Register</button></div>
+                      <div>{changeTwo}</div>
+                    </div>
+                  </form>
+                </div>
+            }
+        </div>
       </div>
     )
   }

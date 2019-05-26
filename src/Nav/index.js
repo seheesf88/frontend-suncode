@@ -31,19 +31,24 @@ class Nav extends Component{
     }
   }
 
-render(){
-  return(
-    <div>
-      <ul className="nav">
-        <li className="nav-item mx-3">
-            <Link to="/home" >home</Link>
-        </li>
-        <li className="nav-item mx-3" id="logout">
-            <button onClick={this.logout}>Logout</button>
-        </li>
-      </ul>
-    </div>
-  )
+  render(){
+    return(
+      <div>
+        <div><span><img src="Logo_ElectriCasa-05.png" /></span><span>ElectriCasa</span></div>
+        <div className="nav">
+          <div className="nav-item">
+            <div><Link to="/home">home</Link></div>
+          </div>
+          <div className="nav-item">
+            <div><Link to="/home">Quiz</Link></div>
+          </div>
+          <div className="nav-item">
+            <button className="logout" onClick={this.logout}>Logout</button>
+          </div>
+        </div>
+      </div>
+    )
+  }
 }
-}
+
 export default withRouter(Nav)

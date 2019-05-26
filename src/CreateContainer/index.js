@@ -86,66 +86,64 @@ class CreateContainer extends Component {
     return(
       <div>
         <Nav />
-        <div className="container">
-          <div className="text-center mt-4">
-            <h1>Create House</h1>
-          </div>
-          <div className="row mb-4">
-            <div className="col-md-8 offset-2 mt-5">
-              <form onSubmit={this.handleSubmit}>
-                <div className="form-group">
-                  <label className="mb-0" htmlFor="address">Address:</label>
-                    <input name="address" id="address" type="text" className="form-control" onChange={this.handleInput} placeholder="ex)1330 Broadway" value={this.state.house.address} />
+            <form onSubmit={this.handleSubmit} action="/create" accept="accept=image/*">
+            <div className="grid-container">
+                <div className="grid1">
+                  <div className="">
+                    <label htmlFor="address">Address:</label>
+                    <input name="address" id="address" type="text" className="" onChange={this.handleInput} placeholder="ex)1330 Broadway" value={this.state.house.address} />
+                  </div>
+                  <div className="">
+                    <label className="" htmlFor="Address2">Address2:</label>
+                    <input name="address2" id="address2" type="text" className="" onChange={this.handleInput} value={this.state.house.address2} placeholder="ex)#300" />
+                  </div>
+                  <div className="">
+                    <label className="" htmlFor="state">State:</label>
+                    <input name="state" id="state" type="text" className="" placeholder="ex)CA" value={this.state.house.state} onChange={this.handleInput} />
+                  </div>
+                  <div className="">
+                    <label className="" htmlFor="zipcode">Zipcode:</label>
+                    <input name="zipcode" id="zipcode" type="text" className="" placeholder="ex)94612" value={this.state.house.zipcode} onChange={this.handleInput} />
+                  </div>
+                  <div className="">
+                    <label className="" htmlFor="year">Year:</label>
+                    <input name="year" id="year" type="text" className="" onChange={this.handleInput} value={this.state.house.year} placeholder="ex)YYYY" />
+                  </div>
+                  <div className="">
+                    <label className="" htmlFor="sqft">Sqft:</label>
+                    <input name="sqft" id="sqft" type="text" className="" onChange={this.handleInput} value={this.state.house.sqft} placeholder="ex)960" />
+                  </div>
+                  <div className="">
+                    <label className="" htmlFor="memo">Memo:</label>
+                      <textarea name="memo" id="memo" className="" rows="8" cols="10" onChange={this.handleInput} value={this.state.house.memo} placeholder="ex)Any memo">
+                      </textarea>
+                  </div>
                 </div>
-                <div className="form-group">
-                  <label className="mb-0" htmlFor="Address2">Address2:</label>
-                    <input name="address2" id="address2" type="text" className="form-control" onChange={this.handleInput} value={this.state.house.address2} placeholder="ex)#300" />
+
+                <div className="grid1-container">
+                  <div className="picbox">
+                    <label className="" htmlFor="pic1">Photo1:</label>
+                    <input name="pic1" id="pic1" type="file" className="" onChange={this.handleInput} value={this.state.house.pic1} />
+                  </div>
+                  <div className="picbox">
+                    <label className="" htmlFor="pic2">Photo2:</label>
+                    <input name="pic2" id="pic2" type="url" className="" onChange={this.handleInput} value={this.state.house.pic2} placeholder="" />
+                  </div>
+                  <div className="picbox">
+                    <label className="" htmlFor="pic3">Photo3:</label>
+                    <input name="pic3" id="pic3" type="url" className="" onChange={this.handleInput} value={this.state.house.pic3} placeholder="" />
+                  </div>
+                  <div className="picbox">
+                    <label className="" htmlFor="pic4">Photo4:</label>
+                    <input name="pic4" id="pic4" type="url" className="" onChange={this.handleInput} value={this.state.house.pic4} placeholder="" />
+                  </div>
+                  <div className="subBtn">
+                    <input type="submit" className="button1" />
+                  </div>
                 </div>
-                <div className="form-group">
-                  <label className="mb-0" htmlFor="state">State:</label>
-                    <input name="state" id="state" type="text" className="form-control" placeholder="ex)CA" value={this.state.house.state} onChange={this.handleInput} />
-                </div>
-                <div className="form-group">
-                  <label className="mb-0" htmlFor="zipcode">Zipcode:</label>
-                    <input name="zipcode" id="zipcode" type="text" className="form-control" placeholder="ex)94612" value={this.state.house.zipcode} onChange={this.handleInput} />
-                </div>
-                <div className="form-group">
-                  <label className="mb-0" htmlFor="year">Year:</label>
-                    <input name="year" id="year" type="text" className="form-control" onChange={this.handleInput} value={this.state.house.year} placeholder="ex)YYYY" />
-                </div>
-                <div className="form-group">
-                  <label className="mb-0" htmlFor="sqft">Sqft:</label>
-                    <input name="sqft" id="sqft" type="text" className="form-control" onChange={this.handleInput} value={this.state.house.sqft} placeholder="ex)960" />
-                </div>
-                <div className="form-group">
-                  <label className="mb-0" htmlFor="pic1">Photo1:</label>
-                    <input name="pic1" id="pic1" type="url" className="form-control" onChange={this.handleInput} value={this.state.house.pic1} placeholder="" />
-                    // <input name="pic1" type="file" accept="image/*" className="form-control" onChange={this.handleInput} value={this.state.house.pic1} placeholder="" />
-                </div>
-                <div className="form-group">
-                  <label className="mb-0" htmlFor="pic2">Photo2:</label>
-                    <input name="pic2" id="pic2" type="url" className="form-control" onChange={this.handleInput} value={this.state.house.pic2} placeholder="" />
-                </div>
-                <div className="form-group">
-                  <label className="mb-0" htmlFor="pic3">Photo3:</label>
-                    <input name="pic3" id="pic3" type="url" className="form-control" onChange={this.handleInput} value={this.state.house.pic3} placeholder="" />
-                </div>
-                <div className="form-group">
-                  <label className="mb-0" htmlFor="pic4">Photo4:</label>
-                    <input name="pic4" id="pic4" type="url" className="form-control" onChange={this.handleInput} value={this.state.house.pic4} placeholder="" />
-                </div>
-                <div className="form-group">
-                  <label className="" htmlFor="memo">Memo:</label>
-                    <textarea name="memo" id="memo" className="form-control py-4 px-4" rows="8" cols="10" onChange={this.handleInput} value={this.state.house.memo} placeholder="ex)Any memo">
-                    </textarea>
-                </div>
-                <div className="text-center form-group">
-                  <input type="submit" className="btn btn-primary" />
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
+              </div>
+            </form>
+
       </div>
     )
   }

@@ -13,6 +13,7 @@ class HomeContainer extends Component {
         email:'',
         password: '',
         username:'',
+        name: '',
       },
         house: [],
       }
@@ -35,7 +36,7 @@ class HomeContainer extends Component {
           throw Error(response.statusText)
         }
 
-        console.log('??????', response);
+    
         const parsedResponse = await response.json();
 
         this.setState({
@@ -91,7 +92,7 @@ class HomeContainer extends Component {
   render(){
     return (
       <div>
-        <Nav />
+        // <Nav username={this.state.userinfo.username} email={this.state.userinfo.email} name={this.state.userinfo.name}/>
         <h1 className="text-center my-5">home</h1>
         <div className="container">
           <div className="row">
