@@ -3,6 +3,8 @@ import React from 'react';
 import './App.css';
 import { Route, Switch } from 'react-router-dom'
 //Component...
+import MainContainer from './MainContainer';
+import QuizContainer from './QuizContainer';
 import HomeContainer from './HomeContainer';
 import AdminHome from './AdminHome';
 import RegisterLoginContainer from './RegisterLoginContainer';
@@ -24,7 +26,9 @@ const App = () => {
   return (
     <main>
       <Switch>
-        <Route exact path="/" component={ RegisterLoginContainer } />
+        <Route exact path="/" component={ MainContainer } />
+        <Route exact path="/quiz" component={ QuizContainer } />
+        <Route exact path="/login" component={ RegisterLoginContainer } />
         <Route exact path="/home" component={ HomeContainer } />
         <Route exact path="/adminhome" component={ AdminHome } />
         <Route exact path="/myaccount/:id/edit" component={ MyAccountContainer } />
