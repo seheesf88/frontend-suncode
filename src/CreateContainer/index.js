@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Nav from '../Nav'
+import axios from 'axios'
 
 class CreateContainer extends Component {
   constructor(){
@@ -13,19 +14,22 @@ class CreateContainer extends Component {
         year: '',
         sqft: '',
         pic1: '',
-        pic2: '',
-        pic3: '',
-        pic4: '',
+        // pic2: '',
+        // pic3: '',
+        // pic4: '',
         memo: '',
       },
+      selectedFile : null,
     }
   }
 
   handleInput = (e) => {
+    console.log('input', e);
     const updatedChange = {
       ...this.state.house
     }
     updatedChange[e.target.name] = e.target.value;
+    console.log('updatedChange', updatedChange);
     this.setState({
       house: updatedChange
     })
@@ -36,6 +40,7 @@ class CreateContainer extends Component {
     const updatedHouse = {
       ...this.state.house
     }
+
     this.addHouse(updatedHouse)
     this.setState({
       house : {
@@ -45,6 +50,11 @@ class CreateContainer extends Component {
         zipcode: '',
         year: '',
         sqft: '',
+        pic1: '',
+        // pic2: '',
+        // pic3: '',
+        // pic4: '',
+        memo: '',
       }
     })
   }
@@ -69,7 +79,7 @@ class CreateContainer extends Component {
         const parsedCreateHouse = await response.json();
         // console.log('out....', parsedCreateReport);
         // console.log(parsedCreateReport.data._id);
-
+        // console.log('parsedCreateHouse ===>', parsedCreateHouse.data);
         localStorage.setItem('houseId', parsedCreateHouse.data._id)
         localStorage.setItem('authorId', parsedCreateHouse.data.authorId)
         localStorage.setItem('authorname', parsedCreateHouse.data.authorname)
@@ -81,71 +91,114 @@ class CreateContainer extends Component {
       }
     }
 
+
+    fileSelectHandler = (e) => {
+      // console.log(e.target.files[0]);
+      this.setState({
+        selectedFile: e.target.files[0]
+      })
+    }
+
+
+    fileUploadHandler = async() => {
+      // try{
+        const data = new FormData()
+        data.append('file', this.state.selectedFile);
+        axios.post(`${process.env.REACT_APP_API}/api/v1/house`, data, {
+        })
+        .then(res => {
+          console.log(res.statusText);
+        })
+
+      // }catch(err){
+        // console.log('file upload handlder fail');
+      // }
+    }
+
+
+
   render(){
-    console.log('THIS IS PROPS', this.props);
+    // console.log('THIS IS PROPS', this.props);
     return(
       <div>
         <Nav />
-            <form onSubmit={this.handleSubmit} action="/create" accept="accept=image/*">
-            <div className="grid-container">
-                <div className="grid1">
-                  <div className="">
+          <form onSubmit={this.handleSubmit}>
+            <div className="container mt-5">
+              <div className="row">
+                <div className="col-5 offset-1">
+                  <div className="form-group">
                     <label htmlFor="address">Address:</label>
-                    <input name="address" id="address" type="text" className="" onChange={this.handleInput} placeholder="ex)1330 Broadway" value={this.state.house.address} />
+                    <input name="address" id="address" type="text" className="form-control" onChange={this.handleInput} placeholder="ex)1330 Broadway" value={this.state.house.address} />
                   </div>
-                  <div className="">
+                  <div className="form-group">
                     <label className="" htmlFor="Address2">Address2:</label>
-                    <input name="address2" id="address2" type="text" className="" onChange={this.handleInput} value={this.state.house.address2} placeholder="ex)#300" />
+                    <input name="address2" id="address2" type="text" className="form-control" onChange={this.handleInput} value={this.state.house.address2} placeholder="ex)#300" />
                   </div>
-                  <div className="">
+                  <div className="form-group">
                     <label className="" htmlFor="state">State:</label>
-                    <input name="state" id="state" type="text" className="" placeholder="ex)CA" value={this.state.house.state} onChange={this.handleInput} />
+                    <input name="state" id="state" type="text" className="form-control" placeholder="ex)CA" value={this.state.house.state} onChange={this.handleInput} />
                   </div>
-                  <div className="">
+                  <div className="form-group">
                     <label className="" htmlFor="zipcode">Zipcode:</label>
-                    <input name="zipcode" id="zipcode" type="text" className="" placeholder="ex)94612" value={this.state.house.zipcode} onChange={this.handleInput} />
+                    <input name="zipcode" id="zipcode" type="text" className="form-control" placeholder="ex)94612" value={this.state.house.zipcode} onChange={this.handleInput} />
                   </div>
-                  <div className="">
+                  <div className="form-group">
                     <label className="" htmlFor="year">Year:</label>
-                    <input name="year" id="year" type="text" className="" onChange={this.handleInput} value={this.state.house.year} placeholder="ex)YYYY" />
+                    <input name="year" id="year" type="text" className="form-control" onChange={this.handleInput} value={this.state.house.year} placeholder="ex)YYYY" />
                   </div>
-                  <div className="">
+                  <div className="form-group">
                     <label className="" htmlFor="sqft">Sqft:</label>
-                    <input name="sqft" id="sqft" type="text" className="" onChange={this.handleInput} value={this.state.house.sqft} placeholder="ex)960" />
+                    <input name="sqft" id="sqft" type="text" className="form-control" onChange={this.handleInput} value={this.state.house.sqft} placeholder="ex)960" />
                   </div>
-                  <div className="">
+                  <div className="form-group">
                     <label className="" htmlFor="memo">Memo:</label>
-                      <textarea name="memo" id="memo" className="" rows="8" cols="10" onChange={this.handleInput} value={this.state.house.memo} placeholder="ex)Any memo">
+                      <textarea name="memo" id="memo" className="form-control" rows="3" cols="10" onChange={this.handleInput} value={this.state.house.memo} placeholder="ex)Any memo">
                       </textarea>
                   </div>
                 </div>
-
-                <div className="grid1-container">
-                  <div className="picbox">
-                    <label className="" htmlFor="pic1">Photo1:</label>
-                    <input name="pic1" id="pic1" type="file" className="" onChange={this.handleInput} value={this.state.house.pic1} />
+                <div className="col-4 offset-1">
+                  <div>
+                    <label htmlFor="pic1">Photo1:</label>
+                    <input name="pic1" id="pic1" type="file" onChange={this.handleInput} value={this.state.house.pic21}  />
                   </div>
-                  <div className="picbox">
-                    <label className="" htmlFor="pic2">Photo2:</label>
-                    <input name="pic2" id="pic2" type="url" className="" onChange={this.handleInput} value={this.state.house.pic2} placeholder="" />
+                  <div>
+                    <label htmlFor="pic2">Photo2:</label>
+                    <input name="pic2" id="pic2" type="file" onChange={this.handleInput} value={this.state.house.pic2}  />
                   </div>
-                  <div className="picbox">
-                    <label className="" htmlFor="pic3">Photo3:</label>
-                    <input name="pic3" id="pic3" type="url" className="" onChange={this.handleInput} value={this.state.house.pic3} placeholder="" />
+                  <div>
+                    <label htmlFor="pic3">Photo3:</label>
+                    <input name="pic3" id="pic3" type="file" onChange={this.handleInput} value={this.state.house.pic3}  />
                   </div>
-                  <div className="picbox">
-                    <label className="" htmlFor="pic4">Photo4:</label>
-                    <input name="pic4" id="pic4" type="url" className="" onChange={this.handleInput} value={this.state.house.pic4} placeholder="" />
-                  </div>
-                  <div className="subBtn">
-                    <input type="submit" className="button1" />
+                  <div>
+                    <label htmlFor="pic4">Photo4:</label>
+                    <input name="pic4" id="pic4" type="file" onChange={this.handleInput} value={this.state.house.pic4}  />
                   </div>
                 </div>
               </div>
-            </form>
-
+              <div className="row offset-5">
+                <input type="submit" className="btn btn-primary" />
+              </div>
+            </div>
+          </form>
       </div>
     )
   }
 }
 export default CreateContainer
+
+//
+// <form>
+//   <div className="picbox">
+//     <input type="file" onChange={this.fileSelectHandler}  />
+//     <button onClick={this.fileUploadHandler}>Upload</button>
+//   </div>
+// </form>
+
+//
+// <hr />
+// <form>
+//
+//     <input type="file" name="file" onChange={this.fileSelectHandler}  />
+//     <button type="submit" onClick={this.fileUploadHandler}>Upload</button>
+//
+// </form>

@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom'
 
 const MyHouseComponenet = (props) => {
   const myHouse = props.myHouse.map(house => {
-    // console.log('myhouse???====>?', props.myHouse);
-    console.log('>>>>>', house.authorId);
+    console.log('myhouse???====>?', props.myHouse);
+    console.log('authorid in MyHouseComponenet>>>>>', house.authorId);
+    // console.log('t or f?', house.authorId === localStorage.getItem('userId'));
     if(house.authorId === localStorage.getItem('userId')){
     return(
         <tr key={house._id}>

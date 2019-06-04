@@ -36,7 +36,7 @@ class HomeContainer extends Component {
           throw Error(response.statusText)
         }
 
-    
+
         const parsedResponse = await response.json();
 
         this.setState({
@@ -59,10 +59,11 @@ class HomeContainer extends Component {
         }
 
         const responseParsed = await response.json();
-
+        console.log('responseParsed', responseParsed);
         this.setState({
           house: responseParsed.data
         })
+
       }catch(err){
         console.log('fetching getmyreport is fail');
       }
@@ -92,7 +93,7 @@ class HomeContainer extends Component {
   render(){
     return (
       <div>
-        // <Nav username={this.state.userinfo.username} email={this.state.userinfo.email} name={this.state.userinfo.name}/>
+        <Nav username={this.state.userinfo.username} email={this.state.userinfo.email} name={this.state.userinfo.name}/>
         <h1 className="text-center my-5">home</h1>
         <div className="container">
           <div className="row">

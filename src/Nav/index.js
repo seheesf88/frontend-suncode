@@ -34,18 +34,27 @@ class Nav extends Component{
   render(){
     return(
       <div>
-        <div><span><img src="Logo_ElectriCasa-05.png" /></span><span>ElectriCasa</span></div>
-        <div className="nav">
-          <div className="nav-item">
-            <div><Link to="/home">home</Link></div>
-          </div>
-          <div className="nav-item">
-            <div><Link to="/home">Quiz</Link></div>
-          </div>
-          <div className="nav-item">
-            <button className="logout" onClick={this.logout}>Logout</button>
+        <div className="mt-5 ml-5 container">
+          <div className="row">
+            <div>
+              <img src="Logo_ElectriCasa-05.png" className="logo"/>
+            </div>
+            <div className="electriCasa ml-2">
+              ElectriCasa
+            </div>
           </div>
         </div>
+        <ul className="nav justify-content-center">
+          <li className="nav-item ml-5">
+            <div><Link to="/home">home</Link></div>
+          </li>
+          <li className="nav-item ml-5">
+            <div><Link to="/home">Quiz</Link></div>
+          </li>
+          <li className="nav-item ml-5">
+            <button className="logout" onClick={this.logout}>Logout</button>
+          </li>
+        </ul>
       </div>
     )
   }
