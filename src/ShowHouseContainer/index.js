@@ -46,7 +46,7 @@ class ShowHouseContainer extends Component {
       <div>
 
         <Nav />
-        <ShowHouseComponent house={this.state.house}/>
+        <ShowHouseComponent />
 
 
       </div>

@@ -23,7 +23,7 @@ class Nav extends Component{
       if(responseParsed.status === 200){
         localStorage.removeItem('userId')
         localStorage.removeItem('username')
-        this.props.history.push('/')
+        this.props.history.push('/login')
       }
 
     }catch(err){

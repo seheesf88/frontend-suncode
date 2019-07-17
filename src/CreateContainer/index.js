@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Nav from '../Nav'
+import PhotoContainer from '../PhotoContainer'
 import axios from 'axios'
 
 class CreateContainer extends Component {
@@ -13,7 +14,7 @@ class CreateContainer extends Component {
         zipcode: '',
         year: '',
         sqft: '',
-        pic1: '',
+        // pic1: '',
         // pic2: '',
         // pic3: '',
         // pic4: '',
@@ -50,7 +51,7 @@ class CreateContainer extends Component {
         zipcode: '',
         year: '',
         sqft: '',
-        pic1: '',
+        // pic1: '',
         // pic2: '',
         // pic3: '',
         // pic4: '',
@@ -122,10 +123,10 @@ class CreateContainer extends Component {
     return(
       <div>
         <Nav />
-          <form onSubmit={this.handleSubmit}>
-            <div className="container mt-5">
-              <div className="row">
-                <div className="col-5 offset-1">
+        <div className="container mt-5">
+          <div className="row">
+            <div className="col-5 offset-1">
+              <form onSubmit={this.handleSubmit}>
                   <div className="form-group">
                     <label htmlFor="address">Address:</label>
                     <input name="address" id="address" type="text" className="form-control" onChange={this.handleInput} placeholder="ex)1330 Broadway" value={this.state.house.address} />
@@ -155,50 +156,19 @@ class CreateContainer extends Component {
                       <textarea name="memo" id="memo" className="form-control" rows="3" cols="10" onChange={this.handleInput} value={this.state.house.memo} placeholder="ex)Any memo">
                       </textarea>
                   </div>
-                </div>
-                <div className="col-4 offset-1">
-                  <div>
-                    <label htmlFor="pic1">Photo1:</label>
-                    <input name="pic1" id="pic1" type="file" onChange={this.handleInput} value={this.state.house.pic21}  />
-                  </div>
-                  <div>
-                    <label htmlFor="pic2">Photo2:</label>
-                    <input name="pic2" id="pic2" type="file" onChange={this.handleInput} value={this.state.house.pic2}  />
-                  </div>
-                  <div>
-                    <label htmlFor="pic3">Photo3:</label>
-                    <input name="pic3" id="pic3" type="file" onChange={this.handleInput} value={this.state.house.pic3}  />
-                  </div>
-                  <div>
-                    <label htmlFor="pic4">Photo4:</label>
-                    <input name="pic4" id="pic4" type="file" onChange={this.handleInput} value={this.state.house.pic4}  />
-                  </div>
-                </div>
-              </div>
               <div className="row offset-5">
                 <input type="submit" className="btn btn-primary" />
               </div>
-            </div>
+
           </form>
+        </div>
+            <div claaName="col-5 offset-1">
+             <PhotoContainer />
+            </div>
+          </div>
+        </div>
       </div>
     )
   }
 }
 export default CreateContainer
-
-//
-// <form>
-//   <div className="picbox">
-//     <input type="file" onChange={this.fileSelectHandler}  />
-//     <button onClick={this.fileUploadHandler}>Upload</button>
-//   </div>
-// </form>
-
-//
-// <hr />
-// <form>
-//
-//     <input type="file" name="file" onChange={this.fileSelectHandler}  />
-//     <button type="submit" onClick={this.fileUploadHandler}>Upload</button>
-//
-// </form>
