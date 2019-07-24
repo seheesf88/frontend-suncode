@@ -8,29 +8,25 @@ class CreateContainer extends Component {
     super()
     this.state = {
       house : {
-        address : '',
-        address2 : '',
+        street: '',
+        address: '',
         state: '',
         zipcode: '',
         year: '',
         sqft: '',
-        // pic1: '',
-        // pic2: '',
-        // pic3: '',
-        // pic4: '',
-        memo: '',
+        productImage: ''
       },
-      selectedFile : null,
+      // selectedFile : null,
     }
   }
 
   handleInput = (e) => {
-    console.log('input', e);
+    // console.log('input', e);
     const updatedChange = {
       ...this.state.house
     }
     updatedChange[e.target.name] = e.target.value;
-    console.log('updatedChange', updatedChange);
+    // console.log('updatedChange', updatedChange);
     this.setState({
       house: updatedChange
     })
@@ -41,21 +37,16 @@ class CreateContainer extends Component {
     const updatedHouse = {
       ...this.state.house
     }
-
     this.addHouse(updatedHouse)
     this.setState({
       house : {
-        address : '',
-        address2 : '',
+        street: '',
+        address: '',
         state: '',
         zipcode: '',
         year: '',
         sqft: '',
-        // pic1: '',
-        // pic2: '',
-        // pic3: '',
-        // pic4: '',
-        memo: '',
+        productImage: ''
       }
     })
   }
@@ -67,7 +58,8 @@ class CreateContainer extends Component {
           credentials: 'include',
           body: JSON.stringify(updatedHouse),
           headers: {
-            'Content-Type' : 'application/json'
+            'Content-Type' : 'application/json',
+            'Accept': 'application/json',
           }
         });
         console.log("response", response);
@@ -78,12 +70,18 @@ class CreateContainer extends Component {
         console.log("3");
         // console.log('addreport=>', response);
         const parsedCreateHouse = await response.json();
-        // console.log('out....', parsedCreateReport);
+
+        console.log('out....', parsedCreateHouse);
         // console.log(parsedCreateReport.data._id);
         // console.log('parsedCreateHouse ===>', parsedCreateHouse.data);
-        localStorage.setItem('houseId', parsedCreateHouse.data._id)
-        localStorage.setItem('authorId', parsedCreateHouse.data.authorId)
-        localStorage.setItem('authorname', parsedCreateHouse.data.authorname)
+        console.log('>>>>');
+        // localStorage.setItem('houseId', parsedCreateHouse.data._id)
+        console.log('<<<<<<');
+        const authorId = localStorage.getItem('userId')
+        console.log('authorId.....??', authorId);
+        localStorage.setItem('authorIdd', authorId)
+        // localStorage.setItem('authorId', parsedCreateHouse.data.authorId)
+        // localStorage.setItem('authorname', parsedCreateHouse.data.authorname)
 
         this.props.history.push('/home');
 
@@ -92,29 +90,29 @@ class CreateContainer extends Component {
       }
     }
 
+    //
+    // fileSelectHandler = (e) => {
+    //   // console.log(e.target.files[0]);
+    //   this.setState({
+    //     selectedFile: e.target.files[0]
+    //   })
+    // }
 
-    fileSelectHandler = (e) => {
-      // console.log(e.target.files[0]);
-      this.setState({
-        selectedFile: e.target.files[0]
-      })
-    }
-
-
-    fileUploadHandler = async() => {
-      // try{
-        const data = new FormData()
-        data.append('file', this.state.selectedFile);
-        axios.post(`${process.env.REACT_APP_API}/api/v1/house`, data, {
-        })
-        .then(res => {
-          console.log(res.statusText);
-        })
-
-      // }catch(err){
-        // console.log('file upload handlder fail');
-      // }
-    }
+    //
+    // fileUploadHandler = async() => {
+    //   // try{
+    //     const data = new FormData()
+    //     data.append('file', this.state.selectedFile);
+    //     axios.post(`${process.env.REACT_APP_API}/api/v1/house`, data, {
+    //     })
+    //     .then(res => {
+    //       console.log(res.statusText);
+    //     })
+    //
+    //   // }catch(err){
+    //     // console.log('file upload handlder fail');
+    //   // }
+    // }
 
 
 
@@ -128,12 +126,12 @@ class CreateContainer extends Component {
             <div className="col-5 offset-1">
               <form onSubmit={this.handleSubmit}>
                   <div className="form-group">
-                    <label htmlFor="address">Address:</label>
-                    <input name="address" id="address" type="text" className="form-control" onChange={this.handleInput} placeholder="ex)1330 Broadway" value={this.state.house.address} />
+                    <label htmlFor="address">Address1:</label>
+                    <input name="street" id="street" type="text" className="form-control" onChange={this.handleInput} placeholder="ex)1330 Broadway" value={this.state.house.street} />
                   </div>
                   <div className="form-group">
                     <label className="" htmlFor="Address2">Address2:</label>
-                    <input name="address2" id="address2" type="text" className="form-control" onChange={this.handleInput} value={this.state.house.address2} placeholder="ex)#300" />
+                    <input name="address" id="address" type="text" className="form-control" onChange={this.handleInput} value={this.state.house.address} placeholder="ex)#300" />
                   </div>
                   <div className="form-group">
                     <label className="" htmlFor="state">State:</label>
@@ -152,19 +150,14 @@ class CreateContainer extends Component {
                     <input name="sqft" id="sqft" type="text" className="form-control" onChange={this.handleInput} value={this.state.house.sqft} placeholder="ex)960" />
                   </div>
                   <div className="form-group">
-                    <label className="" htmlFor="memo">Memo:</label>
-                      <textarea name="memo" id="memo" className="form-control" rows="3" cols="10" onChange={this.handleInput} value={this.state.house.memo} placeholder="ex)Any memo">
-                      </textarea>
+                    <label className="" htmlFor="productImage">Photo:</label>
+                    <input name="productImage" id="productImage" type="file" className="form-control" onChange={this.handleInput} value={this.state.house.productImage} />
                   </div>
               <div className="row offset-5">
                 <input type="submit" className="btn btn-primary" />
               </div>
-
           </form>
         </div>
-            <div claaName="col-5 offset-1">
-             <PhotoContainer />
-            </div>
           </div>
         </div>
       </div>

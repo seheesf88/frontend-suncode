@@ -4,7 +4,7 @@ import { Link, withRouter } from 'react-router-dom';
 import Nav from '../Nav';
 import MyHouseComponenet from '../MyHouseComponenet';
 import PhotoComponent from '../PhotoComponent';
-
+import CreateContainer from '../CreateContainer';
 
 class HomeContainer extends Component {
   constructor(){
@@ -16,19 +16,29 @@ class HomeContainer extends Component {
         username:'',
         name: '',
       },
-        house: [],
-        photos: [],
-        photo: '',
-        authorId: '',
+      house: {
+        // house: [],
+        // photos: [],
+        // photo: '',
+        // authorId: '',
+        street: '',
+        address: '',
+        state: '',
+        zipcode: '',
+        year: '',
+        sqft: '',
+        userId: '',
       }
     }
+  }
 
   componentDidMount(){
     this.getUserInfo();
     this.getMyHouse();
-    this.getPhoto();
+
   }
 
+    // this.getPhoto();
   getUserInfo = async() =>{
       const userId = localStorage.getItem('userId');
       console.log(userId);
@@ -53,12 +63,15 @@ class HomeContainer extends Component {
       }
   }
 
+    //get my house
     getMyHouse = async() => {
+      const userId = localStorage.getItem('userId');
       try{
-        const response = await fetch(`${process.env.REACT_APP_API}/api/v1/house`, {
+        const response = await fetch(`${process.env.REACT_APP_API}/api/v1/house/` + userId, {
           credentials: 'include'
         })
 
+        console.log('response is? ', response);
         if(!response.ok){
           throw Error(response.statusText)
         }
@@ -70,7 +83,7 @@ class HomeContainer extends Component {
         })
 
       }catch(err){
-        console.log('fetching getmyreport is fail');
+        console.log('fetching getMyhouse fail');
       }
     }
 
@@ -94,32 +107,31 @@ class HomeContainer extends Component {
     }
 
 
-
-    getPhoto = async() => {
-      console.log('here?');
-      try {
-          const response = await fetch(`${process.env.REACT_APP_API}/api/v1/photo`, {
-              credentials: 'include'
-          });
-          console.log(response.ok);
-
-          if (!response.ok) {
-              throw Error(response.statusText);
-          }
-
-          const parsedPhoto = await response.json();
-
-
-          this.setState({
-              ...this.state.photos,
-              photos: parsedPhoto.data,
-          });
-      } catch (err) {
-          return err;
-      }
-  }
-
-
+  //
+  //   getPhoto = async() => {
+  //     console.log('here?');
+  //     try {
+  //         const response = await fetch(`${process.env.REACT_APP_API}/api/v1/photo`, {
+  //             credentials: 'include'
+  //         });
+  //         console.log(response.ok);
+  //
+  //         if (!response.ok) {
+  //             throw Error(response.statusText);
+  //         }
+  //
+  //         const parsedPhoto = await response.json();
+  //
+  //
+  //         this.setState({
+  //             ...this.state.photos,
+  //             photos: parsedPhoto.data,
+  //         });
+  //     } catch (err) {
+  //         return err;
+  //     }
+  // }
+  //
 
 
   render(){
@@ -141,8 +153,9 @@ class HomeContainer extends Component {
                   <div className="">Email : <span className="ml-2">{this.state.userinfo.email}</span></div>
                 </div>
             </div>
+            <Link to="/create">create</Link>
             <div className="col-8">
-              <PhotoComponent allPhotos={this.state.photos} />
+              <div>{}</div>
             </div>
           </div>
         </div>

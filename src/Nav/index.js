@@ -9,18 +9,23 @@ class Nav extends Component{
   }
 
   logout = async() => {
+    console.log('here?');
     const userId = localStorage.getItem('userId')
+    console.log('userId?', userId);
     try{
       const response = await fetch(`${process.env.REACT_APP_API}/api/v1/auth/logout`, {
         credentials: 'include'
       });
-
+      console.log('response', response);
+      console.log('true?', !response.ok);
       if(!response.ok){
         throw Error(response.statusText)
       }
 
       const responseParsed = await response.json();
-      if(responseParsed.status === 200){
+      console.log('responseParsed', responseParsed);
+      
+      if(response.status === 200){
         localStorage.removeItem('userId')
         localStorage.removeItem('username')
         this.props.history.push('/login')
@@ -47,9 +52,6 @@ class Nav extends Component{
         <ul className="nav justify-content-center">
           <li className="nav-item ml-5">
             <div><Link to="/home">home</Link></div>
-          </li>
-          <li className="nav-item ml-5">
-            <div><Link to="/home">Quiz</Link></div>
           </li>
           <li className="nav-item ml-5">
             <button className="logout" onClick={this.logout}>Logout</button>

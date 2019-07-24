@@ -4,7 +4,6 @@ import './App.css';
 import { Route, Switch, withRouter } from 'react-router-dom'
 //Component...
 import MainContainer from './MainContainer';
-import QuizContainer from './QuizContainer';
 import HomeContainer from './HomeContainer';
 import AdminHome from './AdminHome';
 import RegisterLoginContainer from './RegisterLoginContainer';
