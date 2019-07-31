@@ -34,7 +34,7 @@ class HomeContainer extends Component {
 
   componentDidMount(){
     this.getUserInfo();
-    this.getMyHouse();
+    // this.getMyHouse();
 
   }
 

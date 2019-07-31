@@ -14,82 +14,188 @@ class CreateContainer extends Component {
         zipcode: '',
         year: '',
         sqft: '',
-        productImage: ''
+        productImage: null
       },
       // selectedFile : null,
     }
   }
 
+  // handleInput = (e) => {
+  //   // console.log('input', e);
+  //   const updatedChange = {
+  //     ...this.state.house
+  //   }
+  //   updatedChange[e.target.name] = e.target.value;
+  //   // console.log('updatedChange', updatedChange);
+  //   this.setState({
+  //     house: updatedChange
+  //   })
+  // }
+  //
+  // handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   const updatedHouse = {
+  //     ...this.state.house
+  //   }
+  //   this.addHouse(updatedHouse)
+  //   this.setState({
+  //     house : {
+  //       street: '',
+  //       address: '',
+  //       state: '',
+  //       zipcode: '',
+  //       year: '',
+  //       sqft: '',
+  //       productImage: ''
+  //     }
+  //   })
+  // }
+  //
+  // addHouse = async(updatedHouse) => {
+  //   try{
+  //       const response = await fetch(`${process.env.REACT_APP_API}/api/v1/house`, {
+  //         method: 'POST',
+  //         credentials: 'include',
+  //         body: JSON.stringify(updatedHouse),
+  //         headers: {
+  //           'Content-Type' : 'application/json',
+  //           'Accept': 'application/json',
+  //         }
+  //       });
+  //       console.log("response", response);
+  //
+  //       if(!response.ok){
+  //         throw Error(response.statusText)
+  //       }
+  //       console.log("3");
+  //       // console.log('addreport=>', response);
+  //       const parsedCreateHouse = await response.json();
+  //
+  //       console.log('out....', parsedCreateHouse);
+  //       // console.log(parsedCreateReport.data._id);
+  //       // console.log('parsedCreateHouse ===>', parsedCreateHouse.data);
+  //       console.log('>>>>');
+  //       // localStorage.setItem('houseId', parsedCreateHouse.data._id)
+  //       console.log('<<<<<<');
+  //       const authorId = localStorage.getItem('userId')
+  //       console.log('authorId.....??', authorId);
+  //       localStorage.setItem('authorIdd', authorId)
+  //       // localStorage.setItem('authorId', parsedCreateHouse.data.authorId)
+  //       // localStorage.setItem('authorname', parsedCreateHouse.data.authorname)
+  //
+  //       this.props.history.push('/home');
+  //
+  //     } catch(err) {
+  //       console.log('cannot make house');
+  //     }
+  //   }
+
+//this is only for text!!! ------------------------------------------------------
+
   handleInput = (e) => {
-    // console.log('input', e);
+    // console.log('what is e', e.target.name);
+    // console.log('what is value', e.target.value);
     const updatedChange = {
       ...this.state.house
     }
     updatedChange[e.target.name] = e.target.value;
-    // console.log('updatedChange', updatedChange);
+    console.log('updatedChange', updatedChange);
     this.setState({
       house: updatedChange
     })
   }
 
-  handleSubmit = (e) => {
-    e.preventDefault();
-    const updatedHouse = {
-      ...this.state.house
-    }
-    this.addHouse(updatedHouse)
+
+  // handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   const updatedHouse = {
+  //     ...this.state.house
+  //   }
+  //   this.addHouse(updatedHouse)
+  //   this.setState({
+  //     house : {
+  //       street: '',
+  //       address: '',
+  //       state: '',
+  //       zipcode: '',
+  //       year: '',
+  //       sqft: '',
+  //       // productImage: ''
+  //     }
+  //   })
+  // }
+
+
+  // handleInput = (e) => {
+  //     this.setState({
+  //         house : {
+  //             ...this.state.house,
+  //             street: e.target.value,
+  //             address: e.target.value,
+  //             state: e.target.value,
+  //             zipcode: e.target.value,
+  //             year: e.target.value,
+  //             sqft: e.target.value,
+  //         }
+  //     });
+  // }
+
+
+
+  onChange = (e) => {
+    console.log('what is e.target in onChange', e.target);
     this.setState({
-      house : {
-        street: '',
-        address: '',
-        state: '',
-        zipcode: '',
-        year: '',
-        sqft: '',
-        productImage: ''
-      }
-    })
-  }
-
-  addHouse = async(updatedHouse) => {
-    try{
-        const response = await fetch(`${process.env.REACT_APP_API}/api/v1/house`, {
-          method: 'POST',
-          credentials: 'include',
-          body: JSON.stringify(updatedHouse),
-          headers: {
-            'Content-Type' : 'application/json',
-            'Accept': 'application/json',
-          }
-        });
-        console.log("response", response);
-
-        if(!response.ok){
-          throw Error(response.statusText)
+        house : {
+            ...this.state.house,
+            productImage: e.target
         }
-        console.log("3");
-        // console.log('addreport=>', response);
-        const parsedCreateHouse = await response.json();
+    });
+}
 
-        console.log('out....', parsedCreateHouse);
-        // console.log(parsedCreateReport.data._id);
-        // console.log('parsedCreateHouse ===>', parsedCreateHouse.data);
-        console.log('>>>>');
-        // localStorage.setItem('houseId', parsedCreateHouse.data._id)
-        console.log('<<<<<<');
-        const authorId = localStorage.getItem('userId')
-        console.log('authorId.....??', authorId);
-        localStorage.setItem('authorIdd', authorId)
-        // localStorage.setItem('authorId', parsedCreateHouse.data.authorId)
-        // localStorage.setItem('authorname', parsedCreateHouse.data.authorname)
+//------------------------------------------------------
 
-        this.props.history.push('/home');
 
-      } catch(err) {
-        console.log('cannot make house');
-      }
-    }
 
+
+    //
+    // addHouse = async(updatedHouse) => {
+    //   try{
+    //       const response = await fetch(`${process.env.REACT_APP_API}/api/v1/house`, {
+    //         method: 'POST',
+    //         credentials: 'include',
+    //         body: JSON.stringify(updatedHouse),
+    //         headers: {
+    //           'Content-Type' : 'application/json',
+    //           'Accept': 'application/json',
+    //         }
+    //       });
+    //       console.log("response", response);
+    //
+    //       if(!response.ok){
+    //         throw Error(response.statusText)
+    //       }
+    //       console.log("3");
+    //       // console.log('addreport=>', response);
+    //       const parsedCreateHouse = await response.json();
+    //
+    //       console.log('out....', parsedCreateHouse);
+    //       // console.log(parsedCreateReport.data._id);
+    //       // console.log('parsedCreateHouse ===>', parsedCreateHouse.data);
+    //       console.log('>>>>');
+    //       // localStorage.setItem('houseId', parsedCreateHouse.data._id)
+    //       console.log('<<<<<<');
+    //       const authorId = localStorage.getItem('userId')
+    //       console.log('authorId.....??', authorId);
+    //       localStorage.setItem('authorIdd', authorId)
+    //       // localStorage.setItem('authorId', parsedCreateHouse.data.authorId)
+    //       // localStorage.setItem('authorname', parsedCreateHouse.data.authorname)
+    //
+    //       this.props.history.push('/home');
+    //
+    //     } catch(err) {
+    //       console.log('cannot make house');
+    //     }
+    //   }
     //
     // fileSelectHandler = (e) => {
     //   // console.log(e.target.files[0]);
@@ -115,6 +221,58 @@ class CreateContainer extends Component {
     // }
 
 
+    onFormSubmit = async (e) => {
+        e.preventDefault();
+        const formData = new FormData();
+        // formData.append('productImage',this.state.house.productImage);
+        console.log('street?', this.state.house.street);
+        formData.append('street', 'testing');
+        formData.append('address', this.state.house.address);
+        formData.append('state', this.state.house.state);
+        formData.append('zipcode', this.state.house.zipcode);
+        formData.append('year', this.state.house.year);
+        formData.append('sqft', this.state.house.sqft);
+
+        const config = {
+            withCredentials: true,
+            headers: {
+                // 'content-type': 'multipart/form-data'
+                'content-type': 'application/json'
+            }
+        };
+        let tempObj;
+
+        console.log(formData);
+        // console.log(config);
+//@@@@@@@@@@@@@@@@@@@@@@@@ this is not working @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+        const response = await axios.post(`${process.env.REACT_APP_API}/api/v1/house`, formData, config)
+            .then((response) => {
+              console.log('1>');
+                // do nothing
+                //parsedJson = response.json();
+                console.log(response.statusText);
+                console.log('what is response.data?', response.data);
+                tempObj =  response.data.newPost;
+            }).catch((error) => {
+                //alert('error');
+                console.log('what is the err? ', error);
+        });
+
+        console.log('at this point, what is tempObj', tempObj);
+        this.setState({
+            // posts: [...this.state.posts, tempObj],
+            house: {
+                    street: '',
+                    address: '',
+                    state: '',
+                    zipcode: '',
+                    year: '',
+                    sqft: '',
+                    productImage: null
+                }
+        });
+    }
+
 
   render(){
     // console.log('THIS IS PROPS', this.props);
@@ -124,7 +282,7 @@ class CreateContainer extends Component {
         <div className="container mt-5">
           <div className="row">
             <div className="col-5 offset-1">
-              <form onSubmit={this.handleSubmit}>
+              <form onSubmit={this.onFormSubmit}>
                   <div className="form-group">
                     <label htmlFor="address">Address1:</label>
                     <input name="street" id="street" type="text" className="form-control" onChange={this.handleInput} placeholder="ex)1330 Broadway" value={this.state.house.street} />
@@ -150,9 +308,10 @@ class CreateContainer extends Component {
                     <input name="sqft" id="sqft" type="text" className="form-control" onChange={this.handleInput} value={this.state.house.sqft} placeholder="ex)960" />
                   </div>
                   <div className="form-group">
-                    <label className="" htmlFor="productImage">Photo:</label>
-                    <input name="productImage" id="productImage" type="file" className="form-control" onChange={this.handleInput} value={this.state.house.productImage} />
+                    <label className="" htmlFor="productImage">Attach photos</label>
+                    <input type="file" name="productImage" onChange={this.onChange} />
                   </div>
+
               <div className="row offset-5">
                 <input type="submit" className="btn btn-primary" />
               </div>
@@ -165,3 +324,10 @@ class CreateContainer extends Component {
   }
 }
 export default CreateContainer
+
+
+
+// <div className="form-group">
+//   <label className="" htmlFor="productImage">Photo:</label>
+//   <input name="productImage" id="productImage" type="file" className="form-control" onChange={this.handleInput} value={this.state.house.productImage} />
+// </div>
