@@ -50,7 +50,7 @@ class CreateContainer extends Component {
         zipcode: '',
         year: '',
         sqft: '',
-        pic1: '',
+        pic1: null,
         // pic2: '',
         // pic3: '',
         // pic4: '',
@@ -59,7 +59,7 @@ class CreateContainer extends Component {
     })
   }
 
-  addHouse = async(updatedHouse) => {
+  addHouse2 = async(updatedHouse) => {
     try{
         const response = await fetch(`${process.env.REACT_APP_API}/api/v1/house`, {
           method: 'POST',
@@ -95,19 +95,29 @@ class CreateContainer extends Component {
     fileSelectHandler = (e) => {
       // console.log(e.target.files[0]);
       this.setState({
-        selectedFile: e.target.files[0]
+        house: {
+          ...this.state.house, 
+          pic1: e.target.files[0],
+        } 
       })
     }
 
 
-    fileUploadHandler = async() => {
+    addHouse = async(updatedHouse) => {
       // try{
+
+
         const data = new FormData()
-        data.append('file', this.state.selectedFile);
+        data.append('pic1', this.state.house.pic1);
+
+        console.log(data, this.state.house.pic1)
         axios.post(`${process.env.REACT_APP_API}/api/v1/house`, data, {
+          headers: {
+            'content-type': 'multipart/form-data'
+          }
         })
         .then(res => {
-          console.log(res.statusText);
+          console.log(res.statusText, "here???", res.data.msg);
         })
 
       // }catch(err){
@@ -159,7 +169,7 @@ class CreateContainer extends Component {
                 <div className="col-4 offset-1">
                   <div>
                     <label htmlFor="pic1">Photo1:</label>
-                    <input name="pic1" id="pic1" type="file" onChange={this.handleInput} value={this.state.house.pic21}  />
+                    <input name="pic1" id="pic1" type="file" onChange={this.fileSelectHandler} value={this.state.house.pic21}  />
                   </div>
                   <div>
                     <label htmlFor="pic2">Photo2:</label>
