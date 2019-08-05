@@ -35,11 +35,9 @@ class HomeContainer extends Component {
   componentDidMount(){
     this.getUserInfo();
     // this.getMyHouse();
-
   }
 
-    // this.getPhoto();
-  getUserInfo = async() =>{
+  getUserInfo = async() => {
       const userId = localStorage.getItem('userId');
       console.log(userId);
       try{
@@ -163,6 +161,7 @@ class HomeContainer extends Component {
     )
   }
 }
+
 export default HomeContainer
 
 // <div className="col-8">

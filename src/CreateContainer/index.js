@@ -380,7 +380,7 @@ class CreateContainer extends Component {
         zipcode: '',
         year: '',
         sqft: '',
-        pic1: '',
+        pic1: [],
         // pic2: '',
         // pic3: '',
         // pic4: '',
@@ -417,7 +417,7 @@ class CreateContainer extends Component {
         zipcode: '',
         year: '',
         sqft: '',
-        pic1: null,
+        pic1: null,//null
         // pic2: '',
         // pic3: '',
         // pic4: '',
@@ -465,6 +465,9 @@ class CreateContainer extends Component {
         house: {
           ...this.state.house,
           pic1: e.target.files[0],
+          // pic2: e.target.files[1],
+          // pic3: e.target.files[2],
+          // pic4: e.target.files[3]
         }
       })
     }
@@ -475,7 +478,20 @@ class CreateContainer extends Component {
 
 
         const data = new FormData()
-        data.append('pic1', this.state.house.pic1);
+        data.append('photo', this.state.house.pic1);
+        // data.append('photo', this.state.house.pic1[1]);
+        // data.append('pic3', this.state.house.pic3);
+        // data.append('pic4', this.state.house.pic4);
+
+        data.append('address', this.state.house.address);
+        data.append('address2', this.state.house.address2);
+        data.append('state', this.state.house.state);
+        data.append('zipcode', this.state.house.zipcode);
+        data.append('year', this.state.house.year);
+        data.append('sqft', this.state.house.sqft);
+        data.append('memo', this.state.house.memo);
+
+
 
         console.log(data, this.state.house.pic1)
         axios.post(`${process.env.REACT_APP_API}/api/v1/house`, data, {
@@ -536,7 +552,7 @@ class CreateContainer extends Component {
                 <div className="col-4 offset-1">
                   <div>
                     <label htmlFor="pic1">Photo1:</label>
-                    <input name="pic1" id="pic1" type="file" onChange={this.fileSelectHandler} value={this.state.house.pic21}  />
+                    <input name="pic1" id="pic1" type="file" multiple onChange={this.fileSelectHandler} value={this.state.house.pic21}  />
                   </div>
                   <div>
                     <label htmlFor="pic2">Photo2:</label>
