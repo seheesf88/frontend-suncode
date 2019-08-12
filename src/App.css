@@ -48,3 +48,8 @@ ul {
   color: black;
   background-color: grey;
 }
+
+.mainPhoto {
+  height: 100px;
+  width: 100px
+}

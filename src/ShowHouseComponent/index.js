@@ -5,7 +5,7 @@ const ShowHouseComponent = (props) => {
   return(
     <div className="container">
       <div className="text-center mt-4 pb-5">
-        <h1>{props.house.address}</h1>
+        <h1>{props.showHouse.address}</h1>
       </div>
       <div className="row mb-4">
         <div className="col-8 offset-3">
@@ -33,26 +33,14 @@ const ShowHouseComponent = (props) => {
               <p className="infoList">Memo :</p>
             </div>
             <div className="col-4 offset-1 mt-3">
-              <p className="infoData">{props.house.address}</p>
-              <p className="infoData">{props.house.address2}</p>
-              <p className="infoData">{props.house.state}</p>
-              <p className="infoData">{props.house.zipcode}</p>
-              <p className="infoData">{props.house.year}</p>
-              <p className="infoData">{props.house.sqft}</p>
-              <p className="infoData">{props.house.memo}</p>
-              <p className="infoData"><img src={props.house.pic1} height={100} width={100}/></p>
-              <p className="infoData"><img src={props.house.pic2} height={100} width={100}/></p>
-              <p className="infoData"><img src={props.house.pic3} height={100} width={100}/></p>
-              <p className="infoData"><img src={props.house.pic4} height={100} width={100}/></p>
-              <p className="infoData">{props.house.attic}</p>
-              <p className="infoData">{props.house.whyear}</p>
-              <p className="infoData">{props.house.whef}</p>
-              <p className="infoData">{props.house.whfuel}</p>
-              <p className="infoData">{props.house.heatyear}</p>
-              <p className="infoData">{props.house.heatef}</p>
-              <p className="infoData">{props.house.heatfuel}</p>
-              <p className="infoData">{props.house.status}</p>
-              <p className="infoData">{props.house.memo2}</p>
+            <p className="infoData">{props.showHouse.address}</p>
+            <p className="infoData">{props.showHouse.address2}</p>
+            <p className="infoData">{props.showHouse.state}</p>
+            <p className="infoData">{props.showHouse.zipcode}</p>
+            <p className="infoData">{props.showHouse.year}</p>
+            <p className="infoData">{props.showHouse.sqft}</p>
+            <p className="infoData">{props.showHouse.memo}</p>
+            <p className="infoData"><img src={`${process.env.REACT_APP_API}/` + props.showHouse.productImage} height={100} width={100}/></p>
             </div>
           </div>
         </div>
@@ -62,3 +50,14 @@ const ShowHouseComponent = (props) => {
 }
 
 export default ShowHouseComponent
+
+//
+// <p className="infoData">{props.house.attic}</p>
+// <p className="infoData">{props.house.whyear}</p>
+// <p className="infoData">{props.house.whef}</p>
+// <p className="infoData">{props.house.whfuel}</p>
+// <p className="infoData">{props.house.heatyear}</p>
+// <p className="infoData">{props.house.heatef}</p>
+// <p className="infoData">{props.house.heatfuel}</p>
+// <p className="infoData">{props.house.status}</p>
+// <p className="infoData">{props.house.memo2}</p>

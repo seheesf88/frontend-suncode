@@ -8,7 +8,7 @@ class ShowHouseContainer extends Component {
   constructor(){
     super()
     this.state = {
-      house: {},
+      house: '',
       authorId: ''
     }
   }
@@ -19,6 +19,7 @@ class ShowHouseContainer extends Component {
 
   getOneHouse = async() => {
     const houseId = window.location.pathname.split('/')[1];
+    console.log('what is houseId? ====>', houseId);
     try{
       const response = await fetch(`${process.env.REACT_APP_API}/api/v1/house/${houseId}`,  {
         credentials: 'include'
@@ -29,10 +30,10 @@ class ShowHouseContainer extends Component {
       }
 
       const houseParsed = await response.json();
-      // console.log(houseParsed.data)
+      console.log('just one house =>', houseParsed.data)
       this.setState({
           house: houseParsed.data,
-          authorId: localStorage.getItem('authorId')
+          // authorId: localStorage.getItem('authorId')
       })
 
     }catch(err){
@@ -46,8 +47,7 @@ class ShowHouseContainer extends Component {
       <div>
 
         <Nav />
-        <ShowHouseComponent />
-
+        <ShowHouseComponent showHouse={this.state.house}/>
 
       </div>
     )
@@ -55,3 +55,5 @@ class ShowHouseContainer extends Component {
 }
 
 export default ShowHouseContainer
+
+  // <ShowHouseComponent showHouse={this.state.house}/>

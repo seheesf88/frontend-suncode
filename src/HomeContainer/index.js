@@ -30,13 +30,15 @@ class HomeContainer extends Component {
         userId: '',
       },
 
-      myHouses: []
+      myHouses: [],
+      allHouses: []
     }
   }
 
   componentDidMount(){
     this.getUserInfo();
     this.getMyHouse();
+    this.getAllHouses();
   }
 
   getUserInfo = async() => {
@@ -62,6 +64,31 @@ class HomeContainer extends Component {
         console.log('getuserinfo func fail', err);
       }
   }
+
+
+  getAllHouses = async() => {
+    try{
+      const response = await fetch(`${process.env.REACT_APP_API}/api/v1/users/allHouses`, {
+        credentials: 'include'
+      })
+
+      console.log('response is? ', response);
+      if(!response.ok){
+        throw Error(response.statusText)
+      }
+
+      const responseParsed = await response.json();
+      console.log('all houses responseParsed', responseParsed.data);
+      this.setState({
+        allHouses : responseParsed.data
+      })
+
+    }catch(err){
+      console.log('fetching getMyhouse fail');
+    }
+  }
+
+
     //
     // //get my house
     // getMyHouse = async() => {
@@ -116,18 +143,18 @@ class HomeContainer extends Component {
 
 
     deleteHouse = async(id, e) => {
-      e.preventDefault();
+      // e.preventDefault();
       try {
         const deleteHouse = await fetch(`${process.env.REACT_APP_API}/api/v1/house/` + id, {
           method: 'DELETE',
-          credentials: 'include'
+          // credentials: 'include'
         })
 
 
-        const parsedResponse = await deleteHouse.json();
+        // const parsedResponse = await deleteHouse.json();
 
         this.setState({
-          house: this.state.house.filter((house) => house._id !== id)
+          allHouses: this.state.allHouses.filter((house) => house._id !== id)
         })
       }catch(err){
         console.log(err)
@@ -184,7 +211,7 @@ class HomeContainer extends Component {
 
             <Link to="/create">create</Link>
             <div className="col-8">
-              <MyHouseComponenet myHouse={this.state.myHouses} deleteHouse={this.deleteHouse} />
+              <MyHouseComponenet allHouses={this.state.allHouses} deleteHouse={this.deleteHouse} />
             </div>
           </div>
         </div>
@@ -199,3 +226,6 @@ export default HomeContainer
 //   <div className="text-center mb-5"><span className="h2">My house</span><span className="ml-3"><Link to={`/create`}>create</Link></span></div>
 //   <MyHouseComponenet myHouse={this.state.house} deleteHouse={this.deleteHouse} />
 // </div>
+
+
+              // <MyHouseComponenet myHouse={this.state.myHouses} deleteHouse={this.deleteHouse} />
