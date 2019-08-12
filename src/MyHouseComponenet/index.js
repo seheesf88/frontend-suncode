@@ -3,18 +3,12 @@ import { Link } from 'react-router-dom'
 
 const MyHouseComponenet = (props) => {
   const myHouse = props.myHouse.map(house => {
-    console.log('myhouse???====>?', props.myHouse);
-    console.log('authorid in MyHouseComponenet>>>>>', house.authorId);
-    // console.log('t or f?', house.authorId === localStorage.getItem('userId'));
-    if(house.authorId === localStorage.getItem('userId')){
+    if(house.userId === localStorage.getItem('userId')){
     return(
-        <tr key={house._id}>
-          <td><Link to={`/${house._id}`}>{house.address}</Link></td>
+      <tr key={house._id}>
+          <td><Link to={`/${house._id}`}>{house.street}</Link></td>
           <td>{house.year}</td>
           <td>{house.sqft}</td>
-          <td><Link className="btn btn-primary" to={`/${house._id}/edit`}>Edit</Link>
-          <button className="close pt-2 ml-0" type="button" onClick={props.deleteHouse.bind(null, house._id)}><span className="pr-5">X</span></button>
-        </td>
       </tr>
       )
     }
@@ -41,3 +35,7 @@ const MyHouseComponenet = (props) => {
 }
 
 export default MyHouseComponenet
+
+// <td><Link className="btn btn-primary" to={`/${house._id}/edit`}>Edit</Link>
+// <button className="close pt-2 ml-0" type="button" onClick={props.deleteHouse.bind(null, house._id)}><span className="pr-5">X</span></button>
+// </td>

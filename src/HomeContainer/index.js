@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 
 import Nav from '../Nav';
 import MyHouseComponenet from '../MyHouseComponenet';
-import PhotoComponent from '../PhotoComponent';
+// import PhotoComponent from '../PhotoComponent';
 import CreateContainer from '../CreateContainer';
 
 class HomeContainer extends Component {
@@ -28,13 +28,15 @@ class HomeContainer extends Component {
         year: '',
         sqft: '',
         userId: '',
-      }
+      },
+
+      myHouses: []
     }
   }
 
   componentDidMount(){
     this.getUserInfo();
-    // this.getMyHouse();
+    this.getMyHouse();
   }
 
   getUserInfo = async() => {
@@ -60,12 +62,37 @@ class HomeContainer extends Component {
         console.log('getuserinfo func fail', err);
       }
   }
+    //
+    // //get my house
+    // getMyHouse = async() => {
+    //   const userId = localStorage.getItem('userId');
+    //   try{
+    //     const response = await fetch(`${process.env.REACT_APP_API}/api/v1/house/` + userId, {
+    //       credentials: 'include'
+    //     })
+    //
+    //     console.log('response is? ', response);
+    //     if(!response.ok){
+    //       throw Error(response.statusText)
+    //     }
+    //
+    //     const responseParsed = await response.json();
+    //     console.log('responseParsed', responseParsed.data);
+    //     this.setState({
+    //       myHouses : responseParsed.data
+    //     })
+    //
+    //   }catch(err){
+    //     console.log('fetching getMyhouse fail');
+    //   }
+    // }
+
 
     //get my house
     getMyHouse = async() => {
       const userId = localStorage.getItem('userId');
       try{
-        const response = await fetch(`${process.env.REACT_APP_API}/api/v1/house/` + userId, {
+        const response = await fetch(`${process.env.REACT_APP_API}/api/v1/users/house`, {
           credentials: 'include'
         })
 
@@ -75,15 +102,18 @@ class HomeContainer extends Component {
         }
 
         const responseParsed = await response.json();
-        console.log('responseParsed', responseParsed);
+        console.log('responseParsed', responseParsed.data);
         this.setState({
-          house: responseParsed.data
+          myHouses : responseParsed.data
         })
 
       }catch(err){
         console.log('fetching getMyhouse fail');
       }
     }
+
+
+
 
     deleteHouse = async(id, e) => {
       e.preventDefault();
@@ -151,9 +181,10 @@ class HomeContainer extends Component {
                   <div className="">Email : <span className="ml-2">{this.state.userinfo.email}</span></div>
                 </div>
             </div>
+
             <Link to="/create">create</Link>
             <div className="col-8">
-              <div>{}</div>
+              <MyHouseComponenet myHouse={this.state.myHouses} deleteHouse={this.deleteHouse} />
             </div>
           </div>
         </div>

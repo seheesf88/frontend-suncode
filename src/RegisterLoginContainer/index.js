@@ -131,7 +131,7 @@ class RegisterLoginContainer extends Component{
          'Content-Type' : 'application/json'
        }
      })
-
+     console.log('fetching login?');
      if(!response.ok){
        throw Error(response.statusText);
      }
