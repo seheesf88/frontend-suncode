@@ -1,0 +1,33 @@
+/* .container-house {
+  width: 100%;
+  border: 1px solid;
+  display: flex;
+  flex-direction: auto auto;
+} */
+
+
+.house {
+  border: 1px solid;
+
+}
+
+
+.mainPhoto {
+  height: 220px;
+  width: 270px
+}
+
+.create {
+
+}
+
+#create {
+  width: 40%;
+  padding-top: 75%;
+  margin-left: 70px
+}
+
+
+.postingTime {
+  font-size: 9px;
+}

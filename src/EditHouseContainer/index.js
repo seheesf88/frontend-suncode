@@ -9,7 +9,7 @@ class EditHouseContainer extends Component {
     super()
 
     this.state = {
-      house: {},
+      house: '',
     }
   }
 
@@ -30,7 +30,7 @@ class EditHouseContainer extends Component {
       }
 
       const houseParsed = await response.json();
-
+      console.log('what is houseParsed =====>', houseParsed);
 
       this.setState({
         house: houseParsed.data

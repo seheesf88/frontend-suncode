@@ -43,13 +43,27 @@
   font-family: Railway;
 }
 
-ul {
-  font-size: 30px;
-  color: black;
-  background-color: grey;
+ul.nav {
+  font-size: 20px;
+  color: white;
+  background-color: #43B05C;
 }
 
-.mainPhoto {
-  height: 100px;
-  width: 100px
+li.nav-item {
+  padding: 4px;
+  color: white;
+}
+
+.logout {
+  background-color: #43B05C;
+  border: none;
+  color: white;
+}
+
+.navItem {
+  color: white;
+}
+
+.message {
+  font-size: 30px;
 }

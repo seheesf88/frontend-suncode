@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Nav from '../Nav'
 import axios from 'axios'
+import Moment from 'react-moment';
 
 class CreateContainer extends Component {
   constructor(){
@@ -18,9 +19,15 @@ class CreateContainer extends Component {
         // pic3: '',
         // pic4: '',
         memo: '',
+        // postingTime: '',
       },
       selectedFile : null,
     }
+  }
+
+
+  componentDidMount(){
+    // this.addingTime();
   }
 
   handleInput = (e) => {
@@ -42,6 +49,9 @@ class CreateContainer extends Component {
     }
 
     this.addHouse(updatedHouse)
+
+    // const time = new Date();
+    // console.log('here tiem??===>', time);
     this.setState({
       house : {
         address : '',
@@ -56,7 +66,8 @@ class CreateContainer extends Component {
         // pic4: '',
         memo: '',
         userId: '',
-      }
+        // postingTime: time,
+      },
     })
   }
   //
@@ -124,7 +135,7 @@ class CreateContainer extends Component {
       // try{
 
 
-        const data = new FormData()
+        const data = new FormData();
 
         // console.log('photo1 ======>', this.state.house.pic1);
         // console.log('photo2 ======>', this.state.house.pic2);
@@ -139,10 +150,15 @@ class CreateContainer extends Component {
         data.append('year', this.state.house.year);
         data.append('sqft', this.state.house.sqft);
         data.append('memo', this.state.house.memo);
+        data.append('time', this.state.house.time);
 
         let userId = localStorage.getItem('userId');
         console.log('userId????', userId);
         data.append('userId', userId)
+        const time = new Date();
+        console.log('postingTime is working in here? ====>', time);
+        data.append('postingTime', time)
+
 
         console.log(data, this.state.house.pic1)
         axios.post(`${process.env.REACT_APP_API}/api/v1/house`, data, {
@@ -159,11 +175,18 @@ class CreateContainer extends Component {
         // console.log('file upload handlder fail');
       // }
     }
-
+    // addingTime = () => {
+    //   const date = new Date();
+    //   console.log('is this working?=>', date);
+    //   this.setState({
+    //     posting: date
+    //   })
+    // }
 
 
   render(){
     // console.log('THIS IS PROPS', this.props);
+
     return(
       <div>
         <Nav />
@@ -218,6 +241,7 @@ class CreateContainer extends Component {
                     <label htmlFor="pic4">Photo4:</label>
                     <input name="pic4" id="pic4" type="file" onChange={this.handleInput} value={this.state.house.pic4}  />
                   </div>
+
                 </div>
               </div>
               <div className="row offset-5">

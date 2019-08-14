@@ -198,19 +198,18 @@ class HomeContainer extends Component {
     return (
       <div>
         <Nav username={this.state.userinfo.username} email={this.state.userinfo.email} name={this.state.userinfo.name}/>
-        <h1 className="text-center my-5">home</h1>
-        <div className="container">
+        <div class="alert alert-success" role="alert">
+          A simple primary alert—check it out!
+        </div>
+        <div className="container pb-5 mb-5">
           <div className="row">
-            <div className="col-3">
-              <div className="mb-5"><span className="h2">Profile</span><span className="ml-3"><Link to={`/myaccount/${localStorage.getItem('userId')}/edit`}>Edit</Link></span></div>
-                <div className="">
-                  <div className="">Username : <span className="ml-2">{this.state.userinfo.username}</span></div>
-                  <div className="">Email : <span className="ml-2">{this.state.userinfo.email}</span></div>
-                </div>
+            <div className="col-2">
+              <p className="message mt-5">
+                Hi,
+                <div className="">{this.state.userinfo.name}</div>
+              </p>
             </div>
-
-            <Link to="/create">create</Link>
-            <div className="col-8">
+            <div className="col-10">
               <MyHouseComponenet allHouses={this.state.allHouses} deleteHouse={this.deleteHouse} />
             </div>
           </div>

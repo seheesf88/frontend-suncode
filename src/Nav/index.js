@@ -6,6 +6,39 @@ import { Link, withRouter } from 'react-router-dom';
 class Nav extends Component{
   constructor(){
     super()
+    this.state = {
+      userinfo: {
+        email:'',
+        password: '',
+        username:'',
+        name: '',
+      },
+    }
+  }
+
+
+  getUserInfo = async() => {
+      const userId = localStorage.getItem('userId');
+      console.log(userId);
+      try{
+        const response = await fetch(`${process.env.REACT_APP_API}/api/v1/users/` + userId, {
+          credentials: 'include'
+        })
+
+        if(!response.ok){
+          throw Error(response.statusText)
+        }
+
+
+        const parsedResponse = await response.json();
+
+        this.setState({
+          userinfo: parsedResponse.data
+        })
+
+      }catch(err){
+        console.log('getuserinfo func fail', err);
+      }
   }
 
   logout = async() => {
@@ -24,7 +57,7 @@ class Nav extends Component{
 
       const responseParsed = await response.json();
       console.log('responseParsed', responseParsed);
-      
+
       if(response.status === 200){
         localStorage.removeItem('userId')
         localStorage.removeItem('username')
@@ -39,22 +72,26 @@ class Nav extends Component{
   render(){
     return(
       <div>
-        <div className="mt-5 ml-5 container">
+        <div className="mt-5 mb-3 ml-5 container">
           <div className="row">
-            <div>
-              <img src="Logo_ElectriCasa-05.png" className="logo"/>
-            </div>
-            <div className="electriCasa ml-2">
-              ElectriCasa
+            <div className="col-4 offset-4 text-center">
+              <div className="">
+                <Link to="/home">
+                  <img src="Logo_ElectriCasa-05.png" className="logo"/>
+                </Link>
+              </div>
+              <div className="">
+                ElectriCasa
+              </div>
             </div>
           </div>
         </div>
-        <ul className="nav justify-content-center">
+        <ul className="nav justify-content-end pr-5 py-1">
           <li className="nav-item ml-5">
-            <div><Link to="/home">home</Link></div>
+            <Link to="/myaccount"><div className="navItem">My Account</div></Link>
           </li>
           <li className="nav-item ml-5">
-            <button className="logout" onClick={this.logout}>Logout</button>
+            <input type="submit" value="Logout" className="logout" onClick={this.logout} />
           </li>
         </ul>
       </div>

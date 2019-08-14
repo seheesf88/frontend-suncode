@@ -9,9 +9,10 @@ import AdminHome from './AdminHome';
 import RegisterLoginContainer from './RegisterLoginContainer';
 import MyAccountContainer from './MyAccountContainer';
 import CreateContainer from './CreateContainer';
-import PhotoContainer from './PhotoContainer';
+// import PhotoContainer from './PhotoContainer';
 import ShowHouseContainer from './ShowHouseContainer';
 import EditHouseContainer from './EditHouseContainer';
+import ShowMyAccount from './ShowMyAccount';
 
 
 const My404 = () => {
@@ -35,9 +36,9 @@ const App = (props) => {
         <Route exact path="/login" component={ RegisterLoginContainer } />
         <Route exact path="/home" component={ HomeContainer } />
         <Route exact path="/adminhome" component={ AdminHome } />
+        <Route exact path="/myaccount" component={ ShowMyAccount } />
         <Route exact path="/myaccount/:id/edit" component={ MyAccountContainer } />
         <Route exact path="/create" component={ CreateContainer } />
-        <Route exact path="/uploadphoto" component={ PhotoContainer } />
         <Route exact path="/:id" component={ ShowHouseContainer } />
         <Route exact path="/:id/edit" component={ EditHouseContainer } />
         <Route component={ My404 } />
