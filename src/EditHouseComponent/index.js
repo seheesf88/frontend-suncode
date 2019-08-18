@@ -4,18 +4,26 @@ const EditHouseComponent = (props) => {
     const userId = localStorage.getItem('userId')
     console.log('what is props in edit ====>', props.house);
 
-
     return(
           <div className="container">
             <div className="text-center mt-4 pb-5">
               <h1>Edit House</h1>
             </div>
             <div className="row container mb-4">
-                <div className="col-4 mt-5"><img className="mainPhoto" src={`${process.env.REACT_APP_API}/` + props.house.productImage} /></div>
-                <div className="col-8 mt-5 container">
+                <div className="col-5 mt-5">
+                  <img className="mainPhoto1 my-2" src={`${process.env.REACT_APP_API}/` + props.house.productImage} />
+                  <div className="mt-3"><input type="file" /></div>
+                  <img className="mainPhoto1 my-2" src={`${process.env.REACT_APP_API}/` + props.house.productImage} />
+                  <div className="mt-3"><input type="file" /></div>
+                  <img className="mainPhoto1 my-2" src={`${process.env.REACT_APP_API}/` + props.house.productImage} />
+                  <div className="mt-3"><input type="file" /></div>
+                  <img className="mainPhoto1 my-2" src={`${process.env.REACT_APP_API}/` + props.house.productImage} />
+                  <div className="mt-3"><input type="file" /></div>
+                </div>
+                <div className="col-7 mt-5 container">
                   <form onSubmit={props.updateHouse}>
                     <div className="row">
-                      <div className="col-6">
+                      <div className="col-10 offset-1">
                         <div className="form-group">
                           <label className="mb-0" htmlFor="address">Address:</label>
                             <input name="address" id="address" type="text" className="form-control" onChange={props.handleEditFormInput} value={props.house.address} required/>
@@ -28,8 +36,6 @@ const EditHouseComponent = (props) => {
                           <label className="mb-0" htmlFor="state">State:</label>
                             <input name="state" id="state" type="text" className="form-control" onChange={props.handleEditFormInput} value={props.house.state} required/>
                         </div>
-                        </div>
-                        <div className="col-6">
                         <div className="form-group">
                           <label className="mb-0" htmlFor="year">Year:</label>
                             <input name="year" id="year" type="text" className="form-control" onChange={props.handleEditFormInput} value={props.house.year} required/>
@@ -40,13 +46,13 @@ const EditHouseComponent = (props) => {
                         </div>
                         <div className="form-group">
                           <label className="mb-0" htmlFor="memo">Memo:</label>
-                            <textarea name="memo" id="memo" className="form-group px-4 py-4" rows="1" cols="33" onChange={props.handleEditFormInput} value={props.house.memo}></textarea>
+                            <textarea name="memo" id="memo" className="form-group px-4 py-4" rows="3" cols="53" onChange={props.handleEditFormInput} value={props.house.memo}></textarea>
                         </div>
                       </div>
                     </div>
 
   { userId === '5d2e7cbbae8a8b045f6f2e39'?
-                <div>
+                <div className="col-10 offset-1">
                   <h1>Admin</h1>
                   <div className="form-group">
                     <label className="mb-0" htmlFor="attic">Attic Insulation:</label>
@@ -80,9 +86,9 @@ const EditHouseComponent = (props) => {
 : null }
 { userId === '5d2e7cbbae8a8b045f6f2e39'?
 
-                <div>
+                <div className="col-10 offset-1">
                   <div className="form-group mt-4 mb-4">
-                    <label className="mb-0" htmlFor="status">Status:</label>
+                    <label className="mb-0 mr-2" htmlFor="status">Status:</label>
                       <select name="status" id="status" onChange={props.handleEditFormInput} value={props.house.status}>
                         <option value="Compelted">Completed</option>
                         <option value="Checking">Checking</option>
@@ -90,11 +96,17 @@ const EditHouseComponent = (props) => {
                   </div>
                   <div className="form-group">
                     <label className="mb-0" htmlFor="memo2">Memo:</label>
-                      <textarea name="memo2" id="memo2" className="form-group px-4 py-4" rows="8" cols="90" onChange={props.handleEditFormInput} value={props.house.memo2} >
+                      <textarea name="memo2" id="memo2" className="form-group px-4 py-4" rows="3" cols="50" onChange={props.handleEditFormInput} value={props.house.memo2} >
                       </textarea>
                   </div>
                 </div>
-: null }
+:
+              <div>
+                <div>...</div>
+              </div>
+
+
+}
 
                   <div className="text-center">
                     <input type="submit" className="btn btn-primary" />

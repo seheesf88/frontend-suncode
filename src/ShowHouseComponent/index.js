@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, withRouter } from 'react-router-dom';
 
 const ShowHouseComponent = (props) => {
   console.log('what is props????====>', props);
@@ -6,41 +7,114 @@ const ShowHouseComponent = (props) => {
     <div className="container">
       <div className="text-center mt-4 pb-5">
         <h1>{props.showHouse.address}</h1>
+          {
+           `{props.showHouse.address}` === `testing` ?
+            <div className="green">1</div> :
+            <div className="red">2</div>
+          }
       </div>
-      <div className="row mb-4">
-        <div className="col-8 offset-3">
-          <div className="row">
-            <div className="col-4 offset-1 mt-3">
-              <p className="infoList">Address :</p>
-              <p className="infoList">Address2 :</p>
-              <p className="infoList">State :</p>
-              <p className="infoList">Zipcode :</p>
-              <p className="infoList">Year :</p>
-              <p className="infoList">Sqft :</p>
-              <p className="infoList">memo :</p>
-              <p className="infoList">photo1 :</p>
-              <p className="infoList">photo2 :</p>
-              <p className="infoList">photo3 :</p>
-              <p className="infoList">photo4 :</p>
-              <p className="infoList">Attic Insulation :</p>
-              <p className="infoList">WH year :</p>
-              <p className="infoList">WH EF :</p>
-              <p className="infoList">WH Fuel :</p>
-              <p className="infoList">Heating Year :</p>
-              <p className="infoList">Heating EF :</p>
-              <p className="infoList">Heating Fuel :</p>
-              <p className="infoList">Status :</p>
-              <p className="infoList">Memo :</p>
+      <div className="container">
+        <div className="row mb-4">
+          <div className="col-4 ml-4 mt-5">
+            <img src={`${process.env.REACT_APP_API}/` + props.showHouse.productImage} height={300} width={360}/>
+          </div>
+          <div className="col-6 offset-1 mb-5 mt-5">
+            <div className="row">
+              <div className="col-4 offset-1 mt-3 mb-5">
+                <p className="infoList">Address :</p>
+                <p className="infoList">Address2 :</p>
+                <p className="infoList">State :</p>
+                <p className="infoList">Zipcode :</p>
+                <p className="infoList">Year :</p>
+                <p className="infoList">Sqft :</p>
+                <p className="infoList">Memo :</p>
+              </div>
+              <div className="col-4 offset-1 mt-3">
+                <p className="infoData">{props.showHouse.address}</p>
+                <p className="infoData">{props.showHouse.address2}</p>
+                <p className="infoData">{props.showHouse.state}</p>
+                <p className="infoData">{props.showHouse.zipcode}</p>
+                <p className="infoData">{props.showHouse.year}</p>
+                <p className="infoData">{props.showHouse.sqft}</p>
+                <p className="infoData">{props.showHouse.memo}</p>
+              </div>
             </div>
-            <div className="col-4 offset-1 mt-3">
-            <p className="infoData">{props.showHouse.address}</p>
-            <p className="infoData">{props.showHouse.address2}</p>
-            <p className="infoData">{props.showHouse.state}</p>
-            <p className="infoData">{props.showHouse.zipcode}</p>
-            <p className="infoData">{props.showHouse.year}</p>
-            <p className="infoData">{props.showHouse.sqft}</p>
-            <p className="infoData">{props.showHouse.memo}</p>
-            <p className="infoData"><img src={`${process.env.REACT_APP_API}/` + props.showHouse.productImage} height={100} width={100}/></p>
+            <div className="row offset-3 mt-2">
+              <span className="mr-5"><Link className="btn btn-success" to="/home">Question?</Link></span>
+              <span className=""><Link className="btn btn-success" to="/home">Buy</Link></span>
+            </div>
+          </div>
+          <div className="container border my-5 py-5">
+            <div className="row">
+              <div className="col-4 ml-4">
+                <img src={`${process.env.REACT_APP_API}/` + props.showHouse.productImage} height={300} width={360}/>
+              </div>
+              <div className="col-6 offset-1">
+                <div className="row">
+                  <div className="col-4 offset-1 mt-3">
+                    <p className="infoList">WH year :</p>
+                    <p className="infoList">WH EF :</p>
+                    <p className="infoList">WH Fuel :</p>
+                  </div>
+                  <div className="col-4 offset-1 mt-3">
+                    <p className="infoData">{props.showHouse.address}</p>
+                    <p className="infoData">{props.showHouse.address2}</p>
+                    <p className="infoData">{props.showHouse.state}</p>
+                  </div>
+                </div>
+                <div className="row offset-3 mt-5">
+                  <span className="mr-5"><Link className="btn btn-success" to="/home">Question?</Link></span>
+                  <span className=""><Link className="btn btn-success" to="/home">Buy</Link></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="container">
+            <div className="row mb-4">
+              <div className="col-4 ml-4">
+                <img src={`${process.env.REACT_APP_API}/` + props.showHouse.productImage} height={300} width={360}/>
+              </div>
+              <div className="col-6 offset-1 pt-3">
+                <div className="row">
+                  <div className="col-4 offset-1 mt-3">
+                    <p className="infoList">Heating Year :</p>
+                    <p className="infoList">Heating EF :</p>
+                    <p className="infoList">Heating Fuel :</p>
+                  </div>
+                  <div className="col-4 offset-1 mt-3">
+                    <p className="infoData">{props.showHouse.address}</p>
+                    <p className="infoData">{props.showHouse.address2}</p>
+                    <p className="infoData">{props.showHouse.state}</p>
+                  </div>
+                </div>
+                <div className="row offset-3 mt-5">
+                  <span className="mr-5"><Link className="btn btn-success" to="/home">Question?</Link></span>
+                  <span className=""><Link className="btn btn-success" to="/home">Buy</Link></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="container border my-5 py-5">
+            <div className="row mb-4">
+              <div className="col-4 ml-4">
+                <img src={`${process.env.REACT_APP_API}/` + props.showHouse.productImage} height={300} width={360}/>
+              </div>
+              <div className="col-6 offset-1 mt-5">
+                <div className="row">
+                  <div className="col-5 offset-1 mt-3">
+                    <p className="infoList">Attic Insulation :</p>
+                    <p className="infoList">Memo :</p>
+                  </div>
+                  <div className="col-4 offset-1 mt-3">
+                    <p className="infoData">{props.showHouse.address}</p>
+                    <p className="infoData">{props.showHouse.address2}</p>
+                  </div>
+                </div>
+                <div className="row offset-3 mt-5">
+                  <span className="mr-5"><Link className="btn btn-success" to="/home">Question?</Link></span>
+                  <span className=""><Link className="btn btn-success" to="/home">Buy</Link></span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
