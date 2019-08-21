@@ -33,6 +33,7 @@ const App = (props) => {
   return (
     <main>
       <Switch>
+        <Route exact path="/" component={ MainContainer } />
         <Route exact path="/login" component={ RegisterLoginContainer } />
         <Route exact path="/home" component={ HomeContainer } />
         <Route exact path="/adminhome" component={ AdminHome } />

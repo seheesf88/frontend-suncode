@@ -8,7 +8,7 @@ const MyHouseComponenet = (props) => {
     if(house.userId === localStorage.getItem('userId')){
     return(
       <div className="house border col-4 my-5 pt-5 pb-1 ml-3" key={house._id}>
-          <div className="text-center"><Link to={`/${house._id}`}><img className="mainPhoto" src={`${process.env.REACT_APP_API}/` + house.productImage} /></Link></div>
+          <div className="text-center"><Link to={`/${house._id}`}><img className="mainPhoto" src={`${process.env.REACT_APP_API}/` + house.productImage1} /></Link></div>
           <div className="mt-5 mb-3 ml-3">
             <div>{house.address}</div>
             <div>{house.state}</div>

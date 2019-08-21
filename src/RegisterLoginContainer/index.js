@@ -150,11 +150,11 @@ class RegisterLoginContainer extends Component{
        localStorage.setItem('userId', parsedResponse.userId)
        localStorage.setItem('username', parsedResponse.username)
 
-      //  if(parsedResponse.userId === '5ce078a9ba00866361956c39'){
-      //    this.props.history.push('/adminhome')
-      //  }else{
+       if(parsedResponse.userId === '5d2e7cbbae8a8b045f6f2e39'){
+         this.props.history.push('/adminhome')
+       }else{
         this.props.history.push('/home')
-      // }
+      }
 
 
      }else{

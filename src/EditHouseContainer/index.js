@@ -70,7 +70,7 @@ class EditHouseContainer extends Component {
           throw Error(response.statusText)
         }
 
-        this.props.history.push('/home');
+        this.props.history.push('/adminhome');
 
       } catch(err) {
         return err
@@ -81,10 +81,8 @@ class EditHouseContainer extends Component {
 
     return(
       <div>
-
         <Nav />
         <EditHouseComponent gethouse={this.gethouse} handleEditFormInput={this.handleEditFormInput} house={this.state.house} updateHouse={this.updateHouse} />
-
       </div>
     )
   }

@@ -21,6 +21,10 @@ class CreateContainer extends Component {
         memo: '',
         // postingTime: '',
       },
+      preview1: null,
+      preview2: null,
+      preview3: null,
+      preview4: null,
       selectedFile : null,
     }
   }
@@ -62,8 +66,8 @@ class CreateContainer extends Component {
         sqft: '',
         pic1: null,//null
         // pic2: null,
-        // pic3: '',
-        // pic4: '',
+        // pic3: null,
+        // pic4: null,
         memo: '',
         userId: '',
         // postingTime: time,
@@ -105,13 +109,59 @@ class CreateContainer extends Component {
 
 
     fileSelectHandler = (e) => {
+      var file1 = e.target.files[0];
+      var file2 = e.target.files[1];
+      var file3 = e.target.files[2];
+      var file4 = e.target.files[3];
+      // var singleFile = ''
+      // for(let i = 0; i < files.length; i++){
+      //   singleFile = files[i]
+      //   // singleFile.push(file)
+      // }
+
+      var reader1 = new FileReader();
+      var reader2 = new FileReader();
+      var reader3 = new FileReader();
+      var reader4 = new FileReader();
+      // console.log('what is reader? ---->', reader );
+
+      var url1 = reader1.readAsDataURL(file1);
+      var url2 = reader2.readAsDataURL(file2);
+      var url3 = reader3.readAsDataURL(file3);
+      var url4 = reader4.readAsDataURL(file4);
+      // console.log('who are you then?? ---->', [reader.result]);
+
+      // console.log('what is this in here?', this);
+      reader1.onloadend = function(e){
+        this.setState({
+          preview1: [reader1.result],
+        })
+      }.bind(this)
+
+      reader2.onloadend = function(e){
+        this.setState({
+          preview2: [reader2.result],
+        })
+      }.bind(this)
+
+      reader3.onloadend = function(e){
+        this.setState({
+          preview3: [reader3.result],
+        })
+      }.bind(this)
+
+      reader4.onloadend = function(e){
+        this.setState({
+          preview4: [reader4.result],
+        })
+      }.bind(this)
+
+
+
       this.setState({
         house: {
           ...this.state.house,
-          pic1: e.target.files[0],
-          // pic2: e.target.files[0],
-          // pic3: e.target.files[2],
-          // pic4: e.target.files[3]
+          pic1: e.target.files,
         }
       })
     }
@@ -140,8 +190,11 @@ class CreateContainer extends Component {
         // console.log('photo1 ======>', this.state.house.pic1);
         // console.log('photo2 ======>', this.state.house.pic2);
 
-        data.append('photo', this.state.house.pic1);
-        // data.append('photo', this.state.house.pic2);
+        // data.append('photo', this.state.house.pic1);
+
+        for(let i = 0; i < this.state.house.pic1.length; i++){
+            data.append('photo', this.state.house.pic1[i]);
+        }
 
         data.append('address', this.state.house.address);
         data.append('address2', this.state.house.address2);
@@ -161,6 +214,7 @@ class CreateContainer extends Component {
 
 
         console.log(data, this.state.house.pic1)
+        console.log('what is this.state.house.pic1? ====>', typeof this.state.house.pic1);
         axios.post(`${process.env.REACT_APP_API}/api/v1/house`, data, {
           headers: {
             'content-type': 'multipart/form-data'
@@ -168,7 +222,7 @@ class CreateContainer extends Component {
         })
         .then(res => {
           console.log(res.statusText, "here???", res.data.msg);
-          // this.props.history.push('/home');
+          this.props.history.push('/home');
         })
 
       // }catch(err){
@@ -186,14 +240,14 @@ class CreateContainer extends Component {
 
   render(){
     // console.log('THIS IS PROPS', this.props);
-
     return(
+
       <div>
         <Nav />
           <form onSubmit={this.handleSubmit}>
             <div className="container mt-5">
               <div className="row">
-                <div className="col-5 offset-1">
+                <div className="col-4 mt-5">
                   <div className="form-group">
                     <label htmlFor="address">Address:</label>
                     <input name="address" id="address" type="text" className="form-control" onChange={this.handleInput} placeholder="ex)1330 Broadway" value={this.state.house.address} />
@@ -224,24 +278,29 @@ class CreateContainer extends Component {
                       </textarea>
                   </div>
                 </div>
-                <div className="col-4 offset-1">
-                  <div>
-                    <label htmlFor="pic1">Photo1:</label>
-                    <input name="pic1" id="pic1" type="file" onChange={this.fileSelectHandler} value={this.state.house.pic21}  />
+                <div className="col-8">
+                  <div className="mt-5">
+                    <label htmlFor="pic1">Photos:</label>
+                    <input name="pic1" id="pic1" type="file" multiple onChange={this.fileSelectHandler} value={this.state.house.pic21}  />
                   </div>
-                  <div>
-                    <label htmlFor="pic2">Photo2:</label>
-                    <input name="pic2" id="pic2" type="file"  value={this.state.house.pic2}  />
+                  <div className="container">
+                    <div className="row">
+                      <div className="col-6">
+                        <div><img className="border mt-5" src={this.state.preview1} height={280} width={300} /></div>
+                      </div>
+                      <div className="col-6">
+                        <div><img className="border mt-5" src={this.state.preview2} height={280} width={300}/></div>
+                      </div>
+                    </div>
+                    <div className="row mt-4">
+                      <div className="col-6">
+                        <div><img className="border mt-5" src={this.state.preview3} height={280} width={300}/></div>
+                      </div>
+                      <div className="col-6">
+                        <div><img className="border mt-5" src={this.state.preview4} height={280} width={300}/></div>
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <label htmlFor="pic3">Photo3:</label>
-                    <input name="pic3" id="pic3" type="file" onChange={this.handleInput} value={this.state.house.pic3}  />
-                  </div>
-                  <div>
-                    <label htmlFor="pic4">Photo4:</label>
-                    <input name="pic4" id="pic4" type="file" onChange={this.handleInput} value={this.state.house.pic4}  />
-                  </div>
-
                 </div>
               </div>
               <div className="row offset-5">
@@ -249,6 +308,7 @@ class CreateContainer extends Component {
               </div>
             </div>
           </form>
+
       </div>
     )
   }

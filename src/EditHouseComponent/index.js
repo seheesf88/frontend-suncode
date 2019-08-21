@@ -10,15 +10,15 @@ const EditHouseComponent = (props) => {
               <h1>Edit House</h1>
             </div>
             <div className="row container mb-4">
-                <div className="col-5 mt-5">
-                  <img className="mainPhoto1 my-2" src={`${process.env.REACT_APP_API}/` + props.house.productImage} />
-                  <div className="mt-3"><input type="file" /></div>
-                  <img className="mainPhoto1 my-2" src={`${process.env.REACT_APP_API}/` + props.house.productImage} />
-                  <div className="mt-3"><input type="file" /></div>
-                  <img className="mainPhoto1 my-2" src={`${process.env.REACT_APP_API}/` + props.house.productImage} />
-                  <div className="mt-3"><input type="file" /></div>
-                  <img className="mainPhoto1 my-2" src={`${process.env.REACT_APP_API}/` + props.house.productImage} />
-                  <div className="mt-3"><input type="file" /></div>
+                <div className="col-5 mt-5 border">
+                  <img className="mainPhoto border my-2" height={200} width={200} src={`${process.env.REACT_APP_API}/` + props.house.productImage1} />
+
+                  <img className="subPhoto1 border my-2" height={200} width={200} src={`${process.env.REACT_APP_API}/` + props.house.productImage2} />
+
+                  <img className="subPhoto2 border my-2" height={200} width={200} src={`${process.env.REACT_APP_API}/` + props.house.productImage3} />
+
+                  <img className="subPhoto3 border my-2" height={200} width={200} src={`${process.env.REACT_APP_API}/` + props.house.productImage4} />
+
                 </div>
                 <div className="col-7 mt-5 container">
                   <form onSubmit={props.updateHouse}>
@@ -26,23 +26,23 @@ const EditHouseComponent = (props) => {
                       <div className="col-10 offset-1">
                         <div className="form-group">
                           <label className="mb-0" htmlFor="address">Address:</label>
-                            <input name="address" id="address" type="text" className="form-control" onChange={props.handleEditFormInput} value={props.house.address} required/>
+                            <input name="address" id="address" type="text" className="form-control" onChange={props.handleEditFormInput} value={props.house.address} />
                         </div>
                         <div className="form-group">
                           <label className="mb-0" htmlFor="address2">Address2:</label>
-                            <input name="address2" id="address2" type="text" className="form-control" onChange={props.handleEditFormInput} value={props.house.address2} required/>
+                            <input name="address2" id="address2" type="text" className="form-control" onChange={props.handleEditFormInput} value={props.house.address2} />
                         </div>
                         <div className="form-group">
                           <label className="mb-0" htmlFor="state">State:</label>
-                            <input name="state" id="state" type="text" className="form-control" onChange={props.handleEditFormInput} value={props.house.state} required/>
+                            <input name="state" id="state" type="text" className="form-control" onChange={props.handleEditFormInput} value={props.house.state} />
                         </div>
                         <div className="form-group">
                           <label className="mb-0" htmlFor="year">Year:</label>
-                            <input name="year" id="year" type="text" className="form-control" onChange={props.handleEditFormInput} value={props.house.year} required/>
+                            <input name="year" id="year" type="text" className="form-control" onChange={props.handleEditFormInput} value={props.house.year} />
                         </div>
                         <div className="form-group">
                           <label className="mb-0" htmlFor="sqft">Sqft:</label>
-                            <input name="sqft" id="sqft" type="text" className="form-control" onChange={props.handleEditFormInput} value={props.house.sqft} required />
+                            <input name="sqft" id="sqft" type="text" className="form-control" onChange={props.handleEditFormInput} value={props.house.sqft}  />
                         </div>
                         <div className="form-group">
                           <label className="mb-0" htmlFor="memo">Memo:</label>
@@ -56,31 +56,31 @@ const EditHouseComponent = (props) => {
                   <h1>Admin</h1>
                   <div className="form-group">
                     <label className="mb-0" htmlFor="attic">Attic Insulation:</label>
-                      <input name="attic" id="attic" type="text" className="form-control" onChange={props.handleEditFormInput} value={props.house.attic} required />
+                      <input name="attic" id="attic" type="text" className="form-control" onChange={props.handleEditFormInput} value={props.house.attic}  />
                   </div>
                   <div className="form-group">
                     <label className="mb-0" htmlFor="whyear">WH Year:</label>
-                      <input name="whyear" id="whyear" type="text" className="form-control" onChange={props.handleEditFormInput} value={props.house.whyear} required />
+                      <input name="whyear" id="whyear" type="text" className="form-control" onChange={props.handleEditFormInput} value={props.house.whyear}  />
                   </div>
                   <div className="form-group">
                     <label className="mb-0" htmlFor="whef">WH EF:</label>
-                      <input name="whef" id="whef" type="text" className="form-control" onChange={props.handleEditFormInput} value={props.house.whef} required />
+                      <input name="whef" id="whef" type="text" className="form-control" onChange={props.handleEditFormInput} value={props.house.whef}  />
                   </div>
                   <div className="form-group">
                     <label className="mb-0" htmlFor="whfuel">WH Fuel:</label>
-                      <input name="whfuel" id="whfuel" type="text" className="form-control" onChange={props.handleEditFormInput} value={props.house.whfuel} required />
+                      <input name="whfuel" id="whfuel" type="text" className="form-control" onChange={props.handleEditFormInput} value={props.house.whfuel}  />
                   </div>
                   <div className="form-group">
                     <label className="mb-0" htmlFor="heatyear">Heating Year:</label>
-                      <input name="heatyear" id="heatyear" type="text" className="form-control" onChange={props.handleEditFormInput} value={props.house.heatyear} required />
+                      <input name="heatyear" id="heatyear" type="text" className="form-control" onChange={props.handleEditFormInput} value={props.house.heatyear}  />
                   </div>
                   <div className="form-group">
                     <label className="mb-0" htmlFor="heatef">Heating EF:</label>
-                      <input name="heatef" id="heatef" type="text" className="form-control" onChange={props.handleEditFormInput} value={props.house.heatef} required />
+                      <input name="heatef" id="heatef" type="text" className="form-control" onChange={props.handleEditFormInput} value={props.house.heatef}  />
                   </div>
                   <div className="form-group">
                     <label className="mb-0" htmlFor="heatfuel">Heating Fuel:</label>
-                      <input name="heatfuel" id="heatfuel" type="text" className="form-control" onChange={props.handleEditFormInput} value={props.house.heatfuel} required />
+                      <input name="heatfuel" id="heatfuel" type="text" className="form-control" onChange={props.handleEditFormInput} value={props.house.heatfuel}  />
                   </div>
                 </div>
 : null }
