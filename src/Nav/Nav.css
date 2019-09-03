@@ -1,0 +1,31 @@
+ul.nav {
+  font-size: 20px;
+  color: white;
+  list-style-type: none;
+  /* background-color: #43B05C; */
+}
+
+li.nav-item {
+  margin-right: 10%;
+  padding: 4px;
+  color: white;
+  float: left;
+}
+
+.logout {
+  background-color: #43B05C;
+  border: none;
+  color: white;
+}
+
+.navItem {
+  color: white;
+}
+
+.message {
+  font-size: 30px;
+}
+
+.mainPhoto1 {
+  width: 100%;
+}

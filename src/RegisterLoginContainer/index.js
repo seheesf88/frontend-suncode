@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import './RegisterLoginContainer.css';
+import Nav from '../Nav'
+
 
 class RegisterLoginContainer extends Component{
   constructor(){
@@ -20,6 +23,9 @@ class RegisterLoginContainer extends Component{
       loginButton: false
     }
   }
+
+
+// console.log(bg1);
 
   handleRegisterChange = (e) => {
     const updatedChange = {
@@ -174,86 +180,54 @@ class RegisterLoginContainer extends Component{
 
 
   render(){
-
+    // console.log(bg1);
     const changeOne = (
-      <button onClick={this.buttonChange} className="btn btn-primary">New</button>
+      <button onClick={this.buttonChange} className="regLogBtn">New</button>
     );
 
     const changeTwo = (
-      <button onClick={this.buttonChange} className="btn btn-primary">Login</button>
+      <button onClick={this.buttonChange} className="regLogBtn">Login</button>
     );
 
 
 
     return(
-      <div>
-        <div className="mt-5 ml-5 container">
-          <div className="row">
-            <div><img src="Logo_ElectriCasa-05.png" className="logo"/></div>
-            <div className="electriCasa ml-2">ElectriCasa</div>
-          </div>
-        </div>
-          <div>
+      <div className="regLog">
+        <Nav />
+        <div>
           { !this.state.loginButton ?
-              <div className="container">
-                <h2 className="text-center my-5">Login</h2>
-                  <div className="row">
-                    <div className="col-4 offset-4">
-                      <form onSubmit={this.handleLoginSubmit}>
-                        <div className="form-group">
-                          <label htmlFor="username">Username:</label>
-                          <input name="username" id="username" className="form-control" type="text" value={this.state.login.username} onChange={this.handleLoginChange} required />
-                        </div>
-                        <div className="form-group">
-                          <label htmlFor="password">Password:</label>
-                          <input name="password" id="password" className="form-control" type="text" value={this.state.login.password} onChange={this.handleLoginChange} required />
-                        </div>
-                        <div className="container">
-                          <div className="row">
-                            <div className="col-3 offset-2">
-                              <button className="btn btn-primary" type="submit">Login</button>
-                            </div>
-                            <div className="col-2 offset-2">
-                            {changeOne}
-                            </div>
-                          </div>
-                        </div>
-                      </form>
+            <div className="login">
+              <h2 id="login">Login</h2>
+                <form onSubmit={this.handleLoginSubmit}>
+                  <div className="login-form">
+                    <input className="form-input" id="username" name="username" type="text" value={this.state.login.username} onChange={this.handleLoginChange} required placeholder="Username"/>
+                    <input className="form-input" id="password" name="password" type="text" value={this.state.login.password} onChange={this.handleLoginChange} required placeholder="password"/>
+                    <div className="btn-container">
+                      <div className="btn-row">
+                        <button className="regLogBtn leftBtn" type="submit">Login</button>
+                        {changeOne}
+                      </div>
                     </div>
                   </div>
+                </form>
               </div>
-
             :
-              <div className="container">
-                <h2 className="text-center my-5">Register</h2>
-                    <div className="row">
-                      <div className="col-4 offset-4">
+              <div className="register">
+                <h2 id="register">Register</h2>
                         <form onSubmit={this.handleRegisterSubmit}>
-                          <div className="form-group">
-                            <label htmlFor="name">Name:</label>
-                            <input id="name" name="name" className="form-control" type="text" value={this.state.register.name} onChange={this.handleRegisterChange} required />
+                          <div className="reg-form">
+                            <div><input id="name" name="name" className="form-input" type="text" value={this.state.register.name} onChange={this.handleRegisterChange} required placeholder="Name"/></div>
+                            <div><input name="username" id="username" className="form-input" type="text" value={this.state.register.username} onChange={this.handleRegisterChange} placeholder="Username" required/></div>
+                            <div><input id="email" name="email" className="form-input" type="text" value={this.state.register.email} onChange={this.handleRegisterChange} placeholder="Email" required/></div>
+                            <div><input id="password" name="password" className="form-input" type="text" value={this.state.register.password} onChange={this.handleRegisterChange} placeholder="Password" required/></div>
                           </div>
-                          <div className="form-group">
-                            <label htmlFor="username">Username:</label>
-                            <input name="username" id="username" className="form-control" type="text" value={this.state.register.username} onChange={this.handleRegisterChange} required/>
-                          </div>
-                          <div className="form-group">
-                            <label htmlFor="email">Email:</label>
-                            <input id="email" name="email" className="form-control" type="text" value={this.state.register.email} onChange={this.handleRegisterChange} required/>
-                          </div>
-                          <div className="form-group">
-                            <label htmlFor="password">Password:</label>
-                            <input id="password" name="password" className="form-control" type="text" value={this.state.register.password} onChange={this.handleRegisterChange} required/>
-                          </div>
-                          <div className="container">
-                            <div className="row">
-                              <div className="col-2 offset-2"><button className="btn btn-primary" type="submit">Register</button></div>
-                              <div className="col-2 offset-2">{changeTwo}</div>
+                          <div className="btn-container">
+                            <div className="btn-row">
+                              <button className="regLogBtn leftBtn" type="submit">Register</button>
+                              {changeTwo}
                             </div>
                           </div>
                         </form>
-                      </div>
-                   </div>
                 </div>
 
               }
@@ -265,3 +239,78 @@ class RegisterLoginContainer extends Component{
 }
 
 export default withRouter(RegisterLoginContainer);
+
+
+
+// <div className="regLog">
+//   <div className="mt-5 ml-5 container">
+//     <div className="row">
+//       <div><img src="Logo_ElectriCasa-05.png" className="logo"/></div>
+//       <div className="electriCasa ml-2">ElectriCasa</div>
+//     </div>
+//   </div>
+//     <div>
+//     { !this.state.loginButton ?
+//         <div className="container">
+//           <h2 className="text-center my-5">Login</h2>
+//             <div className="row">
+//               <div className="col-4 offset-4">
+//                 <form onSubmit={this.handleLoginSubmit}>
+//                   <div className="form-group">
+//                     <label htmlFor="username">Username:</label>
+//                     <input name="username" id="username" className="form-control" type="text" value={this.state.login.username} onChange={this.handleLoginChange} required />
+//                   </div>
+//                   <div className="form-group">
+//                     <label htmlFor="password">Password:</label>
+//                     <input name="password" id="password" className="form-control" type="text" value={this.state.login.password} onChange={this.handleLoginChange} required />
+//                   </div>
+//                   <div className="container">
+//                     <div className="row">
+//                       <div className="col-3 offset-2">
+//                         <button className="btn btn-primary" type="submit">Login</button>
+//                       </div>
+//                       <div className="col-2 offset-2">
+//                       {changeOne}
+//                       </div>
+//                     </div>
+//                   </div>
+//                 </form>
+//               </div>
+//             </div>
+//         </div>
+//
+//       :
+//         <div className="container">
+//           <h2 className="text-center my-5">Register</h2>
+//               <div className="row">
+//                 <div className="col-4 offset-4">
+//                   <form onSubmit={this.handleRegisterSubmit}>
+//                     <div className="form-group">
+//                       <label htmlFor="name">Name:</label>
+//                       <input id="name" name="name" className="form-control" type="text" value={this.state.register.name} onChange={this.handleRegisterChange} required />
+//                     </div>
+//                     <div className="form-group">
+//                       <label htmlFor="username">Username:</label>
+//                       <input name="username" id="username" className="form-control" type="text" value={this.state.register.username} onChange={this.handleRegisterChange} required/>
+//                     </div>
+//                     <div className="form-group">
+//                       <label htmlFor="email">Email:</label>
+//                       <input id="email" name="email" className="form-control" type="text" value={this.state.register.email} onChange={this.handleRegisterChange} required/>
+//                     </div>
+//                     <div className="form-group">
+//                       <label htmlFor="password">Password:</label>
+//                       <input id="password" name="password" className="form-control" type="text" value={this.state.register.password} onChange={this.handleRegisterChange} required/>
+//                     </div>
+//                     <div className="container">
+//                       <div className="row">
+//                         <div className="col-2 offset-2"><button className="btn btn-primary" type="submit">Register</button></div>
+//                         <div className="col-2 offset-2">{changeTwo}</div>
+//                       </div>
+//                     </div>
+//                   </form>
+//                 </div>
+//              </div>
+//           </div>
+//         }
+//   </div>
+// </div>

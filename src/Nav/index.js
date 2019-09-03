@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import './Nav.css';
 
 
 
@@ -72,25 +73,11 @@ class Nav extends Component{
   render(){
     return(
       <div>
-        <div className="mt-5 mb-3 ml-5 container">
-          <div className="row">
-            <div className="col-4 offset-4 text-center">
-              <div className="">
-                <Link to="/home">
-                  <img src="Logo_ElectriCasa-05.png" className="logo"/>
-                </Link>
-              </div>
-              <div className="">
-                ElectriCasa
-              </div>
-            </div>
-          </div>
-        </div>
-        <ul className="nav justify-content-end pr-5 py-1">
-          <li className="nav-item ml-5">
+        <ul className="nav">
+          <li className="nav-item">
             <Link to="/myaccount"><div className="navItem">My Account</div></Link>
           </li>
-          <li className="nav-item ml-5">
+          <li className="nav-item">
             <input type="submit" value="Logout" className="logout" onClick={this.logout} />
           </li>
         </ul>
@@ -99,4 +86,20 @@ class Nav extends Component{
   }
 }
 
-export default withRouter(Nav)
+export default withRouter(Nav);
+
+//
+// <div className="mt-5 mb-3 ml-5 container">
+//   <div className="row">
+//     <div className="col-4 offset-4 text-center">
+//       <div className="">
+//         <Link to="/home">
+//           <img src="Logo_ElectriCasa-05.png" className="logo"/>
+//         </Link>
+//       </div>
+//       <div className="">
+//         ElectriCasa
+//       </div>
+//     </div>
+//   </div>
+// </div>

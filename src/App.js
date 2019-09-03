@@ -26,15 +26,14 @@ const My404 = () => {
 const App = (props) => {
   if (localStorage.getItem('userId') !== null) {
     console.log('USER IS LOGGED IN')
-  } else if(props.location.pathname !== '/login') {
-    props.history.push('/login')
+  } else if(props.location.pathname !== '/') {
+    props.history.push('/')
   }
 
   return (
     <main>
       <Switch>
-        <Route exact path="/" component={ MainContainer } />
-        <Route exact path="/login" component={ RegisterLoginContainer } />
+        <Route exact path="/" component={ RegisterLoginContainer } />
         <Route exact path="/home" component={ HomeContainer } />
         <Route exact path="/adminhome" component={ AdminHome } />
         <Route exact path="/myaccount" component={ ShowMyAccount } />

@@ -70,7 +70,7 @@ class EditHouseContainer extends Component {
           throw Error(response.statusText)
         }
 
-        this.props.history.push('/adminhome');
+        this.props.history.push('/home');
 
       } catch(err) {
         return err
