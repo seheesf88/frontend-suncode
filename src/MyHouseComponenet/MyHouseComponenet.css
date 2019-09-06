@@ -5,29 +5,83 @@
   flex-direction: auto auto;
 } */
 
-
-.house {
-  border: 1px solid;
-
+* {
+  font-family: 'Lato', sans-serif;
 }
 
+
+.grid {
+  display: inline-grid;
+  grid-template-columns: auto auto;
+  grid-column-gap: 10px;
+}
+
+.editDelete {
+  /* border: 1px solid blue; */
+  margin-top: 10px;
+  height: 6%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.oneHouse {
+  border: 1px solid;
+  width: 380px;
+  height: 520px;
+  margin-right: 4%;
+}
+
+
+.top {
+  margin: 30px;
+}
 
 .mainPhoto {
-  height: 220px;
-  width: 270px
+  width: 320px;
+  height: 300px;
+  border: 1px solid black;
+  margin: 0px 3px 1px 3px;
 }
+
+
+
+#createBtn {
+  /* border: 2px solid blue; */
+  width: 100px;
+  margin-left: 35%;
+  margin-top: 52%;
+}
+
+
 
 .create {
-
+  width: 360px;
+  height: 500px;
 }
-
-#create {
-  width: 40%;
-  padding-top: 75%;
-  margin-left: 70px
-}
-
 
 .postingTime {
-  font-size: 9px;
+  font-size: 12px;
+  padding: 5%;
+}
+
+.summary {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+#editpen {
+  /* border: 1px green solid; */
+  height: 26px;
+  margin-top: 3px;
+  margin-right: 8px;
+}
+
+
+.rightBtnborder {
+  border: none;
+}
+
+#deletepic {
+  border: none;
+    width: 30px;
 }

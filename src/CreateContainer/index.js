@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Nav from '../Nav'
 import axios from 'axios'
 import Moment from 'react-moment';
+import './Create.css';
 
 class CreateContainer extends Component {
   constructor(){
@@ -244,10 +245,9 @@ class CreateContainer extends Component {
 
       <div>
         <Nav />
-          <form onSubmit={this.handleSubmit}>
-            <div className="container mt-5">
-              <div className="row">
-                <div className="col-4 mt-5">
+          <form onSubmit={this.handleSubmit} className="createForm">
+            <div className="createContainer">
+                <div className="container-form-group">
                   <div className="form-group">
                     <label htmlFor="address">Address:</label>
                     <input name="address" id="address" type="text" className="form-control" onChange={this.handleInput} placeholder="ex)1330 Broadway" value={this.state.house.address} />
@@ -274,41 +274,26 @@ class CreateContainer extends Component {
                   </div>
                   <div className="form-group">
                     <label className="" htmlFor="memo">Memo:</label>
-                      <textarea name="memo" id="memo" className="form-control" rows="3" cols="10" onChange={this.handleInput} value={this.state.house.memo} placeholder="ex)Any memo">
-                      </textarea>
+                    <textarea name="memo" id="memo" className="form-control" rows="3" cols="10" onChange={this.handleInput} value={this.state.house.memo} placeholder="ex)Any memo">
+                    </textarea>
                   </div>
                 </div>
-                <div className="col-8">
-                  <div className="mt-5">
-                    <label htmlFor="pic1">Photos:</label>
+                <div className="container-panel">
+                  <div className="form-group select">
                     <input name="pic1" id="pic1" type="file" multiple onChange={this.fileSelectHandler} value={this.state.house.pic21}  />
                   </div>
-                  <div className="container">
-                    <div className="row">
-                      <div className="col-6">
-                        <div><img className="border mt-5" src={this.state.preview1} height={280} width={300} /></div>
-                      </div>
-                      <div className="col-6">
-                        <div><img className="border mt-5" src={this.state.preview2} height={280} width={300}/></div>
-                      </div>
-                    </div>
-                    <div className="row mt-4">
-                      <div className="col-6">
-                        <div><img className="border mt-5" src={this.state.preview3} height={280} width={300}/></div>
-                      </div>
-                      <div className="col-6">
-                        <div><img className="border mt-5" src={this.state.preview4} height={280} width={300}/></div>
-                      </div>
-                    </div>
+                  <div className="container-photos">
+                    <div><img className="frames" src={this.state.preview1} height={280} width={300} /></div>
+                    <div><img className="frames" src={this.state.preview2} height={280} width={300}/></div>
+                    <div><img className="frames" src={this.state.preview3} height={280} width={300}/></div>
+                    <div><img className="frames" src={this.state.preview4} height={280} width={300}/></div>
                   </div>
                 </div>
-              </div>
-              <div className="row offset-5">
-                <input type="submit" className="btn btn-primary" />
+              <div className="container-submitBtn">
+                <input type="submit" className="submitBtn" />
               </div>
             </div>
           </form>
-
       </div>
     )
   }

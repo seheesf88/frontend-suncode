@@ -73,14 +73,31 @@ class Nav extends Component{
   render(){
     return(
       <div>
-        <ul className="nav">
-          <li className="nav-item">
-            <Link to="/myaccount"><div className="navItem">My Account</div></Link>
-          </li>
-          <li className="nav-item">
+        <div>
+        { localStorage.getItem('userId') !== null
+        ?
+        <div className="nav true" >
+        <div className="nav-item">
+          <Link to="/home" style={{ textDecoration: 'none' }}><div className="navItem">Home</div></Link>
+        </div>
+          <div className="nav-item">
+            <Link to="/myaccount" style={{ textDecoration: 'none' }}><div className="navItem">My Account</div></Link>
+          </div>
+          <div className="nav-item">
             <input type="submit" value="Logout" className="logout" onClick={this.logout} />
-          </li>
-        </ul>
+          </div>
+        </div>
+        :
+        <div className="nav false">
+          <div className="nav-item">
+            <Link className="link" style={{ textDecoration: 'none' }} to="/"><div className="navItem">About us</div></Link>
+          </div>
+          <div className="nav-item">
+            <Link to="/" style={{ textDecoration: 'none' }} ><div className="navItem">GreenBanc</div></Link>
+          </div>
+        </div>
+        }
+        </div>
       </div>
     )
   }

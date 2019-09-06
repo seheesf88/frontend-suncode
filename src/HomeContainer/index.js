@@ -5,6 +5,9 @@ import Nav from '../Nav';
 import MyHouseComponenet from '../MyHouseComponenet';
 // import PhotoComponent from '../PhotoComponent';
 import CreateContainer from '../CreateContainer';
+import './Home.css';
+
+
 
 class HomeContainer extends Component {
   constructor(){
@@ -196,23 +199,20 @@ class HomeContainer extends Component {
     }
 
     return (
-      <div>
+      <div className="homePage">
         <Nav username={this.state.userinfo.username} email={this.state.userinfo.email} name={this.state.userinfo.name}/>
-        <div class="alert alert-success" role="alert">
-          A simple primary alert—check it out!
-        </div>
-        <div className="container pb-5 mb-5">
-          <div className="row">
-            <div className="col-2">
-              <p className="message mt-5">
-                Hi,
-                <div className="">{this.state.userinfo.name}</div>
-              </p>
+        <div className="home">
+            <div className="userinfo">
+              <div className="userMessage">
+              Hi,
+              <div className="">{this.state.userinfo.name}(username)</div>
+              </div>
             </div>
-            <div className="col-10">
-              <MyHouseComponenet allHouses={this.state.allHouses} deleteHouse={this.deleteHouse} />
+            <div className="houses">
+              <div className="house">
+                <MyHouseComponenet allHouses={this.state.allHouses} deleteHouse={this.deleteHouse} />
+              </div>
             </div>
-          </div>
         </div>
       </div>
     )
@@ -225,6 +225,23 @@ export default HomeContainer
 //   <div className="text-center mb-5"><span className="h2">My house</span><span className="ml-3"><Link to={`/create`}>create</Link></span></div>
 //   <MyHouseComponenet myHouse={this.state.house} deleteHouse={this.deleteHouse} />
 // </div>
+// <MyHouseComponenet myHouse={this.state.myHouses} deleteHouse={this.deleteHouse} />
 
 
-              // <MyHouseComponenet myHouse={this.state.myHouses} deleteHouse={this.deleteHouse} />
+
+// <div>
+//   <Nav username={this.state.userinfo.username} email={this.state.userinfo.email} name={this.state.userinfo.name}/>
+//   <div className="container pb-5 mb-5">
+//     <div className="row">
+//       <div className="col-2">
+//         <p className="message mt-5">
+//           Hi,
+//           <div className="">{this.state.userinfo.name}</div>
+//         </p>
+//       </div>
+//       <div className="col-10">
+//         <MyHouseComponenet allHouses={this.state.allHouses} deleteHouse={this.deleteHouse} />
+//       </div>
+//     </div>
+//   </div>
+// </div>

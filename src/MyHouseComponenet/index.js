@@ -7,34 +7,40 @@ const MyHouseComponenet = (props) => {
   const myHouse = props.allHouses.map(house => {
     if(house.userId === localStorage.getItem('userId')){
     return(
-      <div className="house border col-4 my-5 pt-5 pb-1 ml-3" key={house._id}>
-          <div className="text-center"><Link to={`/${house._id}`}><img className="mainPhoto" src={`${process.env.REACT_APP_API}/` + house.productImage1} /></Link></div>
-          <div className="mt-5 mb-3 ml-3">
+      <div className="oneHouse" key={house._id}>
+        <div className="editDelete">
+          <div className="leftBtnedit">
+            <Link to={`/${house._id}/edit`} style={{ textDecoration: 'none' }}><img id="editpen" src="../editpen.png" /></Link>
+          </div>
+          <div className="rightBtndelete">
+            <button className="rightBtnborder" type="button" onClick={props.deleteHouse.bind(null, house._id)}><img id="deletepic" src="../delete.png" /></button>
+          </div>
+          </div>
+          <div className="top">
+            <Link to={`/${house._id}`}><img className="mainPhoto" src={`${process.env.REACT_APP_API}/` + house.productImage1} /></Link>
+          </div>
+          <div className="summary">
             <div>{house.address}</div>
             <div>{house.state}</div>
             <div>{house.zipcode}</div>
           </div>
-          <div className="container mb-1 mt-5">
-            <div className="row pl-5">
-            <Link className="close pt-2 mr-3" to={`/${house._id}/edit`}>Edit</Link>
-            <button className="close pt-2 ml-0" type="button" onClick={props.deleteHouse.bind(null, house._id)}>Delete</button>
-            </div>
-          </div>
           <div className="postingTime">{house.postingTime}</div>
+
+
       </div>
       )
     }
   });
 
   return (
-    <div className="">
-      <div className="container">
-        <div className="row">
-
-          {myHouse}
-          <div className="create col-3 my-5 pt-5 pb-1 ml-1"><Link to="/create"><img id="create" src="../icon/plus.png" /></Link></div>
+    <div>
+      <div className="grid">
+        {myHouse}
+        <div className="create">
+          <Link to="/create">
+            <img id="createBtn" src="../icon/plus.png" />
+          </Link>
         </div>
-
       </div>
     </div>
   )
