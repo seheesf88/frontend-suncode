@@ -25,10 +25,11 @@
 }
 
 .oneHouse {
-  border: 1px solid;
+  /* border: 1px solid; */
   width: 380px;
   height: 520px;
   margin-right: 4%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 
@@ -37,7 +38,7 @@
 }
 
 .mainPhoto {
-  width: 320px;
+  width: 310px;
   height: 300px;
   border: 1px solid black;
   margin: 0px 3px 1px 3px;

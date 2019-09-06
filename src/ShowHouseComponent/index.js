@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import './ShowHouse.css';
 
 const ShowHouseComponent = (props) => {
   console.log('what is props????====>', props);
