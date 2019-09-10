@@ -144,6 +144,7 @@ class RegisterLoginContainer extends Component{
        }
      })
      console.log('fetching login?');
+     console.log('true?', (response.ok));
      if(!response.ok){
        throw Error(response.statusText);
      }
