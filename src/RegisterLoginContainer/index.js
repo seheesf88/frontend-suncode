@@ -174,7 +174,7 @@ class RegisterLoginContainer extends Component{
        alert('fetch fail')
      }
    }catch(err){
-     alert("catch err")
+     alert("catch err???")
    }
  }
 
