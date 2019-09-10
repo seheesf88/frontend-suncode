@@ -148,9 +148,9 @@ class RegisterLoginContainer extends Component{
        throw Error(response.statusText);
      }
 
-     // console.log('login response?', response);
+     console.log('login response?', response);
      const parsedResponse = await response.json();
-     // console.log("login parsedResponse?", parsedResponse)
+     console.log("login parsedResponse?", parsedResponse)
      if(parsedResponse.status !== 401){
      // if(parsedResponse.status === 200){
        updatedLogin.successful = true;
@@ -162,6 +162,7 @@ class RegisterLoginContainer extends Component{
        localStorage.setItem('userId', parsedResponse.userId)
        localStorage.setItem('username', parsedResponse.username)
 
+       console.log('hereeee????');
        // if(parsedResponse.userId === '5d2e7cbbae8a8b045f6f2e39'){
       if(parsedResponse.username === 'admin'){
          this.props.history.push('/adminhome')
