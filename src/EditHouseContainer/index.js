@@ -70,7 +70,17 @@ class EditHouseContainer extends Component {
           throw Error(response.statusText)
         }
 
-        this.props.history.push('/home');
+
+
+
+        let userId = localStorage.getItem('userId')
+
+        if(userId === '5d2e7cbbae8a8b045f6f2e39') {
+            this.props.history.push('/adminHome')
+        }else {
+            this.props.history.push('/home');
+        }
+
 
       } catch(err) {
         return err
