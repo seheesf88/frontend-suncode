@@ -5,16 +5,17 @@
 
 .regLog {
   /* border: 1px solid; */
+  height: 100px;
   /* width: 100%; */
-  height: auto;
-  /* backgr ound-size: 100% 100%; */
+  background-size: 100% 100%;
   /* background-image: url(./pic3.jpg), linear-gradient(white, yellow); */
-  background-image: url(./pic3.jpg);
+  /* background-image: url(./house.jpg); */
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  background-color: #A6D5AE;
+  /* background-color:   #A6D5AE; */
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
 
 
@@ -23,7 +24,8 @@
 .login, .register {
   /* border: 1px solid; */
   position: absolute;
-  margin-top: 10%;
+  /* margin-top: 2%; */
+  margin-bottom: 20%;
   margin-left: 38%;
   width: 500px;
 
@@ -31,6 +33,7 @@
 
 #login, #register {
   color: #2E8B56;
+  /* color: white; */
   margin-left: 2%;
 }
 
@@ -40,24 +43,39 @@
 }
 
 .form-input {
+  /* padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 2px;
+  font-size: 20px;
+  outline: none;
+  width: 300px;
+  border: 1px solid #2E8B56; */
+  /* color: #2E8B56; */
+  /* color: white; */
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
   font-size: 20px;
   outline: none;
-  width: 300px;
-  border: 2px solid #2E8B56;
-  color: #2E8B56;
+  width: 75%;
+  /* border: 1px solid #2E8B56;
+  color: #2E8B56; */
+  border: 1px solid grey;
+  color: grey;
+  display: grid;
+  /* grid-template-columns: auto; */
+  border-radius: 5px;
+
 }
 
-::placeholder {
-  color: #2E8B56;
-}
 
 .regLogBtn {
+  background-color: #2E8B56;
   /* background-color: #64A466; */
-  border: 2px solid #2E8B56;
-  color: #2E8B56;
+  border: 1px solid #2E8B56;
+  /* color: #2E8B56; */
+  color: white;
   width: 150px;
   border-radius: 45px;
   padding-top: 2%;
@@ -66,10 +84,11 @@
   padding-right: 8%;
   font-size: 20px;
   margin-top: 3%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .regLogBtn:hover {
-  background-color: #2E8B56;
+  background-color: #64A466;
   color: white;
 }
 

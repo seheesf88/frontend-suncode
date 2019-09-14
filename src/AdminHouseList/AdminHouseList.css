@@ -1,0 +1,17 @@
+.container-table {
+  text-align: center;
+}
+
+.table {
+  border: 1px solid;
+  width: 90%;
+  margin-left: 5%;
+}
+
+.col {
+  border-bottom: 2px solid;
+}
+
+.table-row {
+  border: 1px red solid;
+}

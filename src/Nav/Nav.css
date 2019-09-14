@@ -1,18 +1,21 @@
 .nav {
   font-size: 20px;
   color: white;
-  margin-top: 50px;
+  margin-top: 0px;;
   padding-top: 1%;
   padding-bottom: 1%;
   padding-right: 5%;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
 
+
+
+
 .true {
-  background-color: #A6D5AE;
+  background-color: #2E8B56;
 }
 
 .false {
@@ -20,7 +23,7 @@
  -moz-background-size: cover;
  -o-background-size: cover;
  background-size: cover; */
- background-color: #A6D5AE;
+ background-color: #2E8B56;
 }
 
 .nav-item {
@@ -34,7 +37,7 @@
 
 
 .logout {
-  background-color: #A6D5AE;
+  background-color: #2E8B56;
   border: none;
   color: white;
   font-size: 20px;
@@ -50,4 +53,11 @@
 
 .mainPhoto1 {
   width: 100%;
+}
+
+.footer {
+  background-color: #2E8B56;
+  height: 30px;
+  position: fixed;
+
 }

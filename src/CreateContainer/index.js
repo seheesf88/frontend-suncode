@@ -207,15 +207,19 @@ class CreateContainer extends Component {
         data.append('time', this.state.house.time);
 
         let userId = localStorage.getItem('userId');
-        console.log('userId????', userId);
+        // console.log('userId????', userId);
         data.append('userId', userId)
+
+        let username = localStorage.getItem('username');
+        data.append('username', username)
+
         const time = new Date();
-        console.log('postingTime is working in here? ====>', time);
+        // console.log('postingTime is working in here? ====>', time);
         data.append('postingTime', time)
 
 
-        console.log(data, this.state.house.pic1)
-        console.log('what is this.state.house.pic1? ====>', typeof this.state.house.pic1);
+        // console.log(data, this.state.house.pic1)
+        // console.log('what is this.state.house.pic1? ====>', typeof this.state.house.pic1);
         axios.post(`${process.env.REACT_APP_API}/api/v1/house`, data, {
           headers: {
             'content-type': 'multipart/form-data'
@@ -247,13 +251,24 @@ class CreateContainer extends Component {
         <Nav />
           <form onSubmit={this.handleSubmit} className="createForm">
             <div className="createContainer">
+                <div className="container-panel">
+                  <div className="form-group select">
+                    <input name="pic1" id="attach" type="file" multiple onChange={this.fileSelectHandler} value={this.state.house.pic21}  />
+                  </div>
+                  <div className="container-photos">
+                    <div><img className="frames" src={this.state.preview1} height={100} width={100} /></div>
+                    <div><img className="frames" src={this.state.preview2} height={100} width={100} /></div>
+                    <div><img className="frames" src={this.state.preview3} height={100} width={100} /></div>
+                    <div><img className="frames" src={this.state.preview4} height={100} width={100} /></div>
+                  </div>
+                </div>
                 <div className="container-form-group">
                   <div className="form-group">
                     <label htmlFor="address">Address:</label>
                     <input name="address" id="address" type="text" className="form-control" onChange={this.handleInput} placeholder="ex)1330 Broadway" value={this.state.house.address} />
                   </div>
                   <div className="form-group">
-                    <label className="" htmlFor="Address2">Address2:</label>
+                    <label className="" htmlFor="Address2">Address 2:</label>
                     <input name="address2" id="address2" type="text" className="form-control" onChange={this.handleInput} value={this.state.house.address2} placeholder="ex)#300" />
                   </div>
                   <div className="form-group">
@@ -269,7 +284,7 @@ class CreateContainer extends Component {
                     <input name="year" id="year" type="text" className="form-control" onChange={this.handleInput} value={this.state.house.year} placeholder="ex)YYYY" />
                   </div>
                   <div className="form-group">
-                    <label className="" htmlFor="sqft">Sqft:</label>
+                    <label className="" htmlFor="sqft">Sq.ft.:</label>
                     <input name="sqft" id="sqft" type="text" className="form-control" onChange={this.handleInput} value={this.state.house.sqft} placeholder="ex)960" />
                   </div>
                   <div className="form-group">
@@ -278,17 +293,7 @@ class CreateContainer extends Component {
                     </textarea>
                   </div>
                 </div>
-                <div className="container-panel">
-                  <div className="form-group select">
-                    <input name="pic1" id="pic1" type="file" multiple onChange={this.fileSelectHandler} value={this.state.house.pic21}  />
-                  </div>
-                  <div className="container-photos">
-                    <div><img className="frames" src={this.state.preview1} height={280} width={300} /></div>
-                    <div><img className="frames" src={this.state.preview2} height={280} width={300}/></div>
-                    <div><img className="frames" src={this.state.preview3} height={280} width={300}/></div>
-                    <div><img className="frames" src={this.state.preview4} height={280} width={300}/></div>
-                  </div>
-                </div>
+
               <div className="container-submitBtn">
                 <input type="submit" className="submitBtn" />
               </div>

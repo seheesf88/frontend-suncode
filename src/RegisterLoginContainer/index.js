@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import './RegisterLoginContainer.css';
-import Nav from '../Nav'
+import NavHome from '../NavHome'
 
 
 class RegisterLoginContainer extends Component{
@@ -144,7 +144,7 @@ class RegisterLoginContainer extends Component{
        }
      })
      console.log('fetching login?');
-     console.log('true?', (response.ok));
+     console.log('true?', (response));
      if(!response.ok){
        throw Error(response.statusText);
      }
@@ -202,8 +202,9 @@ class RegisterLoginContainer extends Component{
 
 
     return(
-      <div className="regLog">
-        <Nav />
+      <div>
+        <NavHome />
+        <div className="regLog"></div>
         <div>
           { !this.state.loginButton ?
             <div className="login">
@@ -211,7 +212,7 @@ class RegisterLoginContainer extends Component{
                 <form onSubmit={this.handleLoginSubmit}>
                   <div className="login-form">
                     <input className="form-input" id="username" name="username" type="text" value={this.state.login.username} onChange={this.handleLoginChange} required placeholder="Username"/>
-                    <input className="form-input" id="password" name="password" type="text" value={this.state.login.password} onChange={this.handleLoginChange} required placeholder="password"/>
+                    <input className="form-input" id="password" name="password" type="text" value={this.state.login.password} onChange={this.handleLoginChange} required placeholder="Password"/>
                     <div className="btn-container">
                       <div className="btn-row">
                         <button className="regLogBtn leftBtn" type="submit">Login</button>
@@ -242,6 +243,7 @@ class RegisterLoginContainer extends Component{
 
               }
 
+        <div className="footer"></div>
       </div>
     </div>
     )

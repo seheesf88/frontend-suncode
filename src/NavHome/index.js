@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import './Nav.css';
+import './NavHome.css';
 
 
 
-class Nav extends Component{
+
+class NavHome extends Component{
   constructor(){
     super()
     this.state = {
@@ -73,56 +74,22 @@ class Nav extends Component{
   render(){
     return(
       <div>
-        <div>
-        { localStorage.getItem('username') !== 'admin'
-        ?
+        <div className="navHome">
+          <img id="logo" className="logo" src="../icon/greenbanc.png" />
 
-        <div className="nav true" >
-        <div className="nav-item">
-          <Link to="/home" style={{ textDecoration: 'none' }}><div className="navItem">Home</div></Link>
-        </div>
-          <div className="nav-item">
-            <Link to="/myaccount" style={{ textDecoration: 'none' }}><div className="navItem">My Account</div></Link>
+          <div className="nav-home-menu" >
+            <div className="nav-item-home">
+              <Link to="/home" style={{ textDecoration: 'none' }}><div className="navItem-home">About us</div></Link>
+            </div>
+            <div className="nav-item-home">
+              <Link to="/myaccount" style={{ textDecoration: 'none' }}><div className="navItem-home">GreenBanc</div></Link>
+            </div>
+        
           </div>
-          <div className="nav-item">
-            <input type="submit" value="Logout" className="logout" onClick={this.logout} />
-          </div>
-        </div>
-        :
-
-        <div className="nav false" >
-          <div className="nav-item">
-            <Link to="/adminhome" style={{ textDecoration: 'none' }}><div className="navItem">House List</div></Link>
-          </div>
-          <div className="nav-item">
-            <Link to="/myaccount" style={{ textDecoration: 'none' }}><div className="navItem">My Account</div></Link>
-          </div>
-          <div className="nav-item">
-            <input type="submit" value="Logout" className="logout" onClick={this.logout} />
-          </div>
-        </div>
-
-        }
         </div>
       </div>
     )
   }
 }
 
-export default withRouter(Nav);
-
-//
-// <div className="mt-5 mb-3 ml-5 container">
-//   <div className="row">
-//     <div className="col-4 offset-4 text-center">
-//       <div className="">
-//         <Link to="/home">
-//           <img src="Logo_ElectriCasa-05.png" className="logo"/>
-//         </Link>
-//       </div>
-//       <div className="">
-//         ElectriCasa
-//       </div>
-//     </div>
-//   </div>
-// </div>
+export default withRouter(NavHome);
