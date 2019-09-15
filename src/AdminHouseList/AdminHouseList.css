@@ -3,7 +3,7 @@
 }
 
 .table {
-  border: 1px solid;
+  /* border: 1px solid; */
   width: 90%;
   margin-left: 5%;
 }
@@ -14,4 +14,8 @@
 
 .table-row {
   border: 1px red solid;
+}
+
+#houseStatus {
+  text-transform: capitalize;
 }

@@ -3,6 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 
 import Nav from '../Nav';
 import AdminHouseList from '../AdminHouseList';
+import './AdminHome.css';
 
 
 class AdminHome extends Component {
@@ -92,23 +93,13 @@ class AdminHome extends Component {
     return (
       <div>
         <Nav />
-        <h1 className="text-center my-5">Admin home</h1>
-        <div className="container">
-          <div className="row">
-            <div className="col-3">
-              <div className="mb-5"><span className="h2">Profile</span><span className="ml-3"><Link to={`/myaccount/${localStorage.getItem('userId')}/edit`}>Edit</Link></span></div>
-                <div className="">
-                  <div className="">Username : <span className="ml-2">{this.state.userinfo.username}</span></div>
-                  <div className="">Name : <span className="ml-2">{this.state.userinfo.name}</span></div>
-                  <div className="">Email : <span className="ml-2">{this.state.userinfo.email}</span></div>
-                </div>
-            </div>
+        <h1 id="adminHome">Admin home</h1>
+          <div className="container">
             <div className="col-8">
-              <div className="text-center mb-5"><span className="h2">House List</span></div>
+              <h3 id="houselist">House List</h3>
               <AdminHouseList myHouse={this.state.house} deleteHouse={this.deleteHouse} />
             </div>
           </div>
-        </div>
       </div>
     )
   }
@@ -118,7 +109,7 @@ export default AdminHome
 
 // <span className="ml-3"><Link to={`/create`}>create</Link></span>
 
-// 
+//
 // <div>
 //   <Nav />
 //   <h1 className="text-center my-5">Admin home</h1>

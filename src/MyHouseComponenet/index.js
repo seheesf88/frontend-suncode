@@ -25,11 +25,11 @@ const MyHouseComponenet = (props) => {
             <div>{house.zipcode}</div>
           </div>
           <div className="editDelete">
-            <div className="leftBtnedit">
-              <Link to={`/${house._id}`} style={{ textDecoration: 'none' }}><span id="">See</span></Link>
+            <div className="seeLink">
+              <Link to={`/${house._id}`} style={{ textDecoration: 'none' }}><span className="linkFont">See</span></Link>
             </div>
-            <div className="leftBtnedit">
-              <Link to={`/${house._id}/edit`} style={{ textDecoration: 'none' }}><span id="editBtn">Edit</span></Link>
+            <div className="editLink">
+              <Link to={`/${house._id}/edit`} style={{ textDecoration: 'none' }}><span className="linkFont">Edit</span></Link>
             </div>
             <div className="rightBtndelete">
               <button className="rightBtnborder" type="button" onClick={props.deleteHouse.bind(null, house._id)}>Delete</button>

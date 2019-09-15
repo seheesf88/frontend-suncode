@@ -14,6 +14,12 @@
   padding-left: 20%;
 }
 
+.frames-edit {
+  border: 1px solid grey;
+  background-size: 40%;
+
+}
+
 .mainPhoto-edit, .subPhoto1, .subPhoto2, .subPhoto3 {
   margin-right: 12px;
 }

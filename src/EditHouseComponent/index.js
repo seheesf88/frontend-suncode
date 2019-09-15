@@ -11,10 +11,10 @@ const EditHouseComponent = (props) => {
             <h1 id="edittitle">Edit House</h1>
               <div className="container-editComp">
                 <div className="photoFrames">
-                  <img className="mainPhoto-edit frames" height={100} width={100} src={`${process.env.REACT_APP_API}/` + props.house.productImage1} />
-                  <img className="subPhoto1 frames" height={100} width={100} src={`${process.env.REACT_APP_API}/` + props.house.productImage2} />
-                  <img className="subPhoto2 frames" height={100} width={100} src={`${process.env.REACT_APP_API}/` + props.house.productImage3} />
-                  <img className="subPhoto3 frames" height={100} width={100} src={`${process.env.REACT_APP_API}/` + props.house.productImage4} />
+                  <img className="mainPhoto-edit frames-edit" height={100} width={100} src={`${process.env.REACT_APP_API}/` + props.house.productImage1} />
+                  <img className="subPhoto1 frames-edit" height={100} width={100} src={`${process.env.REACT_APP_API}/` + props.house.productImage2} />
+                  <img className="subPhoto2 frames-edit" height={100} width={100} src={`${process.env.REACT_APP_API}/` + props.house.productImage3} />
+                  <img className="subPhoto3 frames-edit" height={100} width={100} src={`${process.env.REACT_APP_API}/` + props.house.productImage4} />
                 </div>
                 <div className="container-edit">
                   <form onSubmit={props.updateHouse}>
@@ -45,7 +45,8 @@ const EditHouseComponent = (props) => {
                       </div>
                     </div>
 
-  { username === 'admin'?
+  // { username === 'admin'?
+  { userId === '5d7e9d844eb54d001728cf31' ?
                 <div className="houseexam-admin">
                   <h1>Admin only</h1>
                   <div className="form-group">
@@ -78,7 +79,8 @@ const EditHouseComponent = (props) => {
                   </div>
                 </div>
 : null }
-{ username === 'admin' ?
+// { username === 'admin' ?
+{ userId === '5d7e9d844eb54d001728cf31' ?
 
                 <div className="houseexam2-admin">
                   <div className="form-group statusoption">
