@@ -7,7 +7,8 @@ const AdminHouseList = (props) => {
     // console.log('myhouse???====>?', props.myHouse);
     console.log('>>>>>', house);
     // if(house.authorId === localStorage.getItem('userId')){
-    let newTime = house.postingTime.slice(0, 25);
+    let newTime = house.postingTime
+    
 
     return(
         <tr key={house._id}>
