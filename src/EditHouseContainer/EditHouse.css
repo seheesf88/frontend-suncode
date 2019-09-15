@@ -26,11 +26,24 @@
 }
 
 .houseexam-admin {
-
+  width: 75%;
+  margin-top: 10%;
+  margin-left: 26%;
 }
 
-.houseexam2-admin {
+#status {
+  margin-bottom: 30px;
+}
 
+#labelstatus {
+  margin-right: 10px;
+}
+
+
+.houseexam2-admin {
+  width: 75%;
+  margin-top: 5%;
+  margin-left: 26%;
 }
 
 

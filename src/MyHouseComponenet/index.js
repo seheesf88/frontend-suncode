@@ -26,6 +26,9 @@ const MyHouseComponenet = (props) => {
           </div>
           <div className="editDelete">
             <div className="leftBtnedit">
+              <Link to={`/${house._id}`} style={{ textDecoration: 'none' }}><span id="">See</span></Link>
+            </div>
+            <div className="leftBtnedit">
               <Link to={`/${house._id}/edit`} style={{ textDecoration: 'none' }}><span id="editBtn">Edit</span></Link>
             </div>
             <div className="rightBtndelete">

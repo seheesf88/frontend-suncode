@@ -78,11 +78,11 @@ const EditHouseComponent = (props) => {
                   </div>
                 </div>
 : null }
-{ username === 'admin'?
+{ username === 'admin' ?
 
                 <div className="houseexam2-admin">
-                  <div className="form-group mt-4 mb-4">
-                    <label htmlFor="status">Status:</label>
+                  <div className="form-group statusoption">
+                    <label htmlFor="status" id="labelstatus">Exam Status:</label>
                       <select name="status" id="status" onChange={props.handleEditFormInput} value={props.house.status}>
                         <option value="completed">Completed</option>
                         <option value="inProgress" selected>In-progress</option>

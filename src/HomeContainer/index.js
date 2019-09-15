@@ -203,8 +203,8 @@ class HomeContainer extends Component {
         <Nav username={this.state.userinfo.username} email={this.state.userinfo.email} name={this.state.userinfo.name}/>
         <div className="userinfo">
           <div className="userMessage">
-            Hi,
-          <span>{this.state.userinfo.name}</span>
+              Hi,
+            <span id="username"> {this.state.userinfo.name}</span>
           </div>
         </div>
         <div className="home">

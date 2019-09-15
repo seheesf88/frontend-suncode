@@ -9,10 +9,12 @@
 }
 
 .userinfo {
-  border-bottom: 1px solid;
-  font-size: 25px;
-  height: 80px;
+  font-size: 22px;
+  height: 60px;
   /* background-color: #64A466; */
+  padding-top: 20px;
+  padding-right: 100px;
+  text-align: right;
 }
 
 .houses {
