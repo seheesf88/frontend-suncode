@@ -164,11 +164,13 @@ class RegisterLoginContainer extends Component{
        localStorage.setItem('username', parsedResponse.username)
 
        console.log('hereeee????');
+       console.log('is this true$$$$$========>', (parsedResponse._id === '5d7e9d844eb54d001728cf31'));
        if(parsedResponse._id === '5d7e9d844eb54d001728cf31'){
       // if(parsedResponse.username === 'admin'){
         console.log('where you go?');
          this.props.history.push('/adminhome')
        }else{
+         console.log('then here?');
         this.props.history.push('/home')
       }
 
