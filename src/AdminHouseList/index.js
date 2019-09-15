@@ -7,11 +7,11 @@ const AdminHouseList = (props) => {
     // console.log('myhouse???====>?', props.myHouse);
     console.log('>>>>>', house);
     // if(house.authorId === localStorage.getItem('userId')){
+    let newTime = house.postingTime.slice(0, 25);
+
     return(
         <tr key={house._id}>
-          <td>{
-            house.postingTime
-          }</td>
+          <td>{newTime}</td>
           <td><Link to={`/${house._id}`}>{house.address}</Link></td>
           <td>{house.username}</td>
           <td>{house.year}</td>
