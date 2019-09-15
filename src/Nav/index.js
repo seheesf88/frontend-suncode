@@ -95,7 +95,7 @@ class Nav extends Component{
             <Link to="/adminhome" style={{ textDecoration: 'none' }}><div className="navItem">House List</div></Link>
           </div>
           <div className="nav-item">
-            <Link to="/myaccount" style={{ textDecoration: 'none' }}><div className="navItem">My Account</div></Link>
+            <Link to="/myaccount" style={{ textDecoration: 'none' }}><div className="navItem">Mydfd Account</div></Link>
           </div>
           <div className="nav-item">
             <input type="submit" value="Logout" className="logout" onClick={this.logout} />
