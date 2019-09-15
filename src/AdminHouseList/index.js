@@ -10,7 +10,7 @@ const AdminHouseList = (props) => {
     return(
         <tr key={house._id}>
           <td>{
-            // house.postingTime.slice(0, 25)
+            house.postingTime
           }</td>
           <td><Link to={`/${house._id}`}>{house.address}</Link></td>
           <td>{house.username}</td>
