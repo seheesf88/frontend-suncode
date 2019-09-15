@@ -58,13 +58,14 @@ class AdminHome extends Component {
           throw Error(response.statusText)
         }
 
+        console.log('whay?');
         const responseParsed = await response.json();
 
         this.setState({
           house: responseParsed.data
         })
       }catch(err){
-        console.log('fetching getmyreport is fail');
+        console.log('fetching getmyrhose is fail');
       }
     }
 
