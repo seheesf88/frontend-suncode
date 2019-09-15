@@ -1,0 +1,25 @@
+.editmyinfo {
+  width: 60%;
+  margin-left: 30%;
+}
+
+.form {
+  margin-top: 8%;
+}
+
+.editBtn {
+  border: 2px solid #2E8B56;
+  color: #2E8B56;
+  width: 200px;
+  border-radius: 45px;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  font-size: 20px;
+  margin-top: 3%;
+  margin-left: 17%;
+}
+
+.editBtn:hover {
+  background-color: #2E8B56;
+  color: white;
+}

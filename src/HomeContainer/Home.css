@@ -2,38 +2,27 @@
   font-family: 'Lato', sans-serif;
 }
 
-.homepage {
-  width: 100%;
-}
-
 .home {
   /* border: 1px solid red; */
   display: flex;
-  flex-direction: row;
   width: 100%;
 }
 
 .userinfo {
-  /* border: 1px solid; */
-  width: 20%;
-  margin: 5% 2%;
-  padding-left: 10px;
-  font-size: 30px;
-  background-color: #64A466;
-}
-
-.userMessage {
-  margin-top: 80px;
+  border-bottom: 1px solid;
+  font-size: 25px;
+  height: 80px;
+  /* background-color: #64A466; */
 }
 
 .houses {
+  width: 80%;
+  margin-left: 10%;
   margin-top: 5%;
   margin-bottom: 5%;
-  width: 60%;
-  /* border: 5px solid green; */
-  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
 
 .house {
-
+  /* margin-left: 5%; */
+  /* margin-right: 5%; */
 }

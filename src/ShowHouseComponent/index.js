@@ -12,8 +12,8 @@ const ShowHouseComponent = (props) => {
         <h1>{props.showHouse.address}</h1>
           {
            `props.showHouse.status === Compelted` ?
-            <div className="status" id="green">true</div> :
-            <div className="status" id="red">false</div>
+            <div className="status" id="green">Completed</div> :
+            <div className="status" id="red">Pending...</div>
           }
       </div>
 
@@ -24,7 +24,7 @@ const ShowHouseComponent = (props) => {
            <div className="container-info">
             <div className="infoList-container">
               <div className="infoList">Address :</div>
-              <div className="infoList">Address2 :</div>
+              <div className="infoList">Address 2 :</div>
               <div className="infoList">State :</div>
               <div className="infoList">Zipcode :</div>
               <div className="infoList">Year :</div>

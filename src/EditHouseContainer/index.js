@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Nav from '../Nav';
 import EditHouseComponent from '../EditHouseComponent';
+import './EditHouse.css';
 
 
 class EditHouseContainer extends Component {

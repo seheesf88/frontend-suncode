@@ -72,7 +72,7 @@ class Nav extends Component{
 
   render(){
     return(
-      <div>
+      <div className="navBar">
         <div>
         { localStorage.getItem('username') !== 'admin'
         ?

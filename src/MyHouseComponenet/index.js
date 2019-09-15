@@ -5,24 +5,32 @@ import { Link } from 'react-router-dom'
 const MyHouseComponenet = (props) => {
   console.log('what is props? ====> ', props);
   const myHouse = props.allHouses.map(house => {
+    console.log('what is house status? ======>', house.status );
     if(house.userId === localStorage.getItem('userId')){
     return(
       <div className="oneHouse" key={house._id}>
-        <div className="editDelete">
-          <div className="leftBtnedit">
-            <Link to={`/${house._id}/edit`} style={{ textDecoration: 'none' }}><img id="editpen" src="../editpen.png" /></Link>
-          </div>
-          <div className="rightBtndelete">
-            <button className="rightBtnborder" type="button" onClick={props.deleteHouse.bind(null, house._id)}><img id="deletepic" src="../delete.png" /></button>
-          </div>
-          </div>
           <div className="top">
             <Link to={`/${house._id}`}><img className="mainPhoto" src={`${process.env.REACT_APP_API}/` + house.productImage1} /></Link>
           </div>
           <div className="summary">
+            <div className="home-status">
+              { house.status === undefined ?
+                <div id="status-t">In-progress</div>
+                :
+                <div id="status-f">{house.status}</div>
+              }
+            </div>
             <div>{house.address}</div>
             <div>{house.state}</div>
             <div>{house.zipcode}</div>
+          </div>
+          <div className="editDelete">
+            <div className="leftBtnedit">
+              <Link to={`/${house._id}/edit`} style={{ textDecoration: 'none' }}><span id="editBtn">Edit</span></Link>
+            </div>
+            <div className="rightBtndelete">
+              <button className="rightBtnborder" type="button" onClick={props.deleteHouse.bind(null, house._id)}>Delete</button>
+            </div>
           </div>
           <div className="postingTime">{house.postingTime}</div>
 
