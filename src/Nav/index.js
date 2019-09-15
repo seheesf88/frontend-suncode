@@ -74,7 +74,7 @@ class Nav extends Component{
     return(
       <div className="navBar">
         <div>
-        { localStorage.getItem('username') !== 'admin'
+        { localStorage.getItem('userId') !== '5d7e9d844eb54d001728cf31'
         ?
 
         <div className="nav true" >
