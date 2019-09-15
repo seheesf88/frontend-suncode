@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import Nav from '../Nav'
+import './ShowMyAccount.css';
 
 
 
@@ -51,26 +52,24 @@ class ShowMyAccount extends Component{
     return(
       <div>
         <Nav />
-        <div className="container">
-          <div className="row">
-            <div className="col-10 offset-1">
-              <h2 className="my-5">My Account</h2>
-              <div><Link to={`/myaccount/${localStorage.getItem('userId')}/edit`}>Edit</Link></div>
-              <div>
+          <div className="myaccount">
+            <h2>My Account</h2>
+            <div><Link to={`/myaccount/${localStorage.getItem('userId')}/edit`}>Edit</Link></div>
+          </div>
+            <div className="myaccout-show">
+              <div className="myaccount-input">
                 <span>Username : </span>
                 <span>{this.state.userinfo.username}</span>
               </div>
-              <div>
+              <div className="myaccount-input">
                 <span>Email : </span>
                 <span>{this.state.userinfo.email}</span>
               </div>
-              <div>
+              <div className="myaccount-input">
                 <span>Name : </span>
                 <span>{this.state.userinfo.name}</span>
               </div>
             </div>
-          </div>
-        </div>
       </div>
     )
   }
