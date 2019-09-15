@@ -15,7 +15,7 @@ const AdminHouseList = (props) => {
     newTime(house.postingTime)
     return(
         <tr key={house._id}>
-          <td>{newTime}</td>
+          <td>{newTime(house.postingTime)}</td>
           <td><Link to={`/${house._id}`}>{house.address}</Link></td>
           <td>{house.username}</td>
           <td>{house.year}</td>
