@@ -8,10 +8,12 @@ const MyHouseComponenet = (props) => {
     console.log('what is house status? ======>', house.status );
     if(house.userId === localStorage.getItem('userId')){
     return(
-      <div className="oneHouse" key={house._id}>
+      <div className="oneHouse-container" key={house._id}>
+        <div className="oneHouse">
           <div className="top">
             <Link to={`/${house._id}`}><img className="mainPhoto" src={`${process.env.REACT_APP_API}/` + house.productImage1} /></Link>
           </div>
+
           <div className="summary">
             <div className="home-status">
               { house.status === undefined ?
@@ -24,7 +26,8 @@ const MyHouseComponenet = (props) => {
             <div>{house.state}</div>
             <div>{house.zipcode}</div>
           </div>
-          <div className="editDelete">
+
+          <div className="seeEditDelete">
             <div className="seeLink">
               <Link to={`/${house._id}`} style={{ textDecoration: 'none' }}><span className="linkFont">See</span></Link>
             </div>
@@ -35,9 +38,8 @@ const MyHouseComponenet = (props) => {
               <button className="rightBtnborder" type="button" onClick={props.deleteHouse.bind(null, house._id)}>Delete</button>
             </div>
           </div>
-          <div className="postingTime">{house.postingTime}</div>
-
-
+        </div>
+        <div className="postingTime">{house.postingTime}</div>
       </div>
       )
     }

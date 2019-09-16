@@ -4,23 +4,27 @@
 
 .home {
   /* border: 1px solid red; */
-  display: flex;
-  width: 100%;
+  display: grid;
+  grid-template-columns: 20% 80%;
+  width: 80%;
+  margin-left: 10%;
 }
 
 .userinfo {
+  /* border: 1px red solid; */
   font-size: 22px;
   height: 60px;
   /* background-color: #64A466; */
   padding-top: 20px;
   padding-right: 100px;
-  text-align: right;
+  margin-left: 30%;
+  margin-top: 40%;
 }
 
 .houses {
-  width: 80%;
+  /* width: 80%; */
   margin-left: 10%;
-  margin-top: 5%;
+  margin-top: 10%;
   margin-bottom: 5%;
 }
 

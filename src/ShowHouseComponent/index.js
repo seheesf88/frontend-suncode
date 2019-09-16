@@ -4,16 +4,16 @@ import './ShowHouse.css';
 
 const ShowHouseComponent = (props) => {
   console.log('what is props????====>', props);
-  console.log('what is props.status??=====>', (props.showHouse.status === 'Compelted'));
+  console.log('what is props.status??=====>', (props.showHouse.status === 'completed'));
   console.log('what is props.showHouse.address??======>', props.showHouse.address );
   return(
     <div className="showHouseComponent">
       <div className="houseName">
         <h1>{props.showHouse.address}</h1>
           {
-           `props.showHouse.status === Compelted` ?
+           props.showHouse.status === `completed` ?
             <div className="status" id="green">Completed</div> :
-            <div className="status" id="red">Pending...</div>
+            <div className="status" id="red">In-progress</div>
           }
       </div>
 

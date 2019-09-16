@@ -215,7 +215,7 @@ class RegisterLoginContainer extends Component{
                 <form onSubmit={this.handleLoginSubmit}>
                   <div className="login-form">
                     <input className="form-input" id="username" name="username" type="text" value={this.state.login.username} onChange={this.handleLoginChange} required placeholder="Username"/>
-                    <input className="form-input" id="password" name="password" type="text" value={this.state.login.password} onChange={this.handleLoginChange} required placeholder="Password"/>
+                    <input className="form-input" id="password" name="password" type="password" value={this.state.login.password} onChange={this.handleLoginChange} required placeholder="Password"/>
                     <div className="btn-container">
                       <div className="btn-row">
                         <button className="regLogBtn leftBtn" type="submit">Login</button>
@@ -228,20 +228,20 @@ class RegisterLoginContainer extends Component{
             :
               <div className="register">
                 <h2 id="register">Register</h2>
-                        <form onSubmit={this.handleRegisterSubmit}>
-                          <div className="reg-form">
-                            <div><input id="name" name="name" className="form-input" type="text" value={this.state.register.name} onChange={this.handleRegisterChange} required placeholder="Name"/></div>
-                            <div><input name="username" id="username" className="form-input" type="text" value={this.state.register.username} onChange={this.handleRegisterChange} placeholder="Username" required/></div>
-                            <div><input id="email" name="email" className="form-input" type="text" value={this.state.register.email} onChange={this.handleRegisterChange} placeholder="Email" required/></div>
-                            <div><input id="password" name="password" className="form-input" type="text" value={this.state.register.password} onChange={this.handleRegisterChange} placeholder="Password" required/></div>
-                          </div>
-                          <div className="btn-container">
-                            <div className="btn-row">
-                              <button className="regLogBtn leftBtn" type="submit">Register</button>
-                              {changeTwo}
-                            </div>
-                          </div>
-                        </form>
+                  <form onSubmit={this.handleRegisterSubmit}>
+                    <div className="reg-form">
+                      <div><input id="name" name="name" className="form-input" type="text" value={this.state.register.name} onChange={this.handleRegisterChange} required placeholder="Name"/></div>
+                      <div><input name="username" id="username" className="form-input" type="text" value={this.state.register.username} onChange={this.handleRegisterChange} placeholder="Username" required/></div>
+                      <div><input id="email" name="email" className="form-input" type="text" value={this.state.register.email} onChange={this.handleRegisterChange} placeholder="Email" required/></div>
+                      <div><input id="password" name="password" className="form-input" type="password" value={this.state.register.password} onChange={this.handleRegisterChange} placeholder="Password" required/></div>
+                    </div>
+                    <div className="btn-container">
+                      <div className="btn-row">
+                        <button className="regLogBtn leftBtn" type="submit">Register</button>
+                        {changeTwo}
+                      </div>
+                    </div>
+                  </form>
                 </div>
 
               }

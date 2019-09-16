@@ -265,27 +265,27 @@ class CreateContainer extends Component {
                 <div className="container-form-group">
                   <div className="form-group">
                     <label htmlFor="address">Address:</label>
-                    <input name="address" id="address" type="text" className="form-control" onChange={this.handleInput} placeholder="ex)1330 Broadway" value={this.state.house.address} />
+                    <input name="address" id="address" type="text" className="form-control" onChange={this.handleInput} placeholder="ex)1330 Broadway" value={this.state.house.address} required/>
                   </div>
                   <div className="form-group">
                     <label className="" htmlFor="Address2">Address 2:</label>
-                    <input name="address2" id="address2" type="text" className="form-control" onChange={this.handleInput} value={this.state.house.address2} placeholder="ex)#300" />
+                    <input name="address2" id="address2" type="text" className="form-control" onChange={this.handleInput} value={this.state.house.address2} placeholder="ex)#300" required/>
                   </div>
                   <div className="form-group">
                     <label className="" htmlFor="state">State:</label>
-                    <input name="state" id="state" type="text" className="form-control" placeholder="ex)CA" value={this.state.house.state} onChange={this.handleInput} />
+                    <input name="state" id="state" type="text" className="form-control" placeholder="ex)CA" value={this.state.house.state} onChange={this.handleInput} required/>
                   </div>
                   <div className="form-group">
                     <label className="" htmlFor="zipcode">Zipcode:</label>
-                    <input name="zipcode" id="zipcode" type="text" className="form-control" placeholder="ex)94612" value={this.state.house.zipcode} onChange={this.handleInput} />
+                    <input name="zipcode" id="zipcode" type="text" className="form-control" placeholder="ex)94612" value={this.state.house.zipcode} onChange={this.handleInput} required />
                   </div>
                   <div className="form-group">
                     <label className="" htmlFor="year">Year:</label>
-                    <input name="year" id="year" type="text" className="form-control" onChange={this.handleInput} value={this.state.house.year} placeholder="ex)YYYY" />
+                    <input name="year" id="year" type="text" className="form-control" onChange={this.handleInput} value={this.state.house.year} placeholder="ex)YYYY" required/>
                   </div>
                   <div className="form-group">
                     <label className="" htmlFor="sqft">Sq.ft.:</label>
-                    <input name="sqft" id="sqft" type="text" className="form-control" onChange={this.handleInput} value={this.state.house.sqft} placeholder="ex)960" />
+                    <input name="sqft" id="sqft" type="text" className="form-control" onChange={this.handleInput} value={this.state.house.sqft} placeholder="ex)960" required/>
                   </div>
                   <div className="form-group">
                     <label className="" htmlFor="memo">Memo:</label>

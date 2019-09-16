@@ -79,12 +79,12 @@ class NavHome extends Component{
 
           <div className="nav-home-menu" >
             <div className="nav-item-home">
-              <Link to="/home" style={{ textDecoration: 'none' }}><div className="navItem-home">About us</div></Link>
+              <Link to="/" style={{ textDecoration: 'none' }}><div className="navItem-home">About us</div></Link>
             </div>
             <div className="nav-item-home">
-              <Link to="/myaccount" style={{ textDecoration: 'none' }}><div className="navItem-home">GreenBanc</div></Link>
+              <a href="https://www.greenbanc.com/" style={{ textDecoration: 'none' }}><div className="navItem-home">GreenBanc</div></a>
             </div>
-        
+
           </div>
         </div>
       </div>

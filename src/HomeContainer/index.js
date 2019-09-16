@@ -201,13 +201,14 @@ class HomeContainer extends Component {
     return (
       <div className="homePage">
         <Nav username={this.state.userinfo.username} email={this.state.userinfo.email} name={this.state.userinfo.name}/>
+
+        <div className="home">
         <div className="userinfo">
           <div className="userMessage">
               Hi,
-            <span id="username"> {this.state.userinfo.name}</span>
+            <div id="username"> {this.state.userinfo.name}</div>
           </div>
         </div>
-        <div className="home">
           <div className="houses">
             <div className="house">
               <MyHouseComponenet allHouses={this.state.allHouses} deleteHouse={this.deleteHouse} />
