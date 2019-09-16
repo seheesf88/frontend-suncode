@@ -77,8 +77,8 @@ class EditHouseContainer extends Component {
         let userId = localStorage.getItem('userId');
         let username = localStorage.getItem('username')
 
-        // if(userId === '5d2e7cbbae8a8b045f6f2e39') {
-        if(username === 'admin') {
+        if(userId === '5d7e9d844eb54d001728cf31') {
+        // if(username === 'admin') {
             this.props.history.push('/adminHome')
         }else {
             this.props.history.push('/home');
