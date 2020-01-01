@@ -47,6 +47,14 @@ class CreateContainer extends Component {
     })
   }
 
+  handleClick = (e) => {
+    //console.log(e.target, e.srcElement)
+    var h = document.getElementById(`input-${e.target.id}`)
+    console.log(h, e.target.id);
+    h.click();
+
+  }
+
   handleSubmit = (e) => {
     e.preventDefault();
     const updatedHouse = {
@@ -110,11 +118,30 @@ class CreateContainer extends Component {
 
 
     fileSelectHandler = (e) => {
-      var file1 = e.target.files[0];
-      var file2 = e.target.files[1];
-      var file3 = e.target.files[2];
-      var file4 = e.target.files[3];
+      var file1, file2, file3, file4;
+
+      console.log('>>>>', e.target.id);
       // var singleFile = ''
+      switch (e.target.id) {
+        case 'input-photoOne':
+            file1 = e.target.files[0];
+          break;
+        case 'input-photoTwo':
+           file2 = e.target.files[0]; // ?? index
+           break;
+       case 'input-photoThree':
+          file3 = e.target.files[0];
+          break;
+
+       case 'input-photoFour':
+           file4 = e.target.files[0];
+           break;
+        default:
+          console.log('errorrrrr');
+          return 0;
+
+      }
+      console.log(file1, file2, file3, file4, e.target, e.target.id);
       // for(let i = 0; i < files.length; i++){
       //   singleFile = files[i]
       //   // singleFile.push(file)
@@ -126,34 +153,37 @@ class CreateContainer extends Component {
       var reader4 = new FileReader();
       // console.log('what is reader? ---->', reader );
 
-      var url1 = reader1.readAsDataURL(file1);
-      var url2 = reader2.readAsDataURL(file2);
-      var url3 = reader3.readAsDataURL(file3);
-      var url4 = reader4.readAsDataURL(file4);
+
+      var url1 = typeof file1 !== 'undefined'? reader1.readAsDataURL(file1):null;
+      var url2 = typeof file2 !== 'undefined'? reader2.readAsDataURL(file2):null;
+      var url3 = typeof file3 !== 'undefined'? reader3.readAsDataURL(file3):null;
+      var url4 = typeof file4 !== 'undefined'? reader4.readAsDataURL(file4):null;
       // console.log('who are you then?? ---->', [reader.result]);
+
+
 
       // console.log('what is this in here?', this);
       reader1.onloadend = function(e){
         this.setState({
-          preview1: [reader1.result],
+          preview1: [reader1.result || null],
         })
       }.bind(this)
 
       reader2.onloadend = function(e){
         this.setState({
-          preview2: [reader2.result],
+          preview2: [reader2.result || null],
         })
       }.bind(this)
 
       reader3.onloadend = function(e){
         this.setState({
-          preview3: [reader3.result],
+          preview3: [reader3.result || null],
         })
       }.bind(this)
 
       reader4.onloadend = function(e){
         this.setState({
-          preview4: [reader4.result],
+          preview4: [reader4.result || null],
         })
       }.bind(this)
 
@@ -162,7 +192,8 @@ class CreateContainer extends Component {
       this.setState({
         house: {
           ...this.state.house,
-          pic1: e.target.files,
+          // pic1: e.target.files,
+          pic1: [...this.state.house.pic1, e.target.files[0]]
         }
       })
     }
@@ -184,12 +215,8 @@ class CreateContainer extends Component {
 
     addHouse = async(updatedHouse) => {
       // try{
-
-
+        console.log('update house', updatedHouse);
         const data = new FormData();
-
-        // console.log('photo1 ======>', this.state.house.pic1);
-        // console.log('photo2 ======>', this.state.house.pic2);
 
         // data.append('photo', this.state.house.pic1);
 
@@ -245,6 +272,7 @@ class CreateContainer extends Component {
 
   render(){
     // console.log('THIS IS PROPS', this.props);
+    console.log("state:", this.state);
     return(
 
       <div>
@@ -252,14 +280,16 @@ class CreateContainer extends Component {
           <form onSubmit={this.handleSubmit} className="createForm">
             <div className="createContainer">
                 <div className="container-panel">
-                  <div className="form-group select">
-                    <input name="pic1" id="attach" type="file" multiple onChange={this.fileSelectHandler} value={this.state.house.pic21}  />
-                  </div>
+
                   <div className="container-photos">
-                    <div><img className="frames" src={this.state.preview1} height={100} width={100} /></div>
-                    <div><img className="frames" src={this.state.preview2} height={100} width={100} /></div>
-                    <div><img className="frames" src={this.state.preview3} height={100} width={100} /></div>
-                    <div><img className="frames" src={this.state.preview4} height={100} width={100} /></div>
+                    <div><img className="frames" id="photoOne" src={this.state.preview1} onClick={this.handleClick } height={100} width={100} /></div>
+                      <input name="photoOne" className="hide" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
+                    <div><img className="frames" id="photoTwo" src={this.state.preview2}  onClick={this.handleClick } height={100} width={100} /></div>
+                      <input name="photoTwo" className="hide" id="input-photoTwo" onChange={this.fileSelectHandler} type="file"/>
+                    <div><img className="frames" id="photoThree" src={this.state.preview3} onClick={this.handleClick } height={100} width={100} /></div>
+                      <input name="photoThree" className="hide" id="input-photoThree" onChange={this.fileSelectHandler} type="file"/>
+                    <div><img className="frames" id="photoFour" src={this.state.preview4} onClick={this.handleClick } height={100} width={100} /></div>
+                      <input name="photoFour" className="hide" id="input-photoFour" onChange={this.fileSelectHandler} type="file"/>
                   </div>
                 </div>
                 <div className="container-form-group">
@@ -305,7 +335,10 @@ class CreateContainer extends Component {
 }
 export default CreateContainer
 
-
+//
+// <div className="form-group select">
+//   <input name="pic1" id="attach" type="file" multiple onChange={this.fileSelectHandler} value={this.state.house.pic21}  />
+// </div>
 
 // import React, { Component } from 'react';
 // import Nav from '../Nav'
