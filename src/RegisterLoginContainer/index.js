@@ -165,7 +165,7 @@ class RegisterLoginContainer extends Component{
 
        //console.log('hereeee????', parsedResponse.userId);
        //console.log('is this true$$$$$========>', (parsedResponse.userId === '5d7e9d844eb54d001728cf31'));
-       //if(parsedResponse.userId === '5d7e9d844eb54d001728cf31'){
+       // if(parsedResponse.userId === '5d7e9d844eb54d001728cf31'){
        if(parsedResponse.username === 'adminNew'){
         console.log('where you go?');
          this.props.history.push('/adminhome')

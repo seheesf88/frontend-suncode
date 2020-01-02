@@ -46,7 +46,7 @@ const EditHouseComponent = (props) => {
                     </div>
 
 
-  { userId === '5d7e9d844eb54d001728cf31' ?
+  { username === 'adminNew' ?
                 <div className="houseexam-admin">
                   <h1>Admin only</h1>
                   <div className="form-group">
@@ -80,7 +80,7 @@ const EditHouseComponent = (props) => {
                 </div>
 : null }
 
-{ userId === '5d7e9d844eb54d001728cf31' ?
+{ username === 'adminNew' ?
 
                 <div className="houseexam2-admin">
                   <div className="form-group statusoption">
