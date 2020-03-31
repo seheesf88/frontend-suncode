@@ -163,14 +163,12 @@ class RegisterLoginContainer extends Component{
        localStorage.setItem('userId', parsedResponse.userId)
        localStorage.setItem('username', parsedResponse.username)
 
-       //console.log('hereeee????', parsedResponse.userId);
-       //console.log('is this true$$$$$========>', (parsedResponse.userId === '5d7e9d844eb54d001728cf31'));
        // if(parsedResponse.userId === '5d7e9d844eb54d001728cf31'){
-       if(parsedResponse.username === 'adminNew'){
-        console.log('where you go?');
+       if(parsedResponse.username === 'adminNorth'|| parsedResponse.username === 'adminAndy' || parsedResponse.username === 'adminSeHee'){
+        console.log('admin?');
          this.props.history.push('/adminhome')
        }else{
-         console.log('then here?');
+         console.log('customer?');
         this.props.history.push('/home')
       }
 
