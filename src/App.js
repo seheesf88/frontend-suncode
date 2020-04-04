@@ -34,7 +34,7 @@ const App = (props) => {
     <main>
       <Switch>
         <Route exact path="/" component={ RegisterLoginContainer } />
-        <Route exact path="/home" component={ HomeContainer } />
+        <Route exact path="/home/:id" component={ HomeContainer } />
         <Route exact path="/adminhome" component={ AdminHome } />
         <Route exact path="/myaccount" component={ ShowMyAccount } />
         <Route exact path="/myaccount/:id/edit" component={ MyAccountContainer } />

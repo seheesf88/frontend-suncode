@@ -3,34 +3,61 @@ import React, { Component } from 'react';
 import Nav from '../Nav';
 import ShowHouseComponent from '../ShowHouseComponent';
 // import ShowReport from '../ShowReport'
+import { Link, withRouter } from 'react-router-dom';
 
 class ShowHouseContainer extends Component {
   constructor(){
     super()
     this.state = {
+      allHouses: [],
       house: '',
-      authorId: ''
+
     }
   }
 
   componentDidMount(){
     this.getOneHouse()
+    this.getAllHouses();
   }
 
+
+
+  getAllHouses = async() => {
+      try{
+        const response = await fetch(`${process.env.REACT_APP_API}/api/v1/users/allHouses`, {
+          credentials: 'include'
+        })
+
+
+        if(!response.ok){
+          throw Error(response.statusText)
+        }
+
+        const responseParsed = await response.json();
+        console.log('all houses responseParsed', responseParsed.data);
+        this.setState({
+          allHouses : responseParsed.data
+        })
+
+      }catch(err){
+        console.log('fetching getMyhouse fail');
+      }
+    }
+
   getOneHouse = async() => {
-    const houseId = window.location.pathname.split('/')[1];
-    console.log('what is houseId? ====>', houseId);
+    const userId = window.location.pathname.split('/')[2];
+    console.log('&&&&&&',userId);
     try{
-      const response = await fetch(`${process.env.REACT_APP_API}/api/v1/house/${houseId}`,  {
+      const response = await fetch(`${process.env.REACT_APP_API}/api/v1/house/${userId}`,  {
         credentials: 'include'
       })
-
+          console.log('dfdfd', response);
       if(!response.ok){
         throw Error(response.statusText)
       }
 
       const houseParsed = await response.json();
-      console.log('just one house =>', houseParsed.data)
+      console.log('just one house =>', houseParsed)
       this.setState({
           house: houseParsed.data,
           // authorId: localStorage.getItem('authorId')
@@ -41,19 +68,48 @@ class ShowHouseContainer extends Component {
     }
   }
 
+
+  deleteHouse = async(id, e) => {
+    // e.preventDefault();
+    try {
+      const deleteHouse = await fetch(`${process.env.REACT_APP_API}/api/v1/house/` + id, {
+        method: 'DELETE',
+        // credentials: 'include'
+      })
+
+
+      // const parsedResponse = await deleteHouse.json();
+      this.setState({
+        allHouses: this.state.allHouses.filter((house) => house._id !== id)
+      })
+
+      this.props.history.push('/create')
+
+    }catch(err){
+      console.log(err)
+    }
+  }
+
+
   render(){
-    console.log(this.state.house)
     return(
       <div>
-
-        <Nav />
-        <ShowHouseComponent showHouse={this.state.house}/>
-
+      {
+        this.state.house === null
+      ?
+      <div>
+        <h2>please add...</h2>
+        <Link to="/create">Register my house</Link>
+      </div>
+      :
+      <ShowHouseComponent showHouse={this.state.house} deleteHouse={this.deleteHouse} />
+      }
       </div>
     )
   }
 }
 
-export default ShowHouseContainer
+export default withRouter(ShowHouseContainer)
+
 
   // <ShowHouseComponent showHouse={this.state.house}/>

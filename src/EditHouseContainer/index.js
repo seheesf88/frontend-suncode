@@ -20,9 +20,11 @@ class EditHouseContainer extends Component {
 
 //get one house
   getHouse = async() => {
-    const houseId = window.location.pathname.split('/')[1];
+    // const houseId = window.location.pathname.split('/')[1];
+    // console.log('what is houseId', houseId);
+    let userId = localStorage.getItem('userId');
     try{
-      const response = await fetch(`${process.env.REACT_APP_API}/api/v1/house/${houseId}`, {
+      const response = await fetch(`${process.env.REACT_APP_API}/api/v1/house/${userId}`, {
         credentials: 'include',
       });
 
@@ -55,10 +57,11 @@ class EditHouseContainer extends Component {
 //edit house info
   updateHouse = async (e) => {
     e.preventDefault();
-    const houseId = window.location.pathname.split('/')[1];
-    console.log('ediiiijkdlafjdskfj===>', houseId);
+    // const houseId = window.location.pathname.split('/')[1];
+    // console.log('ediiiijkdlafjdskfj===>', window.location.pathname.split('/')[1]);
+    let userId = localStorage.getItem('userId');
     try{
-        const response = await fetch(`${process.env.REACT_APP_API}/api/v1/house/${houseId}`, {
+        const response = await fetch(`${process.env.REACT_APP_API}/api/v1/house/${userId}`, {
           method: 'PUT',
           credentials: 'include',
           body: JSON.stringify(this.state.house),
@@ -67,21 +70,19 @@ class EditHouseContainer extends Component {
           }
         });
 
+        console.log('eid response', response);
         if(!response.ok){
           throw Error(response.statusText)
         }
 
 
-
-
-        let userId = localStorage.getItem('userId');
         let username = localStorage.getItem('username')
 
         if(userId === '5d7e9d844eb54d001728cf31') {
         // if(username === 'admin') {
             this.props.history.push('/adminHome')
         }else {
-            this.props.history.push('/home');
+            this.props.history.push('/home/' + userId);
         }
 
 
@@ -95,9 +96,11 @@ class EditHouseContainer extends Component {
     return(
       <div>
         <Nav />
-        <EditHouseComponent gethouse={this.gethouse} handleEditFormInput={this.handleEditFormInput} house={this.state.house} updateHouse={this.updateHouse} />
+          <EditHouseComponent house={this.state.house} handleEditFormInput={this.handleEditFormInput} updateHouse={this.updateHouse}/>
       </div>
     )
   }
 }
 export default EditHouseContainer
+
+        // <EditHouseComponent gethouse={this.gethouse} handleEditFormInput={this.handleEditFormInput} house={this.state.house} updateHouse={this.updateHouse} />

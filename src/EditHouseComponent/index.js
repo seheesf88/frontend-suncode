@@ -24,8 +24,8 @@ const EditHouseComponent = (props) => {
                           <input name="address" id="address" type="text" className="form-control" onChange={props.handleEditFormInput} value={props.house.address} />
                       </div>
                       <div className="form-group">
-                        <label htmlFor="address2">Address 2:</label>
-                          <input name="address2" id="address2" type="text" className="form-control" onChange={props.handleEditFormInput} value={props.house.address2} />
+                        <label htmlFor="city">City:</label>
+                          <input name="city" id="city" type="text" className="form-control" onChange={props.handleEditFormInput} value={props.house.city} />
                       </div>
                       <div className="form-group">
                         <label htmlFor="state">State:</label>

@@ -1,0 +1,19 @@
+$primary-color: #777;
+
+* {
+  font-family: 'Lato', sans-serif;
+}
+
+.home_container {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  color: $primary-color;
+
+  .userinfo {
+    border: 1px solid green;
+    padding: 30%;
+  }
+  .myhouse {
+      border: 1px solid green;
+  }
+}

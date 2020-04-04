@@ -95,15 +95,17 @@ class RegisterLoginContainer extends Component{
 
      // this.props.history.push('/home')
 
-     if(parsedResponse.username === 'admin'){
+     if(parsedResponse.username === 'adminNorth'
+        || parsedResponse.username === 'adminAndy'
+        || parsedResponse.username === 'adminSeHee'){
         this.props.history.push('/adminhome')
       }else{
-       this.props.history.push('/home')
+       this.props.history.push('/create')
      }
 
 
    }catch(err){
-     console.log('fetch regi func fail');
+     console.log('Register failed...');
    }
  }
 
@@ -113,12 +115,10 @@ class RegisterLoginContainer extends Component{
    const updatedChange = {
      ...this.state.login
    }
-   // console.log('updatedChange', updatedChange);
    updatedChange[e.target.name] = e.target.value;
    this.setState({
      login: updatedChange
    })
-   // console.log('this.state.login', this.state.login);
  }
 
 
@@ -128,7 +128,6 @@ class RegisterLoginContainer extends Component{
      ...this.state.login
    }
    this.fetchLogin(updatedLogin)
-   // console.log(updatedLogin);
  }
 
  fetchLogin = async(updatedLogin) => {
@@ -143,15 +142,13 @@ class RegisterLoginContainer extends Component{
          'Content-Type' : 'application/json'
        }
      })
-     console.log('fetching login?');
-     console.log('true?', (response));
+
      if(!response.ok){
        throw Error(response.statusText);
      }
 
-     console.log('login response?', response);
      const parsedResponse = await response.json();
-     console.log("login parsedResponse?", parsedResponse)
+
      if(parsedResponse.status !== 401){
      // if(parsedResponse.status === 200){
        updatedLogin.successful = true;
@@ -164,17 +161,17 @@ class RegisterLoginContainer extends Component{
        localStorage.setItem('username', parsedResponse.username)
 
        // if(parsedResponse.userId === '5d7e9d844eb54d001728cf31'){
-       if(parsedResponse.username === 'adminNorth'|| parsedResponse.username === 'adminAndy' || parsedResponse.username === 'adminSeHee'){
-        console.log('admin?');
+       if(parsedResponse.username === 'adminNorth'
+          || parsedResponse.username === 'adminAndy'
+          || parsedResponse.username === 'adminSeHee'){
          this.props.history.push('/adminhome')
        }else{
-         console.log('customer?');
-        this.props.history.push('/home')
+         this.props.history.push('/home/' + parsedResponse.userId)
       }
 
 
      }else{
-       alert('fetch fail')
+       alert('login fail')
      }
    }catch(err){
      console.log(err);

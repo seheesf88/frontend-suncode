@@ -3,9 +3,8 @@ import './MyHouseComponenet.css';
 import { Link } from 'react-router-dom'
 
 const MyHouseComponenet = (props) => {
-  console.log('what is props? ====> ', props);
+
   const myHouse = props.allHouses.map(house => {
-    console.log('what is house status? ======>', house.status );
     if(house.userId === localStorage.getItem('userId')){
     return(
       <div className="oneHouse-container" key={house._id}>
