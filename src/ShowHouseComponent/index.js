@@ -3,7 +3,8 @@ import { Link, withRouter } from 'react-router-dom';
 import './ShowHouse.css';
 
 const ShowHouseComponent = (props) => {
-  console.log(props);
+  console.log('dfdfd', typeof props.showHouse.productImage1);
+  const img = props.showHouse.productImage1
   return(
     <div className="showHouseComponent">
     <div className="houseName">
@@ -50,7 +51,7 @@ const ShowHouseComponent = (props) => {
 
       <div className="container-show">
         <div className="crop">
-          <img className="pic-show" src={`${process.env.REACT_APP_API}/` + props.showHouse.productImage2} />
+          <img className="pic-show" src={`"` + props.showHouse.productImage2 + `"`}/>
         </div>
           <div className="container-info">
             <div className="infoList-container">
@@ -68,7 +69,7 @@ const ShowHouseComponent = (props) => {
 
       <div className="container-show">
         <div className="crop">
-          <img className="pic-show" src={`${process.env.REACT_APP_API}/` + props.showHouse.productImage3} />
+          <img className="pic-show" src={props.showHouse.productImage3} />
         </div>
         <div className="container-info">
           <div className="infoList-container">
@@ -85,7 +86,7 @@ const ShowHouseComponent = (props) => {
       </div>
       <div className="container-show">
         <div className="crop">
-          <img className="pic-show" src={`${process.env.REACT_APP_API}/` + props.showHouse.productImage4} />
+          <img className="pic-show" src={ `${process.env.REACT_APP_API}/` + props.showHouse.productImage4} />
         </div>
         <div className="container-info">
           <div className="infoList-container">
@@ -104,6 +105,7 @@ const ShowHouseComponent = (props) => {
 }
 
 export default ShowHouseComponent
+// `${process.env.REACT_APP_API}/` +
 
 //
 // const ShowHouseComponent = (props) => {
