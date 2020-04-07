@@ -4,6 +4,7 @@ import './Nav.css';
 
 
 
+
 class Nav extends Component{
   constructor(){
     super()
@@ -77,11 +78,14 @@ class Nav extends Component{
         ?
 
         <div className="nav true" >
-        <div className="nav-item">
-          <Link to={`${home}`} style={{ textDecoration: 'none' }}><div className="navItem">Home</div></Link>
-        </div>
+          <div className="nav-item">
+            <Link to={`${home}`} style={{ textDecoration: 'none' }}><div className="navItem">Home</div></Link>
+          </div>
           <div className="nav-item">
             <Link to="/myaccount" style={{ textDecoration: 'none' }}><div className="navItem">My Account</div></Link>
+          </div>
+          <div className="nav-item">
+            <Link to="/resources" style={{ textDecoration: 'none' }}><div className="navItem">Resources</div></Link>
           </div>
           <div className="nav-item">
             <input type="submit" value="Logout" className="logout" onClick={this.logout} />

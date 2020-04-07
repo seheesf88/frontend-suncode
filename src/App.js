@@ -13,6 +13,7 @@ import CreateContainer from './CreateContainer';
 import ShowHouseContainer from './ShowHouseContainer';
 import EditHouseContainer from './EditHouseContainer';
 import ShowMyAccount from './ShowMyAccount';
+import ResourcesContainer from './ResourcesContainer';
 
 
 const My404 = () => {
@@ -36,11 +37,13 @@ const App = (props) => {
         <Route exact path="/" component={ RegisterLoginContainer } />
         <Route exact path="/home/:id" component={ HomeContainer } />
         <Route exact path="/adminhome" component={ AdminHome } />
+        <Route exact path="/resources" component={ ResourcesContainer } />
         <Route exact path="/myaccount" component={ ShowMyAccount } />
         <Route exact path="/myaccount/:id/edit" component={ MyAccountContainer } />
         <Route exact path="/create" component={ CreateContainer } />
         <Route exact path="/:id" component={ ShowHouseContainer } />
         <Route exact path="/:id/edit" component={ EditHouseContainer } />
+
         <Route component={ My404 } />
       </Switch>
     </main>
