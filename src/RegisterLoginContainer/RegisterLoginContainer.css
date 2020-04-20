@@ -1,80 +1,130 @@
 * {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Muli', sans-serif;
 }
 
+.regLog_Container {
+  display: flex;
+  justify-content: center;
+  margin-top: 145px;
+}
 
+.regLog_row {
+  text-align: center;
+}
+
+.logo {
+  height: 146px;
+  width: 146px;
+}
+
+.title {
+  font-size: 48px;
+  margin-top: 32px;
+}
+
+.subtitle {
+  font-size: 28px;
+  margin-top: 38px;
+}
+
+.form_container {
+  display: flex;
+  flex-direction: column;
+  color: #868686;
+  margin-top: 58px;
+}
+
+.form_input {
+  background: #EEEEEE;
+  padding: 8px 16px 6px 16px;
+  margin-bottom: 24px;
+  border: none;
+  height: 46px;
+  font-size: 16px;
+}
+
+.btn_container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn_item {
+  font-size: 14px;
+  border: none;
+}
+
+.regLog_Container {
+   display: flex;
+   justify-content: center;
+}
+
+.regLogBtn {
+  margin-bottom: 127px;
+  font-size: 18px;
+  font-weight: 900;
+  color: #FFFFFF;
+  padding: 16px 15px;
+  background-color: #36C255;
+  width: 176px;
+  height: 70px;
+}
+
+.logBtn {
+    margin-top: 262px;
+
+}
+
+.regBtn {
+   margin-top: 108px;
+}
+/*
 .regLog {
-  /* border: 1px solid; */
   height: 100px;
-  /* width: 100%; */
   background-size: 100% 100%;
-  /* background-image: url(./pic3.jpg), linear-gradient(white, yellow); */
-  /* background-image: url(./house.jpg); */
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  /* background-color:   #A6D5AE; */
-  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
 
 
 
-/* login input */
+
 .login, .register {
-  /* border: 1px solid; */
   position: absolute;
-  /* margin-top: 2%; */
   margin-bottom: 20%;
   margin-left: 38%;
   width: 500px;
-
 }
 
 #login, #register {
   color: #2E8B56;
-  /* color: white; */
   margin-left: 2%;
 }
 
 .login-form, .reg-form {
-  /* border: 1px red solid; */
   width: 400px;
 }
 
 .form-input {
-  /* padding: 10px;
-  margin-top: 10px;
-  margin-bottom: 2px;
-  font-size: 20px;
-  outline: none;
-  width: 300px;
-  border: 1px solid #2E8B56; */
-  /* color: #2E8B56; */
-  /* color: white; */
-  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
   font-size: 20px;
   outline: none;
   width: 75%;
-  /* border: 1px solid #2E8B56;
-  color: #2E8B56; */
   border: 1px solid grey;
   color: grey;
   display: grid;
-  /* grid-template-columns: auto; */
   border-radius: 5px;
-
 }
 
 
 .regLogBtn {
   background-color: #2E8B56;
-  /* background-color: #64A466; */
+
   border: 1px solid #2E8B56;
-  /* color: #2E8B56; */
+
   color: white;
   width: 150px;
   border-radius: 45px;
@@ -102,3 +152,4 @@
   flex-direction: column;
   margin-top: 10px;
 }
+*/

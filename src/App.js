@@ -43,7 +43,6 @@ const App = (props) => {
         <Route exact path="/create" component={ CreateContainer } />
         <Route exact path="/:id" component={ ShowHouseContainer } />
         <Route exact path="/:id/edit" component={ EditHouseContainer } />
-
         <Route component={ My404 } />
       </Switch>
     </main>
