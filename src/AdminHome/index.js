@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
-
 import Nav from '../Nav';
 import AdminHouseList from '../AdminHouseList';
 import './AdminHome.css';
@@ -20,8 +18,8 @@ class AdminHome extends Component {
     }
 
   componentDidMount(){
-    this.getUserInfo()
-    this.getMyHouse()
+    this.getUserInfo();
+    this.getMyHouse();
   }
 
   getUserInfo = async() =>{

@@ -9,28 +9,28 @@ class RegisterLoginContainer extends Component{
     super();
     this.state = {
       login : {
-        username: '',
-        // email:'',
+        email:'',
         password: '',
         successful: false
       },
       register: {
-        username:'',
+        firstName:'',
+        lastName:'',
+        phNumber:'',
         email: '',
         password:'',
-        name: '',
+        // successful: false
       },
       loginButton: false
     }
   }
 
 
-// console.log(bg1);
-
   handleRegisterChange = (e) => {
     const updatedChange = {
       ...this.state.register
     }
+
     updatedChange[e.target.name] =  e.target.value;
     this.setState({
       register: updatedChange
@@ -53,9 +53,10 @@ class RegisterLoginContainer extends Component{
       this.fetchRegister(updatedRegister)
       this.setState({
         register: {
-          name: '',
-          username: '',
+          firstName: '',
+          lastName: '',
           email: '',
+          phNumber: '',
           password: '',
         }
       })
@@ -67,8 +68,7 @@ class RegisterLoginContainer extends Component{
   }
 
  fetchRegister = async(updatedRegister) => {
-   console.log('reg updatedRegister', updatedRegister);
-   console.log('reg stringify', JSON.stringify(updatedRegister) );
+   console.log('hihihi', );
    try{
      const response = await fetch(`${process.env.REACT_APP_API}/api/v1/auth`, {
        method: 'POST',
@@ -81,28 +81,19 @@ class RegisterLoginContainer extends Component{
 
      if(!response.ok){
        throw Error(response.statusText)
-     }
 
-    console.log('reg response', response);
+     }
+     console.log('jiji');
     const parsedResponse = await response.json();
-    console.log('reg parsedResponse', parsedResponse);
 
-     // console.log('userId', parsedResponse.userId);
-     // console.log('username', parsedResponse.username);
-     // console.log('parsed??', parsedResponse);
-     localStorage.setItem('userId', parsedResponse.userId)
-     localStorage.setItem('username', parsedResponse.username)
-
-     // this.props.history.push('/home')
-
-     if(parsedResponse.username === 'adminNorth'
-        || parsedResponse.username === 'adminAndy'
-        || parsedResponse.username === 'adminSeHee'){
-        this.props.history.push('/adminhome')
-      }else{
-       this.props.history.push('/create')
-     }
-
+    console.log('studjijijijijij', parsedResponse.status);
+    // if(parsedResponse.status !== 200){
+    //   this.state.register.successful = true;
+    //   alert('fail')
+    // }else{
+    //   localStorage.setItem('userId', parsedResponse.userId)
+    //   this.props.history.push('/create')
+    // }
 
    }catch(err){
      console.log('Register failed...');
@@ -131,8 +122,6 @@ class RegisterLoginContainer extends Component{
  }
 
  fetchLogin = async(updatedLogin) => {
-   // console.log('fetchloging', updatedLogin);
-   // console.log('??', JSON.stringify(updatedLogin));
    try{
      const response = await fetch(`${process.env.REACT_APP_API}/api/v1/auth/login`, {
        method: 'POST',
@@ -149,25 +138,19 @@ class RegisterLoginContainer extends Component{
 
      const parsedResponse = await response.json();
 
-     if(parsedResponse.status !== 401){
-     // if(parsedResponse.status === 200){
+     // if(parsedResponse.status !== 401){
+     if(parsedResponse.status === 200){
        updatedLogin.successful = true;
        this.setState({
          login: updatedLogin
        })
 
 
-       localStorage.setItem('userId', parsedResponse.userId)
-       localStorage.setItem('username', parsedResponse.username)
+      localStorage.setItem('userId', parsedResponse.userId)
 
-       // if(parsedResponse.userId === '5d7e9d844eb54d001728cf31'){
-       if(parsedResponse.username === 'adminNorth'
-          || parsedResponse.username === 'adminAndy'
-          || parsedResponse.username === 'adminSeHee'){
-         this.props.history.push('/adminhome')
-       }else{
-         this.props.history.push('/home/' + parsedResponse.userId)
-      }
+
+      this.props.history.push('/home/' + parsedResponse.userId)
+
 
 
      }else{
@@ -207,7 +190,7 @@ class RegisterLoginContainer extends Component{
           <div className="subtitle">Your home electrification advisor</div>
         { !this.state.loginButton ?
           <form onSubmit={this.handleLoginSubmit} className="form_container">
-            <input className="form_input" id="username" name="username" type="text" value={this.state.login.username} onChange={this.handleLoginChange} required placeholder="Username"/>
+            <input className="form_input" id="email" name="email" type="text" value={this.state.login.email} onChange={this.handleLoginChange} required placeholder="Email"/>
             <input className="form_input" id="password" name="password" type="password" value={this.state.login.password} onChange={this.handleLoginChange} required placeholder="Password"/>
             <div className="btn_container">
               {changeOne}
@@ -219,9 +202,10 @@ class RegisterLoginContainer extends Component{
           </form> :
 
           <form onSubmit={this.handleRegisterSubmit} className="form_container">
-            <input className="form_input" id="name" name="name" type="text" value={this.state.register.name} onChange={this.handleRegisterChange} required placeholder="Name"/>
-            <input className="form_input" id="username" name="username" type="text" value={this.state.register.username} onChange={this.handleRegisterChange} placeholder="Username" required/>
+            <input className="form_input" id="firstName" name="firstName" type="text" value={this.state.register.firstName} onChange={this.handleRegisterChange} required placeholder="First Name"/>
+            <input className="form_input" id="lastName" name="lastName" type="text" value={this.state.register.lastName} onChange={this.handleRegisterChange} required placeholder="Last Name"/>
             <input className="form_input" id="email" name="email" type="text" value={this.state.register.email} onChange={this.handleRegisterChange} placeholder="Email" required/>
+            <input className="form_input" id="phNumber" name="phNumber" type="text" value={this.state.register.phNumber} onChange={this.handleRegisterChange} placeholder="Phone Number" required/>
             <input className="form_input" id="password" name="password" type="password" value={this.state.register.password} onChange={this.handleRegisterChange} placeholder="Password" required/>
             <div className="btn_container">
               {changeTwo}

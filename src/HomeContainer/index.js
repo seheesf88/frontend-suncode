@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
-
 import Nav from '../Nav';
-import MyHouseComponenet from '../MyHouseComponenet';
+//import MyHouseComponenet from '../MyHouseComponenet';
 import ShowHouseContainer from '../ShowHouseContainer';
-import CreateContainer from '../CreateContainer';
+//import CreateContainer from '../CreateContainer';
 import './Home.scss';
 
 
@@ -117,23 +115,23 @@ class HomeContainer extends Component {
 
 
 
-    deleteHouse = async(id, e) => {
-      // e.preventDefault();
-      try {
-        const deleteHouse = await fetch(`${process.env.REACT_APP_API}/api/v1/house/` + id, {
-          method: 'DELETE',
-          // credentials: 'include'
-        })
-
-        // const parsedResponse = await deleteHouse.json();
-
-        this.setState({
-          allHouses: this.state.allHouses.filter((house) => house._id !== id)
-        })
-      }catch(err){
-        console.log(err)
-      }
-    }
+    // deleteHouse = async(id, e) => {
+    //   // e.preventDefault();
+    //   try {
+    //     const deleteHouse = await fetch(`${process.env.REACT_APP_API}/api/v1/house/` + id, {
+    //       method: 'DELETE',
+    //       // credentials: 'include'
+    //     })
+    //
+    //     // const parsedResponse = await deleteHouse.json();
+    //
+    //     this.setState({
+    //       allHouses: this.state.allHouses.filter((house) => house._id !== id)
+    //     })
+    //   }catch(err){
+    //     console.log(err)
+    //   }
+    // }
 
 
 

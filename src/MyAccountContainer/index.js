@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import Nav from '../Nav';
 import './MyAccount.css';

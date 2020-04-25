@@ -10,7 +10,6 @@ class CreateContainer extends Component {
     this.state = {
       house : {
         address : '',
-        // address2 : '',
         city:'',
         state: '',
         zipcode: '',
@@ -38,9 +37,7 @@ class CreateContainer extends Component {
       ...this.state.house
     }
     updatedChange[e.target.name] = e.target.value;
-    console.log('삶의이유', e.target.name)
-    console.log('전심으로', e.target.value);
-    console.log('내 노래 되시네', updatedChange);
+
     this.setState({
       house: updatedChange
     })
