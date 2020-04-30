@@ -18,8 +18,10 @@ class RegisterLoginContainer extends Component{
         lastName:'',
         phNumber:'',
         email: '',
+        pre_password: '',
         password:'',
-        // successful: false
+        emailNotice:'',
+        mobileNotice:''
       },
       loginButton: false
     }
@@ -32,6 +34,7 @@ class RegisterLoginContainer extends Component{
     }
 
     updatedChange[e.target.name] =  e.target.value;
+    console.log(e.target.name, e.target.value);
     this.setState({
       register: updatedChange
     })
@@ -48,6 +51,9 @@ class RegisterLoginContainer extends Component{
     // strongRegex.test(updatedRegister.password)
     // console.log("yea??", strongRegex.test(updatedRegister.password));
     // ======================== if statement =========
+    if(this.state.register.pre_password !== this.state.register.password){
+        alert('password is not matching')
+    }
 
     if(true){
       this.fetchRegister(updatedRegister)
@@ -57,7 +63,10 @@ class RegisterLoginContainer extends Component{
           lastName: '',
           email: '',
           phNumber: '',
+          pre_password: '',
           password: '',
+          emailNotice: '',
+          mobileNotice: ''
         }
       })
     }else{
@@ -68,7 +77,7 @@ class RegisterLoginContainer extends Component{
   }
 
  fetchRegister = async(updatedRegister) => {
-   console.log('hihihi', );
+
    try{
      const response = await fetch(`${process.env.REACT_APP_API}/api/v1/auth`, {
        method: 'POST',
@@ -81,22 +90,22 @@ class RegisterLoginContainer extends Component{
 
      if(!response.ok){
        throw Error(response.statusText)
-
      }
-     console.log('jiji');
+
     const parsedResponse = await response.json();
 
-    console.log('studjijijijijij', parsedResponse.status);
-    // if(parsedResponse.status !== 200){
-    //   this.state.register.successful = true;
-    //   alert('fail')
-    // }else{
-    //   localStorage.setItem('userId', parsedResponse.userId)
-    //   this.props.history.push('/create')
-    // }
+
+    if(parsedResponse.status === 400){
+      alert('This Email is already registered. Please use other email address or go to forgot password')
+    }else if(parsedResponse.status === 200){
+      localStorage.setItem('userId', parsedResponse.userId)
+      this.props.history.push('/create')
+    }else{
+      alert('I am sorry, there is error. Please visit us later')
+    }
 
    }catch(err){
-     console.log('Register failed...');
+     console.log('Register failed...', err);
    }
  }
 
@@ -107,6 +116,7 @@ class RegisterLoginContainer extends Component{
      ...this.state.login
    }
    updatedChange[e.target.name] = e.target.value;
+
    this.setState({
      login: updatedChange
    })
@@ -118,6 +128,7 @@ class RegisterLoginContainer extends Component{
    const updatedLogin = {
      ...this.state.login
    }
+
    this.fetchLogin(updatedLogin)
  }
 
@@ -171,7 +182,7 @@ class RegisterLoginContainer extends Component{
 
 
   render(){
-    // console.log(bg1);
+    console.log(typeof this.state.register.emailNotice);
     const changeOne = (
       <button onClick={this.buttonChange} className="btn_item">New</button>
     );
@@ -183,37 +194,65 @@ class RegisterLoginContainer extends Component{
 
 
     return(
-      <div className="regLog_Container">
+      <div className="regLog_container">
         <div className="regLog_row">
-          <img src="Logo_ElectriCasa-05.png" className="logo"/>
-          <div className="title">Electricasa</div>
-          <div className="subtitle">Your home electrification advisor</div>
-        { !this.state.loginButton ?
-          <form onSubmit={this.handleLoginSubmit} className="form_container">
-            <input className="form_input" id="email" name="email" type="text" value={this.state.login.email} onChange={this.handleLoginChange} required placeholder="Email"/>
-            <input className="form_input" id="password" name="password" type="password" value={this.state.login.password} onChange={this.handleLoginChange} required placeholder="Password"/>
-            <div className="btn_container">
-              {changeOne}
-              <input className="btn_item" type="submit" value="Forgot?"/>
-            </div>
-            <div className="regLogBtn_container">
-              <button className="regLogBtn logBtn" type="submit">LOGIN</button>
-            </div>
-          </form> :
 
-          <form onSubmit={this.handleRegisterSubmit} className="form_container">
-            <input className="form_input" id="firstName" name="firstName" type="text" value={this.state.register.firstName} onChange={this.handleRegisterChange} required placeholder="First Name"/>
-            <input className="form_input" id="lastName" name="lastName" type="text" value={this.state.register.lastName} onChange={this.handleRegisterChange} required placeholder="Last Name"/>
-            <input className="form_input" id="email" name="email" type="text" value={this.state.register.email} onChange={this.handleRegisterChange} placeholder="Email" required/>
-            <input className="form_input" id="phNumber" name="phNumber" type="text" value={this.state.register.phNumber} onChange={this.handleRegisterChange} placeholder="Phone Number" required/>
-            <input className="form_input" id="password" name="password" type="password" value={this.state.register.password} onChange={this.handleRegisterChange} placeholder="Password" required/>
-            <div className="btn_container">
-              {changeTwo}
+        { !this.state.loginButton ?
+          <div className="regLog_sub_container">
+            <div className="title_container">
+              <div className="title">Your</div>
+              <div className="title">Home Electrification</div>
+              <div className="title">Advisor</div>
             </div>
-            <div className="regLogBtn_container">
-              <button className="regLogBtn regBtn" type="submit">REGISTER</button>
-            </div>
-          </form>
+            <form onSubmit={this.handleLoginSubmit} className="form_container">
+              <input className="form_input" id="email" name="email" type="text" value={this.state.login.email} onChange={this.handleLoginChange} required placeholder="Email"/>
+              <input className="form_input" id="password" name="password" type="password" value={this.state.login.password} onChange={this.handleLoginChange} required placeholder="Password"/>
+              <div className="btn_container">
+                {changeOne}
+                <input className="btn_item" type="submit" value="Forgot?"/>
+              </div>
+              <div className="regLogBtn_container">
+                <button className="regLogBtn logBtn" type="submit">LOGIN</button>
+              </div>
+            </form>
+          </div>
+          :
+          <div className="regLog_sub_container">
+          <div className="btn_container">
+            {changeTwo}
+          </div>
+            <form onSubmit={this.handleRegisterSubmit} className="form_container">
+              <input className="form_input" id="firstName" name="firstName" type="text" value={this.state.register.firstName} onChange={this.handleRegisterChange} required placeholder="First Name"/>
+              <input className="form_input" id="lastName" name="lastName" type="text" value={this.state.register.lastName} onChange={this.handleRegisterChange} required placeholder="Last Name"/>
+              <input className="form_input" id="email" name="email" type="email" value={this.state.register.email} onChange={this.handleRegisterChange} placeholder="Email" required/>
+              <input className="form_input" id="phNumber" name="phNumber" type="text" value={this.state.register.phNumber} onChange={this.handleRegisterChange} placeholder="Phone Number" required/>
+              <input className="form_input" id="pre_password" name="pre_password" type="password" value={this.state.register.pre_password} onChange={this.handleRegisterChange} placeholder="Password" required/>
+              <input className="form_input" id="password" name="password" type="password" value={this.state.register.password} onChange={this.handleRegisterChange} placeholder="Re-Enter Password" required/>
+              <div className="notifications_container">
+                <label>
+                  <input
+                    className="notifications_checkbox"
+                    name="emailNotice"
+                    type="checkbox"
+                    checked={this.state.register.emailNotice}
+                    onChange={this.handleRegisterChange} />
+                    Agree to receive email notifications
+                </label>
+                <label>
+                  <input
+                    className="notifications_checkbox"
+                    name="mobileNotice"
+                    type="checkbox"
+                    checked={this.state.register.mobileNotice}
+                    onChange={this.handleRegisterChange} />
+                    Agree to receive mobile push notifications
+                </label>
+              </div>
+              <div className="regLogBtn_container">
+                <button className="regLogBtn regBtn" type="submit">REGISTER</button>
+              </div>
+            </form>
+          </div>
         }
         </div>
       </div>

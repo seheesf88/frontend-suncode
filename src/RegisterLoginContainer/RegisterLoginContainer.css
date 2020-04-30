@@ -2,7 +2,7 @@
   font-family: 'Muli', sans-serif;
 }
 
-.regLog_Container {
+.regLog_container {
   display: flex;
   justify-content: center;
   margin-top: 145px;
@@ -10,6 +10,15 @@
 
 .regLog_row {
   text-align: center;
+}
+
+.regLog_sub_container {
+  width: 516px;
+
+}
+
+.title_container, .notifications_container {
+  text-align: left;
 }
 
 .logo {
@@ -34,14 +43,14 @@
   margin-top: 58px;
 }
 
-.form_input {
+/* .form_input {
   background: #EEEEEE;
   padding: 8px 16px 6px 16px;
   margin-bottom: 24px;
   border: none;
   height: 46px;
   font-size: 16px;
-}
+} */
 
 .btn_container {
   display: flex;
@@ -56,6 +65,16 @@
 .regLog_Container {
    display: flex;
    justify-content: center;
+}
+
+.notifications_container {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.notifications_checkbox {
+  margin-right: 18px;
 }
 
 .regLogBtn {
@@ -77,79 +96,3 @@
 .regBtn {
    margin-top: 108px;
 }
-/*
-.regLog {
-  height: 100px;
-  background-size: 100% 100%;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
-
-
-
-.login, .register {
-  position: absolute;
-  margin-bottom: 20%;
-  margin-left: 38%;
-  width: 500px;
-}
-
-#login, #register {
-  color: #2E8B56;
-  margin-left: 2%;
-}
-
-.login-form, .reg-form {
-  width: 400px;
-}
-
-.form-input {
-  padding: 10px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  font-size: 20px;
-  outline: none;
-  width: 75%;
-  border: 1px solid grey;
-  color: grey;
-  display: grid;
-  border-radius: 5px;
-}
-
-
-.regLogBtn {
-  background-color: #2E8B56;
-
-  border: 1px solid #2E8B56;
-
-  color: white;
-  width: 150px;
-  border-radius: 45px;
-  padding-top: 2%;
-  padding-bottom: 2%;
-  padding-left: 8%;
-  padding-right: 8%;
-  font-size: 20px;
-  margin-top: 3%;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.regLogBtn:hover {
-  background-color: #64A466;
-  color: white;
-}
-
-.leftBtn {
-  margin-right: 2%;
-  margin-left: 2%;
-}
-
-.btn-container {
-  display: flex;
-  flex-direction: column;
-  margin-top: 10px;
-}
-*/

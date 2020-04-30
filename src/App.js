@@ -14,7 +14,9 @@ import ShowHouseContainer from './ShowHouseContainer';
 import EditHouseContainer from './EditHouseContainer';
 import ShowMyAccount from './ShowMyAccount';
 import ResourcesContainer from './ResourcesContainer';
-
+import WelcomeComponent from './HomeOwnerComponents/WelcomeComponent';
+import HouseDetailContainer from './HomeOwnerComponents/HouseDetailContainer';
+import RoofContainer from './HomeOwnerComponents/RoofContainer';
 
 const My404 = () => {
   return (
@@ -35,6 +37,9 @@ const App = (props) => {
     <main>
       <Switch>
         <Route exact path="/" component={ RegisterLoginContainer } />
+        <Route exact path="/welcome" component={ WelcomeComponent } />
+        <Route exact path="/house" component={ HouseDetailContainer } />
+        <Route exact path="/house/roof" component={ RoofContainer } />
         <Route exact path="/home/:id" component={ HomeContainer } />
         <Route exact path="/adminhome" component={ AdminHome } />
         <Route exact path="/resources" component={ ResourcesContainer } />
