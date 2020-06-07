@@ -11,12 +11,11 @@
 /* input */
 
 .form_input {
-  background: #EEEEEE;
-  padding: 8px 16px 6px 16px;
-  border: none;
-  height: 46px;
-  /* width: auto; */
+  /* padding: 20px 12px 17px 20px; */
+  border: 1px solid #979797;
   font-size: 16px;
+  box-sizing: border-box;
+  border-radius: 5px;
 }
 
 

@@ -184,11 +184,11 @@ class RegisterLoginContainer extends Component{
   render(){
     console.log(typeof this.state.register.emailNotice);
     const changeOne = (
-      <button onClick={this.buttonChange} className="btn_item">New</button>
+      <button onClick={this.buttonChange} className="">Sign up</button>
     );
 
     const changeTwo = (
-      <button onClick={this.buttonChange} className="btn_item">Back to login</button>
+      <button onClick={this.buttonChange} className="">Back to login</button>
     );
 
 
@@ -196,7 +196,7 @@ class RegisterLoginContainer extends Component{
     return(
       <div className="regLog_container">
         <div className="regLog_row">
-
+          <div className="logo">Logo</div>
         { !this.state.loginButton ?
           <div className="regLog_sub_container">
             <div className="title_container">
@@ -205,16 +205,23 @@ class RegisterLoginContainer extends Component{
               <div className="title">Advisor</div>
             </div>
             <form onSubmit={this.handleLoginSubmit} className="form_container">
-              <input className="form_input" id="email" name="email" type="text" value={this.state.login.email} onChange={this.handleLoginChange} required placeholder="Email"/>
-              <input className="form_input" id="password" name="password" type="password" value={this.state.login.password} onChange={this.handleLoginChange} required placeholder="Password"/>
-              <div className="btn_container">
-                {changeOne}
-                <input className="btn_item" type="submit" value="Forgot?"/>
+              <div>
+                <label htmlFor="email" className="label">EMAIL</label>
+                <input className="form_input" id="email" name="email" type="text" value={this.state.login.email} onChange={this.handleLoginChange} required/>
               </div>
+              <div className="password">
+                <label htmlFor="password" className="label">PASSWORD</label>
+                <input className="form_input" id="password" name="password" type="password" value={this.state.login.password} onChange={this.handleLoginChange} required/>
+              </div>
+              <input className="btn_item" type="submit" value="Forgot your password? - coming soon..."/>
+
               <div className="regLogBtn_container">
                 <button className="regLogBtn logBtn" type="submit">LOGIN</button>
               </div>
             </form>
+            <div className="signup">
+              Don't have an account? {changeOne}
+            </div>
           </div>
           :
           <div className="regLog_sub_container">
