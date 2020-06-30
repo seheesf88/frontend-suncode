@@ -253,6 +253,7 @@ class RegisterLoginContainer extends Component{
                     checked={this.state.register.mobileNotice}
                     onChange={this.handleRegisterChange} />
                     Agree to receive mobile push notifications
+                    testing
                 </label>
               </div>
               <div className="regLogBtn_container">
