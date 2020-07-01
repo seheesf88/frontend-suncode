@@ -92,10 +92,10 @@ class AdminHome extends Component {
     return (
       <div>
         <Nav />
-        <h1 id="adminHome">Admin home</h1>
-          <div className="container">
-            <div className="col-8">
-              <h3 id="houselist">House List</h3>
+        <h1>Admin home</h1>
+          <div>
+            <div>
+              <h3>House List</h3>
               <AdminHouseList myHouse={this.state.house} deleteHouse={this.deleteHouse} />
             </div>
           </div>

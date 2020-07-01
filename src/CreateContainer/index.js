@@ -242,15 +242,15 @@ class CreateContainer extends Component {
                   </div>
                 </div>
                 <div className="container-form-group">
-                  <div className="form-group">
+                  <div>
                     <label htmlFor="address">Address:</label>
                     <input name="address" id="address" type="text" className="form-control" onChange={this.handleInput} placeholder="ex)1330 Broadway" value={this.state.house.address} required/>
                   </div>
-                  <div className="form-group">
+                  <div>
                     <label htmlFor="city">City:</label>
                     <input name="city" id="city" type="text" className="form-control" onChange={this.handleInput} value={this.state.house.city} placeholder="ex)San Francisco" required/>
                   </div>
-                  <div className="form-group">
+                  <div>
                     <label className="" htmlFor="state">State:</label>
                     <input name="state" id="state" type="text" className="form-control" placeholder="ex)CA" value={this.state.house.state} onChange={this.handleInput} required/>
                   </div>
@@ -267,7 +267,7 @@ class CreateContainer extends Component {
                     <input name="sqft" id="sqft" type="text" className="form-control" onChange={this.handleInput} value={this.state.house.sqft} placeholder="ex)960" required/>
                   </div>
                   <div className="form-group">
-                    <label className="" htmlFor="memo">Memo:</label>
+                    <label htmlFor="memo">Memo:</label>
                     <textarea name="memo" id="memo" className="form-control" rows="3" cols="10" onChange={this.handleInput} value={this.state.house.memo} placeholder="ex)Any memo">
                     </textarea>
                   </div>
