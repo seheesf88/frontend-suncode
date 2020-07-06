@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Nav from '../Nav'
 
 class MainContainer extends Component {
   constructor(){
@@ -12,19 +13,21 @@ class MainContainer extends Component {
   render(){
     return (
       <div>
-      <div className="mt-5 ml-5 container">
+      <Nav />
+      <div className="container">
         <div className="row">
-          <div>
-            <img src="Logo.png" className="logo"/>
-            <img src="electricasa.png" className="logo_text"/>
+          <div className="col-3 mt-3">
+            <span className="offset-1 mr-2"><img src="Logo.png" className="logo"/></span>
+            <span><img src="electricasa.png" className="logo_text"/></span>
           </div>
-          <div className="electriCasa ml-2">ElectriCasa</div>
         </div>
       </div>
-        <div className="container">
-          <div className="row">
-            <div className="col-4 offset-4">
-             <Link to="/quiz">Find out how</Link>
+        <div className="row">
+          <div className="container">
+            <div className="row">
+              <div className="col-4">
+               <Link to="/welcome">Read first</Link>
+              </div>
             </div>
           </div>
         </div>

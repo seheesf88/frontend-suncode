@@ -5,9 +5,11 @@ import { Route, Switch, withRouter } from 'react-router-dom'
 //Component...
 import MainContainer from './MainContainer';
 import WelcomeComponent from './WelcomeComponent';
-import HomeContainer from './HomeContainer';
-import AdminHome from './AdminHome';
 import RegisterLoginContainer from './RegisterLoginContainer';
+import HomeContainer from './HomeContainer';
+//or
+import AdminHome from './AdminHome';
+
 import MyAccountContainer from './MyAccountContainer';
 import CreateContainer from './CreateContainer';
 // import PhotoContainer from './PhotoContainer';
@@ -27,19 +29,20 @@ const My404 = () => {
   )
 }
 
+//find way to not access through links...
 const App = (props) => {
-  if (localStorage.getItem('userId') !== null) {
-    console.log('USER IS LOGGED IN')
-  } else if(props.location.pathname !== '/') {
-    props.history.push('/')
-  }
+  // if (localStorage.getItem('userId') !== null) {
+  //   console.log('USER IS LOGGED IN')
+  // } else if(props.location.pathname !== '/') {
+  //   props.history.push('/')
+  // }
 
   return (
     <main>
       <Switch>
         <Route exact path="/" component={ MainContainer } />
         <Route exact path="/welcome" component={ WelcomeComponent } />
-        <Route exact path="/signin" component={ RegisterLoginContainer } />
+        <Route exact path="/login" component={ RegisterLoginContainer } />
         <Route exact path="/house" component={ HouseDetailContainer } />
         <Route exact path="/house/roof" component={ RoofContainer } />
         <Route exact path="/home/:id" component={ HomeContainer } />
