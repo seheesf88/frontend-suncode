@@ -9,7 +9,7 @@ import RegisterLoginContainer from './RegisterLoginContainer';
 import HomeContainer from './HomeContainer';
 import MyCasaComponent from './MyCasaComponents/MyCasaComponent';
 import CreateContainer from './MyCasaComponents/CreateContainer';
-
+import ProjectComponent from './ProjectComponents/ProjectComponent';
 
 //or
 import AdminHome from './AdminHome';
@@ -49,7 +49,7 @@ const App = (props) => {
         <Route exact path="/login" component={ RegisterLoginContainer } />
         <Route exact path="/mycasa" component={ MyCasaComponent } />
         <Route exact path="/mycasa/create" component={ CreateContainer } />
-
+        <Route exact path="/project" component={ ProjectComponent } />
 
         <Route exact path="/house" component={ HouseDetailContainer } />
         <Route exact path="/house/roof" component={ RoofContainer } />

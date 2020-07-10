@@ -79,29 +79,31 @@ class Nav extends Component{
     const home = "/home/" + userId
 
     return(
-      <div className="">
+      <div className="container">
         <div className="">
         { localStorage.getItem('userId') === null ?
           <div className="">
             <Link to="/login">Login</Link>
           </div>
         :
-          <div>
-            <div className="">
-              <Link to='/home' >Electrify</Link>
-            </div>
-            <div className="">
-              <Link to='/create' >My Casa</Link>
-            </div>
-            <div className="">
-              <Link to='/'>Projects</Link>
-            </div>
-            <div className="">
-              <Link to='/myaccount'>Account</Link>
-            </div>
-            <div className="">
-              <input type="submit" value="Logout" className="" onClick={this.logout} />
-            </div>
+          <div className="container_nav">
+
+              <div className="">
+                <Link to='/home' className="jj">Electrify</Link>
+              </div>
+              <div className="">
+                <Link to='/mycasa'>My Casa</Link>
+              </div>
+              <div className="">
+                <Link to='/project'>Projects</Link>
+              </div>
+              <div className="">
+                <Link to='/myaccount'>Account</Link>
+              </div>
+              <div className="">
+                <input type="submit" value="Logout" className="" onClick={this.logout} />
+              </div>
+    
           </div>
         }
         </div>
