@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Nav from '../Nav'
+import Nav from '../../Nav'
 import axios from 'axios'
 import Moment from 'react-moment';
 import './Create.css';

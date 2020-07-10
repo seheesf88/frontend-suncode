@@ -1,8 +1,18 @@
 import React, { Component } from 'react';
 import Nav from '../Nav';
-//import MyHouseComponenet from '../MyHouseComponenet';
+import { Link } from 'react-router-dom';
+
 import ShowHouseContainer from '../ShowHouseContainer';
-//import CreateContainer from '../CreateContainer';
+
+import ClothesDrying from '../ElectrifyComponents/ClothesDrying';
+import ElectricalPanel from '../ElectrifyComponents/ElectricalPanel';
+import HotWater from '../ElectrifyComponents/HotWater';
+import Weatherization from '../ElectrifyComponents/Weatherization';
+import EnergyGeneration from '../ElectrifyComponents/EnergyGeneration';
+import HeatingCooling from '../ElectrifyComponents/HeatingCooling';
+import Cooking from '../ElectrifyComponents/Cooking';
+import ElectricVehicle from '../ElectrifyComponents/ElectricVehicle';
+
 import './Home.scss';
 
 
@@ -142,17 +152,22 @@ class HomeContainer extends Component {
     // }
 
     return (
-      <div className="home">
+      <div className="">
         <Nav username={this.state.userinfo.username} email={this.state.userinfo.email} name={this.state.userinfo.name}/>
-        <div className="home_container">
-          <div className="userinfo">
-            <div className="adminMessage">Welcome!</div>
-            <div className="username">{this.state.userinfo.name}</div>
+        <div className="">
+          <h1>Electrify</h1>
         </div>
-        <div className="myhouse">
-          <ShowHouseContainer deleteHouse={this.deleteHouse} />
+        <div className="">
+          <Link><div style={{border : '1px solid'}}>ClothesDrying</div></Link>
+          <Link><div style={{border : '1px solid'}}>ElectricalPanel</div></Link>
+          <Link><div style={{border : '1px solid'}}>HotWater</div></Link>
+          <Link><div style={{border : '1px solid'}}>Weatherization</div></Link>
+          <Link><div style={{border : '1px solid'}}>EnergyGeneration</div></Link>
+          <Link><div style={{border : '1px solid'}}>HeatingCooling</div></Link>
+          <Link><div style={{border : '1px solid'}}>Cooking</div></Link>
+          <Link><div style={{border : '1px solid'}}>ElectricVehicle</div></Link>
         </div>
-        </div>
+
       </div>
     )
   }
@@ -160,6 +175,5 @@ class HomeContainer extends Component {
 
 export default HomeContainer
 
-// <div className="house">
-//   <MyHouseComponenet allHouses={this.state.allHouses} deleteHouse={this.deleteHouse} />
-// </div>
+
+  // <ShowHouseContainer deleteHouse={this.deleteHouse} />

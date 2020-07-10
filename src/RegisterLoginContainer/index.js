@@ -99,7 +99,7 @@ class RegisterLoginContainer extends Component{
       alert('This Email is already registered. Please use other email address or go to forgot password')
     }else if(parsedResponse.status === 200){
       localStorage.setItem('userId', parsedResponse.userId)
-      this.props.history.push('/create')
+      this.props.history.push('/home')
     }else{
       alert('I am sorry, there is error. Please visit us later')
     }
