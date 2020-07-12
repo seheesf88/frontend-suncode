@@ -16,7 +16,7 @@ class MainContainer extends Component {
       <div>
         <Nav />
         <div className="readfirst">
-          <Link to="/welcome" className="readfirst">
+          <Link to="/welcome" style={{textDecoration: 'none'}}>
             Read first
           </Link>
         </div>

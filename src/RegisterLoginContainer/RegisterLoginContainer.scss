@@ -1,0 +1,52 @@
+.container_regLog {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.container_loginbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40px;
+  border: 1px solid;
+  border-radius: 10px;
+  width: 570px;
+  height: 410px;
+  margin-top: 139px;
+  align-self: center;
+  .label_input {
+    display: flex;
+    flex-direction: column;
+  }
+  .form_input {
+    height: 50px;
+    width: 490px;
+    font-size: 14px;
+  }
+  .btn_item {
+    border-style: none;
+    background: none;
+    color: #007AFF;
+  }
+  .logBtn {
+    background-color: #139929;
+    color: #FFFFFF;
+    font-weight: 900;
+    font-size: 18px;
+  }
+  .signup {
+    background-color: #E9E9E9;
+    text-align: center;
+    width: 100%;
+    height: 40px;
+    font-size: 16px;
+  }
+}
+
+.signupBtn {
+  border-style: none;
+  background: none;
+  color: #007AFF;
+  font-size: 16px;
+}

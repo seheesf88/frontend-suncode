@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
-import './RegisterLoginContainer.css';
-import NavHome from '../NavHome'
+import { withRouter, Link } from 'react-router-dom';
+import './RegisterLoginContainer.scss';
+
 
 
 class RegisterLoginContainer extends Component{
@@ -182,9 +182,9 @@ class RegisterLoginContainer extends Component{
 
 
   render(){
-    console.log(typeof this.state.register.emailNotice);
+    // console.log(typeof this.state.register.emailNotice);
     const changeOne = (
-      <button onClick={this.buttonChange} className="">Sign up</button>
+      <button onClick={this.buttonChange} className="signupBtn">Sign up</button>
     );
 
     const changeTwo = (
@@ -194,29 +194,32 @@ class RegisterLoginContainer extends Component{
 
 
     return(
-      <div className="regLog_container">
-        <div className="regLog_row">
-          <div className="logo">Logo</div>
+      <div>
+        <div className="container_nav">
+          <div className="items_nav">
+            <Link to='/'>
+              <div className="container_logo">
+                <div className="logo_img"><img src="Logo.png" className="ji"/></div>
+                <div className="logo_text"><img src="electricasa.png" /></div>
+              </div>
+            </Link>
+          </div>
+        </div>
+        <div className="container_regLog">
         { !this.state.loginButton ?
-          <div className="regLog_sub_container">
-            <div className="title_container">
-              <div className="title">Your</div>
-              <div className="title">Home Electrification</div>
-              <div className="title">Advisor</div>
-            </div>
+          <div className="container_loginbox">
             <form onSubmit={this.handleLoginSubmit} className="form_container">
-              <div>
+              <div className="label_input" style={{marginBottom: '25px'}}>
                 <label htmlFor="email" className="label">EMAIL</label>
                 <input className="form_input" id="email" name="email" type="text" value={this.state.login.email} onChange={this.handleLoginChange} required/>
               </div>
-              <div className="password">
+              <div className="label_input" style={{marginBottom: '29px'}}>
                 <label htmlFor="password" className="label">PASSWORD</label>
                 <input className="form_input" id="password" name="password" type="password" value={this.state.login.password} onChange={this.handleLoginChange} required/>
               </div>
-              <input className="btn_item" type="submit" value="Forgot your password? - coming soon..."/>
-
-              <div className="regLogBtn_container">
-                <button className="regLogBtn logBtn" type="submit">LOGIN</button>
+                <input className="btn_item" type="submit" value="Forgot your password?" style={{marginBottom: '25px'}}/>
+              <div className="regLogBtn_container" style={{marginBottom: '40px'}}>
+                <button className="regLogBtn logBtn form_input" type="submit">LOG IN</button>
               </div>
             </form>
             <div className="signup">
@@ -225,9 +228,9 @@ class RegisterLoginContainer extends Component{
           </div>
           :
           <div className="regLog_sub_container">
-          <div className="btn_container">
-            {changeTwo}
-          </div>
+            <div className="btn_container">
+              {changeTwo}
+            </div>
             <form onSubmit={this.handleRegisterSubmit} className="form_container">
               <input className="form_input" id="firstName" name="firstName" type="text" value={this.state.register.firstName} onChange={this.handleRegisterChange} required placeholder="First Name"/>
               <input className="form_input" id="lastName" name="lastName" type="text" value={this.state.register.lastName} onChange={this.handleRegisterChange} required placeholder="Last Name"/>
