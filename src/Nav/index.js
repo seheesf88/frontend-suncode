@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import './Nav.css';
+import './Nav.scss';
 
 
 
@@ -82,28 +82,52 @@ class Nav extends Component{
       <div className="container">
         <div className="">
         { localStorage.getItem('userId') === null ?
-          <div className="">
-            <Link to="/login">Login</Link>
+
+
+          <div>
+            <div className="container_nav">
+              <div className="items_nav">
+                <Link to='/'>
+                  <div className="container_logo">
+                    <div className="logo_img"><img src="Logo.png" className="ji"/></div>
+                    <div className="logo_text"><img src="electricasa.png" /></div>
+                  </div>
+                </Link>
+              </div>
+              <div className="items_nav">
+                <Link to="/login" className="login_btn" style={{textDecoration : 'none', color:'black', fontSize:'16px'}}>Login</Link>
+              </div>
+            </div>
           </div>
         :
-          <div className="container_nav">
-
-              <div className="">
-                <Link to='/home' className="jj">Electrify</Link>
+          <div>
+            <div className="container_nav">
+              <div className="items_nav">
+                <Link to='/'>
+                  <div className="container_logo">
+                    <div className="logo_img"><img src="Logo.png" className="ji"/></div>
+                    <div className="logo_text"><img src="electricasa.png" /></div>
+                  </div>
+                </Link>
               </div>
-              <div className="">
-                <Link to='/mycasa'>My Casa</Link>
+              <div className="items_nav">
+                <div className="item_nav">
+                  <Link to='/home' style={{textDecoration : 'none', color:'black', fontSize:'16px'}}>Electrify</Link>
+                </div>
+                <div className="item_nav">
+                  <Link to='/mycasa' style={{textDecoration : 'none', color:'black', fontSize:'16px'}}>My Casa</Link>
+                </div>
+                <div className="item_nav">
+                  <Link to='/project' style={{textDecoration : 'none', color:'black', fontSize:'16px'}}>Projects</Link>
+                </div>
+                <div className="item_nav">
+                  <Link to='/myaccount' style={{textDecoration : 'none', color:'black', fontSize:'16px'}}>Account</Link>
+                </div>
+                <div className="item_nav">
+                  <input type="submit" value="Logout" className="logout_btn" onClick={this.logout} />
+                </div>
               </div>
-              <div className="">
-                <Link to='/project'>Projects</Link>
-              </div>
-              <div className="">
-                <Link to='/myaccount'>Account</Link>
-              </div>
-              <div className="">
-                <input type="submit" value="Logout" className="" onClick={this.logout} />
-              </div>
-    
+            </div>
           </div>
         }
         </div>
