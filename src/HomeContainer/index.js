@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 
 import ShowHouseContainer from '../ShowHouseContainer';
 
-import ClothesDrying from '../ElectrifyComponents/ClothesDrying';
-import ElectricalPanel from '../ElectrifyComponents/ElectricalPanel';
-import HotWater from '../ElectrifyComponents/HotWater';
-import Weatherization from '../ElectrifyComponents/Weatherization';
-import EnergyGeneration from '../ElectrifyComponents/EnergyGeneration';
-import HeatingCooling from '../ElectrifyComponents/HeatingCooling';
-import Cooking from '../ElectrifyComponents/Cooking';
-import ElectricVehicle from '../ElectrifyComponents/ElectricVehicle';
+// import ClothesDrying from '../ElectrifyComponents/ClothesDrying';
+// import ElectricalPanel from '../ElectrifyComponents/ElectricalPanel';
+// import HotWater from '../ElectrifyComponents/HotWater';
+// import Weatherization from '../ElectrifyComponents/Weatherization';
+// import EnergyGeneration from '../ElectrifyComponents/EnergyGeneration';
+// import HeatingCooling from '../ElectrifyComponents/HeatingCooling';
+// import Cooking from '../ElectrifyComponents/Cooking';
+// import ElectricVehicle from '../ElectrifyComponents/ElectricVehicle';
 
 import './Home.scss';
 
@@ -152,22 +152,69 @@ class HomeContainer extends Component {
     // }
 
     return (
-      <div className="">
+      <div>
         <Nav username={this.state.userinfo.username} email={this.state.userinfo.email} name={this.state.userinfo.name}/>
-        <div className="">
-          <h1>Electrify</h1>
-        </div>
-        <div className="">
-          <Link><div style={{border : '1px solid'}}>ClothesDrying</div></Link>
-          <Link><div style={{border : '1px solid'}}>ElectricalPanel</div></Link>
-          <Link><div style={{border : '1px solid'}}>HotWater</div></Link>
-          <Link><div style={{border : '1px solid'}}>Weatherization</div></Link>
-          <Link><div style={{border : '1px solid'}}>EnergyGeneration</div></Link>
-          <Link><div style={{border : '1px solid'}}>HeatingCooling</div></Link>
-          <Link><div style={{border : '1px solid'}}>Cooking</div></Link>
-          <Link><div style={{border : '1px solid'}}>ElectricVehicle</div></Link>
-        </div>
+        <div className="home_container">
+          <div className="">
+            <div className="title">Electrify</div>
+            <div className="subtitle">Explore home energy improvements to increase comfort, efficiency, safety and health, and lower carbon footprint</div>
+          </div>
+          <div className="electri_container">
+            <div className="electri_row">
+              <Link to="/home/weatherization">
+                <div className="electri_box">
+                  <div><img src="./web/Weatherization_web.png" /></div>
+                  <div className="electri_items">Weatherization</div>
+                </div>
+              </Link>
+              <Link to="/home/hotwater">
+                <div className="electri_box">
+                  <div><img src="./web/HotWater_web.png"/></div>
+                  <div className="electri_items">Hot Water</div>
+                </div>
+              </Link>
+              <Link to="/home/heatingcooling">
+                <div className="electri_box">
+                  <div><img src="./web/HeatingCooling_web.png" /></div>
+                  <div className="electri_items">Heating Cooling</div>
+                </div>
+              </Link>
+              <Link to="/home/cooking">
+                <div className="electri_box">
+                  <div><img src="./web/Cooking_web.png"/></div>
+                  <div className="electri_items">Cooking</div>
+                </div>
+              </Link>
+            </div>
+            <div className="electri_row">
+              <Link to="/home/clothesdrying">
+                <div className="electri_box">
+                  <div><img src="./web/ClothesDrying_web.png" /></div>
+                  <div className="electri_items">Clothes Drying</div>
+                </div>
+              </Link>
+              <Link to="/home/energygeneration">
+                <div className="electri_box">
+                  <div><img src="./web/EnergyGeneration_web.png"/></div>
+                  <div className="electri_items">Energy Generation</div>
+                </div>
+              </Link>
 
+              <Link to="/home/electricalpanel">
+                <div className="electri_box">
+                  <div><img src="./web/ElectricalPanel_web.png"/></div>
+                  <div className="electri_items">Electrical Panel</div>
+                </div>
+              </Link>
+              <Link to="/home/electrivehicle">
+                <div className="electri_box">
+                  <div><img src="./web/ElectricVehicle_web.png"/></div>
+                  <div className="electri_items">Electric Vehicle</div>
+                </div>
+              </Link>
+            </div>
+          </div>
+        </div>
       </div>
     )
   }

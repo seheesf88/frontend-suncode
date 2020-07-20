@@ -1,19 +1,48 @@
 $primary-color: #777;
 
 * {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Muli', sans-serif;
 }
 
 .home_container {
-  display: grid;
-  grid-template-columns: 20% 80%;
-  color: $primary-color;
+  margin-top: 40px;
+  margin-left: 230px;
+  // margin-right: 257px;
 
-  .userinfo {
-    border: 1px solid green;
-    padding: 30%;
+  .title {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 35px;
+    margin-bottom: 22px;
   }
-  .myhouse {
-      border: 1px solid green;
+  .subtitle {
+    font-size: 16px;
+    margin-bottom: 50px;
+  }
+}
+
+.electri_container {
+  display: flex;
+  flex-direction: column;
+  .electri_row {
+    display: flex;
+    flex-direction: row;
+    // justify-content: space-between;
+    align-content: center;
+    margin-bottom: 65px;
+  }
+  .electri_box {
+    width: 200px;
+    height: 158px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .electri_items {
+    font-size: 16px;
   }
 }
