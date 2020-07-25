@@ -223,7 +223,6 @@ class CreateContainer extends Component {
   render(){
 
     return(
-
       <div>
         <Nav />
           <form onSubmit={this.handleSubmit} className="createForm">

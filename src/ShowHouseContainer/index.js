@@ -94,16 +94,7 @@ class ShowHouseContainer extends Component {
   render(){
     return(
       <div>
-      {
-        this.state.house === null
-      ?
-      <div>
-        <h2>please add...</h2>
-        <Link to="/create">Register my house</Link>
-      </div>
-      :
-      <ShowHouseComponent showHouse={this.state.house} deleteHouse={this.deleteHouse} />
-      }
+
       </div>
     )
   }
