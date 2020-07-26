@@ -150,10 +150,10 @@ class HomeContainer extends Component {
     //   height: 200,
     //   width: 500
     // }
-
+// <Nav username={this.state.userinfo.username} email={this.state.userinfo.email} name={this.state.userinfo.name}/>
     return (
       <div>
-        <Nav username={this.state.userinfo.username} email={this.state.userinfo.email} name={this.state.userinfo.name}/>
+        <Nav />
         <div className="home_container">
           <div className="">
             <div className="title">Electrify</div>

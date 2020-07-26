@@ -76,12 +76,12 @@ class Nav extends Component{
   // }
   render(){
     const userId = localStorage.getItem('userId');
-    const home = "/home/" + userId
+    const home = "/home"
 
     return(
       <div className="container">
         <div className="">
-        { localStorage.getItem('userId') === null ?
+        { localStorage.getItem('userId') !== null ?
 
 
           <div>
@@ -89,7 +89,7 @@ class Nav extends Component{
               <div className="items_nav">
                 <Link to='/'>
                   <div className="container_logo">
-                    <div className="logo_img"><img src="Logo.png" className="ji"/></div>
+                    <div className="logo_img"><img src="Logo.png" /></div>
                     <div className="logo_text"><img src="electricasa.png" /></div>
                   </div>
                 </Link>
@@ -105,7 +105,7 @@ class Nav extends Component{
               <div className="items_nav">
                 <Link to='/'>
                   <div className="container_logo">
-                    <div className="logo_img"><img src="Logo.png" className="ji"/></div>
+                    <div className="logo_img"><img src="Logo.png" /></div>
                     <div className="logo_text"><img src="electricasa.png" /></div>
                   </div>
                 </Link>

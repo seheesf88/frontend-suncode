@@ -1,33 +1,6 @@
-// import React from 'react';
-// import { Link } from 'react-router-dom';
-// import Nav from '../../Nav';
-//
-// const MyCasaComponent = (props) => {
-//
-//     return(
-//           <div>
-//             <Nav />
-//             <div>My Casa</div>
-//             <div> See the status of your house energy assets and how they compare on quality, efficiency and age to new technologies.</div>
-//             {?
-//             <div></div>
-//             :
-//             <div></div>
-//             }
-//             <Link to="/mycasa/create">Add House</Link>
-//           </div>
-//         )
-//
-// }
-//
-//
-// export default MyCasaComponent
-
-
 import React, { Component } from 'react';
-
 import Nav from './../../Nav';
-// import ShowHouseComponent from '../ShowHouseComponent';
+import './MyCasa.scss';
 import { Link, withRouter } from 'react-router-dom';
 
 class MyCasaComponent extends Component {
@@ -124,9 +97,15 @@ class MyCasaComponent extends Component {
       {
         this.state.house === undefined
       ?
-      <div>
-        <h2>please add...</h2>
-        <Link to="/mycasa/create">Register my house</Link>
+      <div className="myCasa_container">
+        <div className="myCasa_row">
+          <div className="h2">My Casa</div>
+          <div style={{marginBottom: 213}}>See the status of your house energy assets and how they compare on quality, efficiency and age to new technologies.</div>
+          <div className="ji">
+          <div style={{}}>You did not add any house information</div>
+          <div><Link to="/project" className="submitBtn" style={{width: '490px'}}>Add House</Link></div>
+          </div>
+        </div>
       </div>
       :
       <div>show me the list of house.</div>

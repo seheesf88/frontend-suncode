@@ -19,7 +19,7 @@ import Weatherization from './ElectrifyComponents/Weatherization';
 
 
 import MyCasaComponent from './MyCasaComponents/MyCasaComponent';
-import CreateContainer from './MyCasaComponents/CreateContainer';
+import CreateContainer from './ProjectComponents/CreateContainer';
 import ProjectComponent from './ProjectComponents/ProjectComponent';
 
 //or
@@ -69,8 +69,12 @@ const App = (props) => {
         <Route exact path="/home/weatherization" component={ Weatherization } />
 
         <Route exact path="/mycasa" component={ MyCasaComponent } />
-        <Route exact path="/mycasa/create" component={ CreateContainer } />
+
+
         <Route exact path="/project" component={ ProjectComponent } />
+        <Route exact path="/project/create" component={ CreateContainer } />
+
+
 
         <Route exact path="/house" component={ HouseDetailContainer } />
         <Route exact path="/house/roof" component={ RoofContainer } />
