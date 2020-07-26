@@ -81,7 +81,7 @@ class Nav extends Component{
     return(
       <div className="container">
         <div className="">
-        { localStorage.getItem('userId') !== null ?
+        { localStorage.getItem('userId') === null ?
 
 
           <div>

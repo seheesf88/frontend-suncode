@@ -174,7 +174,7 @@ class CreateContainer extends Component {
         })
         .then(res => {
           // console.log(res.statusText, "here???", res.data.msg);
-          this.props.history.push('/mycasa');
+          this.props.history.push('/project/create/roof');
         })
     }
 
@@ -222,7 +222,7 @@ class CreateContainer extends Component {
                 </div>
 
               <div className="">
-                <input type="submit" className="submitBtn" />
+                <button type="submit" className="submitBtn">Next</button>
               </div>
             </div>
           </form>
