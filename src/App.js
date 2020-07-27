@@ -19,9 +19,11 @@ import Weatherization from './ElectrifyComponents/Weatherization';
 
 
 import MyCasaComponent from './MyCasaComponents/MyCasaComponent';
+
+
 import ProjectComponent from './ProjectComponents/ProjectComponent';
 import CreateContainer from './ProjectComponents/CreateContainer';
-import Roof from './ProjectComponents/CreateContainer';
+import RoofContainer from './ProjectComponents/RoofContainer';
 //or
 import AdminHome from './AdminHome';
 
@@ -34,7 +36,7 @@ import ShowMyAccount from './ShowMyAccount';
 import ResourcesContainer from './ResourcesContainer';
 
 import HouseDetailContainer from './HomeOwnerComponents/HouseDetailContainer';
-import RoofContainer from './HomeOwnerComponents/RoofContainer';
+
 
 const My404 = () => {
   return (
@@ -73,13 +75,12 @@ const App = (props) => {
 
         <Route exact path="/project" component={ ProjectComponent } />
         <Route exact path="/project/create" component={ CreateContainer } />
-        <Route exact path="/project/create/roof" component={ Roof } />
+        <Route exact path="/project/create/roof" component={ RoofContainer } />
 
 
 
         <Route exact path="/house" component={ HouseDetailContainer } />
-        <Route exact path="/house/roof" component={ RoofContainer } />
-
+    
         <Route exact path="/adminhome" component={ AdminHome } />
         <Route exact path="/resources" component={ ResourcesContainer } />
         <Route exact path="/myaccount" component={ ShowMyAccount } />
