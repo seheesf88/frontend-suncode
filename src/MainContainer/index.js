@@ -11,7 +11,9 @@ class MainContainer extends Component {
       }
     }
 
+
   render(){
+    console.log(localStorage.getItem('userId'));
     return (
       <div>
         <Nav />
@@ -20,6 +22,7 @@ class MainContainer extends Component {
             Read first
           </Link>
         </div>
+        <div>This is main container</div>
       </div>
     )
   }

@@ -17,13 +17,14 @@ import HeatingCooling from './ElectrifyComponents/HeatingCooling';
 import HotWater from './ElectrifyComponents/HotWater';
 import Weatherization from './ElectrifyComponents/Weatherization';
 
-
 import MyCasaComponent from './MyCasaComponents/MyCasaComponent';
-
 
 import ProjectComponent from './ProjectComponents/ProjectComponent';
 import CreateContainer from './ProjectComponents/CreateContainer';
 import RoofContainer from './ProjectComponents/RoofContainer';
+import AtticContainer from './ProjectComponents/AtticContainer';
+import WaHeaterContainer from './ProjectComponents/WaHeaterContainer';
+import SpHeaterContainer from './ProjectComponents/SpHeaterContainer';
 //or
 import AdminHome from './AdminHome';
 
@@ -76,11 +77,14 @@ const App = (props) => {
         <Route exact path="/project" component={ ProjectComponent } />
         <Route exact path="/project/create" component={ CreateContainer } />
         <Route exact path="/project/create/roof" component={ RoofContainer } />
+        <Route exact path="/project/create/attic" component={ AtticContainer } />
+        <Route exact path="/project/create/waheater" component={ WaHeaterContainer } />
+        <Route exact path="/project/create/spheater" component={ SpHeaterContainer } />
 
 
 
         <Route exact path="/house" component={ HouseDetailContainer } />
-    
+
         <Route exact path="/adminhome" component={ AdminHome } />
         <Route exact path="/resources" component={ ResourcesContainer } />
         <Route exact path="/myaccount" component={ ShowMyAccount } />

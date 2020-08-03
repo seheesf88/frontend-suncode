@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 // import Moment from 'react-moment';
-import Nav from '../../Nav'
+import Nav from './../../Nav'
 // import './HouseDetailContainer.css';
 
 class AtticContainer extends Component {
@@ -14,6 +14,7 @@ class AtticContainer extends Component {
         atticSqft:'',
         atticDepth:'',
         insulMaterial:'',
+        airSealed: '',
         userId: '',
         postingTime:''
       },
@@ -59,6 +60,7 @@ class AtticContainer extends Component {
         atticSqft : '',
         atticDepth : '',
         insulMaterial : '',
+        airSealed: '',
         userId: '',
       },
     })
@@ -84,7 +86,7 @@ class AtticContainer extends Component {
       var url3 = typeof file3 !== 'undefined'? reader3.readAsDataURL(file3):null;
 
 
-      reader2.onloadend = function(e){
+      reader3.onloadend = function(e){
         this.setState({
           preview3: [reader3.result || null],
         })
@@ -105,13 +107,14 @@ class AtticContainer extends Component {
         const data = new FormData();
 
         for(let i = 0; i < this.state.attic.atticImg.length; i++){
-            data.append('roofImg', this.state.attic.atticImg[i]);
+            data.append('atticImg', this.state.attic.atticImg[i]);
         }
 
         data.append('atticType', this.state.attic.atticType);
         data.append('atticSqft', this.state.attic.atticSqft);
         data.append('atticDepth', this.state.attic.atticDepth);
-        data.append('insulMaterial', this.state.attic.insulMaterial);attic
+        data.append('insulMaterial', this.state.attic.insulMaterial);
+        data.append('airSealed', this.state.attic.airSealed);
         //data.append('postingTime', this.state.house.postingTime);
 
         let userId = localStorage.getItem('userId');
@@ -120,7 +123,7 @@ class AtticContainer extends Component {
         const time = new Date();
         data.append('postingTime', time)
 
-        axios.post(`${process.env.REACT_APP_API}/api/v1/roof`, data, {
+        axios.post(`${process.env.REACT_APP_API}/api/v1/attic`, data, {
           headers: {
             'content-type': 'multipart/form-data'
           }
@@ -141,32 +144,31 @@ class AtticContainer extends Component {
           <form onSubmit={this.handleSubmit} className="createForm">
             <div className="">
                 <div className="">
-
                   <div className="">
-                    <div><img className="frames" id="photoTwo" src={this.state.preview2}  onClick={this.handleClick } height={100} width={100} /></div>
-                      <input name="photoTwo" className="hide" id="input-photoTwo" onChange={this.fileSelectHandler} type="file"/>
+                    <div><img className="frames" id="photoThree" src={this.state.preview3}  onClick={this.handleClick} height={100} width={100} /></div>
+                      <input name="photoThree" className="hide" id="input-photoThree" onChange={this.fileSelectHandler} type="file"/>
                   </div>
                 </div>
                 <div className="container-form-group">
                   <div className="form-group">
-                    <label htmlFor="exterior">EXTERIOR</label>
-                    <input name="exterior" id="exterior" type="text" className="form-control" onChange={this.handleInput} value={this.state.roof.exterior} placeholder="" />
+                    <label htmlFor="atticType">PRIMARY ATTIC TYPE</label>
+                    <input name="atticType" id="atticType" type="text" className="form-control" onChange={this.handleInput} value={this.state.attic.atticType} placeholder="Unconditioned Attic" />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="roofColor">COLOR</label>
-                    <input name="roofColor" id="roofColor" type="text" className="form-control" onChange={this.handleInput} value={this.state.roof.roofColor} placeholder="" />
+                    <label htmlFor="atticSqft">ATTIC SQUARE FOOTAGE (GUESS)</label>
+                    <input name="atticSqft" id="atticSqft" type="text" className="form-control" onChange={this.handleInput} value={this.state.attic.atticSqft} placeholder="100" />
                   </div>
                   <div className="form-group">
-                    <label className="" htmlFor="state">IS THERE SOLAR PV SYSTEM INSTALLED?*</label>
-                    <input name="pvSystem" id="pvSystem" type="text" className="form-control" value={this.state.roof.pvSystem} onChange={this.handleInput} placeholder=""/>
+                    <label className="" htmlFor="atticDepth">ESTIMATED AVERAGE DEPTH (INCHES)*</label>
+                    <input name="atticDepth" id="atticDepth" type="text" className="form-control" onChange={this.handleInput} value={this.state.attic.atticDepth} />
                   </div>
                   <div className="form-group">
-                    <label className="" htmlFor="panels">NUMBER OF PANELS</label>
-                    <input name="panels" id="panels" type="text" className="form-control" value={this.state.roof.panels} onChange={this.handleInput} placeholder="" />
+                    <label className="" htmlFor="insulMaterial">INSULATION MATERIAL</label>
+                    <input name="insulMaterial" id="insulMaterial" type="text" className="form-control" onChange={this.handleInput} value={this.state.attic.insulMaterial} />
                   </div>
                   <div className="form-group">
-                    <label className="" htmlFor="dcCapacity">SIZE(KW)</label>
-                    <input name="dcCapacity" id="dcCapacity" type="text" className="form-control" onChange={this.handleInput} value={this.state.roof.dcCapacity} placeholder="" />
+                    <label className="" htmlFor="airSealed">HAS THE HOUSE BEEN PROFESSIONALLY AIR SEALED?</label>
+                    <input name="airSealed" id="airSealed" type="text" className="form-control" onChange={this.handleInput} value={this.state.attic.airSealed} />
                   </div>
                 </div>
               <div className="">
