@@ -16,9 +16,9 @@ class Footer extends Component {
 
     return (
       <div className="footer_container">
-        <div>About Us</div>
-        <div>Contact Us</div>
-        <div>Terms of Use</div>
+        <div className="footer_items"><Link to="/"className="link">About Us</Link></div>
+        <div className="footer_items"><Link to="/"className="link">Contact Us</Link></div>
+        <div className="footer_items"><Link to="/"className="link">Terms of Use</Link></div>
       </div>
     )
   }

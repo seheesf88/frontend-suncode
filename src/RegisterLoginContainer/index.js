@@ -189,22 +189,28 @@ class RegisterLoginContainer extends Component{
     );
 
     const changeTwo = (
-      <button onClick={this.buttonChange} className="">Back to login</button>
+      <button onClick={this.buttonChange} id="logbtn">LOG IN</button>
     );
 
+    const pathname = window.location.pathname
+    console.log(this.state.mobileNotice);
 
 
     return(
       <div>
         <div className="container_nav">
-          <div className="items_nav">
             <Link to='/'>
               <div className="container_logo">
                 <div className="logo_img"><img src="Logo.png" className="ji"/></div>
                 <div className="logo_text"><img src="electricasa.png" /></div>
               </div>
             </Link>
-          </div>
+            { this.state.loginButton === true
+            ?
+            <div id="login">{changeTwo}</div>
+            :
+            <div></div>
+            }
         </div>
         <div className="container_regLog">
         { !this.state.loginButton ?
@@ -224,44 +230,59 @@ class RegisterLoginContainer extends Component{
               </div>
             </form>
             <div className="signup">
-              Don't have an account? {changeOne}
+              <div>Don't have an account? {changeOne}</div>
             </div>
           </div>
           :
           <div className="regLog_sub_container">
-            <div className="btn_container">
-              {changeTwo}
-            </div>
-            <form onSubmit={this.handleRegisterSubmit} className="form_container">
-              <input className="form_input" id="firstName" name="firstName" type="text" value={this.state.register.firstName} onChange={this.handleRegisterChange} required placeholder="First Name"/>
-              <input className="form_input" id="lastName" name="lastName" type="text" value={this.state.register.lastName} onChange={this.handleRegisterChange} required placeholder="Last Name"/>
-              <input className="form_input" id="email" name="email" type="email" value={this.state.register.email} onChange={this.handleRegisterChange} placeholder="Email" required/>
-              <input className="form_input" id="phNumber" name="phNumber" type="text" value={this.state.register.phNumber} onChange={this.handleRegisterChange} placeholder="Phone Number" required/>
-              <input className="form_input" id="pre_password" name="pre_password" type="password" value={this.state.register.pre_password} onChange={this.handleRegisterChange} placeholder="Password" required/>
-              <input className="form_input" id="password" name="password" type="password" value={this.state.register.password} onChange={this.handleRegisterChange} placeholder="Re-Enter Password" required/>
-              <div className="notifications_container">
-                <label>
-                  <input
-                    className="notifications_checkbox"
-                    name="emailNotice"
-                    type="checkbox"
-                    checked={this.state.register.emailNotice}
-                    onChange={this.handleRegisterChange} />
-                    Agree to receive email notifications
-                </label>
-                <label>
-                  <input
-                    className="notifications_checkbox"
-                    name="mobileNotice"
-                    type="checkbox"
-                    checked={this.state.register.mobileNotice}
-                    onChange={this.handleRegisterChange} />
-                    Agree to receive mobile push notifications
-                </label>
+            <form onSubmit={this.handleRegisterSubmit} className="container_regbox">
+              <div className="label_input">
+                <label htmlFor="firstName" className="label">FIRST NAME</label>
+                <input className="form_input" id="firstName" name="firstName" type="text" value={this.state.register.firstName} onChange={this.handleRegisterChange} required placeholder="First Name"/>
               </div>
-              <div className="regLogBtn_container">
-                <button className="regLogBtn regBtn" type="submit">REGISTER</button>
+              <div className="label_input">
+                <label htmlFor="lastName" className="label">LAST NAME</label>
+                  <input className="form_input" id="lastName" name="lastName" type="text" value={this.state.register.lastName} onChange={this.handleRegisterChange} required placeholder="Last Name"/>
               </div>
+              <div className="label_input">
+                <label htmlFor="email" className="label">EMAIL</label>
+                  <input className="form_input" id="email" name="email" type="email" value={this.state.register.email} onChange={this.handleRegisterChange} placeholder="Email" required/>
+              </div>
+              <div className="label_input">
+                <label htmlFor="phNumber" className="label">PHONE NUMBER</label>
+                  <input className="form_input" id="phNumber" name="phNumber" type="text" value={this.state.register.phNumber} onChange={this.handleRegisterChange} placeholder="Phone Number" required/>
+              </div>
+              <div className="label_input">
+                <label htmlFor="pre_password" className="label">PASSWORD</label>
+                  <input className="form_input" id="pre_password" name="pre_password" type="password" value={this.state.register.pre_password} onChange={this.handleRegisterChange} placeholder="Password" required/>
+              </div>
+              <div className="label_input">
+                <label htmlFor="password" className="label">PASSWORD2</label>
+                  <input className="form_input" id="password" name="password" type="password" value={this.state.register.password} onChange={this.handleRegisterChange} placeholder="Re-Enter Password" required/>
+              </div>
+                <div className="notifications_container">
+                  <label>
+                    <input
+                      className="notifications_checkbox"
+                      name="emailNotice"
+                      type="checkbox"
+                      checked={this.state.register.emailNotice}
+                      onChange={this.handleRegisterChange} />
+                      Agree to receive email notifications
+                  </label>
+                  <label>
+                    <input
+                      className="notifications_checkbox"
+                      name="mobileNotice"
+                      type="checkbox"
+                      checked={this.state.register.mobileNotice}
+                      onChange={this.handleRegisterChange} />
+                      Agree to receive mobile push notifications
+                  </label>
+                </div>
+                <div className="regLogBtn_container">
+                  <button className="regLogBtn regBtn" type="submit">REGISTER</button>
+                </div>
             </form>
           </div>
         }

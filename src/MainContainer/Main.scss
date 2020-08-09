@@ -7,11 +7,11 @@
   text-align: center;
   #link {
     text-decoration: none;
-    color: white; 
+    color: white;
   }
 }
 
-.session_container {
+.section_one_container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -49,4 +49,37 @@
     font-weight: 900;
     font-size: 18px;
   }
+}
+
+.section_two_container {
+  margin-top: 15%;
+  margin-bottom: 100px;
+  width: 40%;
+  .col_one {
+
+  }
+  .col_two {
+    margin-top: 8%;
+    text-align: center;
+    #h1 {
+    font-weight: bold;
+    font-size: 28px;
+    width: 80%;
+    margin-left: 10%;
+    }
+    #text {
+    margin-top: 8%;
+    margin-left: 10%;
+    text-align: left;
+    width: 80%;
+
+    }
+  }
+}
+.left {
+  margin-left: 10%;
+}
+
+.right  {
+  margin-left: 50%;
 }
