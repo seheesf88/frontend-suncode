@@ -22,16 +22,18 @@
 }
 
 .container_loginbox {
+  align-items: center;
+}
+.container_loginbox,.container_regbox {
   display: flex;
   flex-direction: column;
   position: relative;
-  align-items: center;
-  padding-top: 40px;
   border: 1px;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
-  width: 570px;
-  height: 410px;
+  // width: 570px;
+  // height: 410px;
+  padding: 40px;
   margin-top: 139px;
   padding-bottom: 0;
   align-self: center;
@@ -55,12 +57,14 @@
     background: none;
     color: #007AFF;
   }
-  .logBtn {
+  .logBtn, .regBtn {
     background-color: #139929;
     color: #FFFFFF;
     font-weight: 900;
     font-size: 18px;
     border-radius: 5px;
+    margin-top: 6%;
+    margin-bottom: 6%;
   }
   .signup {
     background-color: #E9E9E9;
@@ -83,11 +87,9 @@
   font-size: 16px;
 }
 
-
 .container_regbox {
   display: flex;
   flex-direction: column;
-  border: 1px solid red;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   .label_input {
@@ -103,13 +105,16 @@
   .form_input {
     height: 50px;
     width: 490px;
-    font-size: 14px;
+    // font-size: 14px;
     border-radius: 5px;
     border: 1px solid #979797;
     margin-bottom: 20px;
   }
-  .notifications_container {
-    display: flex;
-    flex-direction: column;
-  }
+
+}
+
+.notifications_container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 0px;
 }

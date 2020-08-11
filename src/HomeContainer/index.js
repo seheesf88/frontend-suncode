@@ -13,7 +13,7 @@ import ShowHouseContainer from '../ShowHouseContainer';
 // import Cooking from '../ElectrifyComponents/Cooking';
 // import ElectricVehicle from '../ElectrifyComponents/ElectricVehicle';
 
-import './Home.scss'
+import './Home.scss';
 
 
 

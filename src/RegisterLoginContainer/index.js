@@ -238,27 +238,23 @@ class RegisterLoginContainer extends Component{
             <form onSubmit={this.handleRegisterSubmit} className="container_regbox">
               <div className="label_input">
                 <label htmlFor="firstName" className="label">FIRST NAME</label>
-                <input className="form_input" id="firstName" name="firstName" type="text" value={this.state.register.firstName} onChange={this.handleRegisterChange} required placeholder="First Name"/>
+                <input className="form_input" id="firstName" name="firstName" type="text" value={this.state.register.firstName} onChange={this.handleRegisterChange} required />
               </div>
               <div className="label_input">
                 <label htmlFor="lastName" className="label">LAST NAME</label>
-                  <input className="form_input" id="lastName" name="lastName" type="text" value={this.state.register.lastName} onChange={this.handleRegisterChange} required placeholder="Last Name"/>
+                  <input className="form_input" id="lastName" name="lastName" type="text" value={this.state.register.lastName} onChange={this.handleRegisterChange} required />
               </div>
               <div className="label_input">
                 <label htmlFor="email" className="label">EMAIL</label>
-                  <input className="form_input" id="email" name="email" type="email" value={this.state.register.email} onChange={this.handleRegisterChange} placeholder="Email" required/>
+                  <input className="form_input" id="email" name="email" type="email" value={this.state.register.email} onChange={this.handleRegisterChange} required />
               </div>
               <div className="label_input">
                 <label htmlFor="phNumber" className="label">PHONE NUMBER</label>
-                  <input className="form_input" id="phNumber" name="phNumber" type="text" value={this.state.register.phNumber} onChange={this.handleRegisterChange} placeholder="Phone Number" required/>
+                  <input className="form_input" id="phNumber" name="phNumber" type="text" value={this.state.register.phNumber} onChange={this.handleRegisterChange} required />
               </div>
               <div className="label_input">
-                <label htmlFor="pre_password" className="label">PASSWORD</label>
-                  <input className="form_input" id="pre_password" name="pre_password" type="password" value={this.state.register.pre_password} onChange={this.handleRegisterChange} placeholder="Password" required/>
-              </div>
-              <div className="label_input">
-                <label htmlFor="password" className="label">PASSWORD2</label>
-                  <input className="form_input" id="password" name="password" type="password" value={this.state.register.password} onChange={this.handleRegisterChange} placeholder="Re-Enter Password" required/>
+                <label htmlFor="password" className="label">PASSWORD</label>
+                  <input className="form_input" id="password" name="password" type="password" value={this.state.register.password} onChange={this.handleRegisterChange} required/>
               </div>
                 <div className="notifications_container">
                   <label>
@@ -281,7 +277,7 @@ class RegisterLoginContainer extends Component{
                   </label>
                 </div>
                 <div className="regLogBtn_container">
-                  <button className="regLogBtn regBtn" type="submit">REGISTER</button>
+                  <button className="regLogBtn regBtn form_input" type="submit">SIGN UP</button>
                 </div>
             </form>
           </div>
