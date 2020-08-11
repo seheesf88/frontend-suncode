@@ -5,30 +5,39 @@ $primary-color: #777;
 }
 
 .home_container {
-  margin-top: 40px;
-  margin-left: 230px;
-  // margin-right: 257px;
+  width: 80%;
+  margin-left: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  // align-items: center;
 
   .title {
     font-style: normal;
     font-weight: bold;
     font-size: 28px;
     line-height: 35px;
+    margin-left: 5%;
     margin-bottom: 22px;
+    margin-top: 4%;
   }
   .subtitle {
     font-size: 16px;
+    margin-left: 5%;
     margin-bottom: 50px;
   }
 }
 
 .electri_container {
+  width: 90%;
+  margin-left: 5%;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   .electri_row {
     display: flex;
     flex-direction: row;
-    // justify-content: space-between;
+    justify-content: space-between;
     align-content: center;
     margin-bottom: 65px;
   }

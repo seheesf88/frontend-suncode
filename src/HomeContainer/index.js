@@ -155,10 +155,8 @@ class HomeContainer extends Component {
       <div>
         <Nav />
         <div className="home_container">
-          <div className="">
-            <div className="title">Electrify</div>
-            <div className="subtitle">Explore home energy improvements to increase comfort, efficiency, safety and health, and lower carbon footprint</div>
-          </div>
+          <div className="title">Electrify</div>
+          <div className="subtitle">Explore home energy improvements to increase comfort, efficiency, safety and health, and lower carbon footprint</div>
           <div className="electri_container">
             <div className="electri_row">
               <Link to="/home/weatherization">
