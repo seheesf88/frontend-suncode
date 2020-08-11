@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 // import Moment from 'react-moment';
-import Nav from '../../Nav'
+import Nav from './../../Nav'
 // import './HouseDetailContainer.css';
 
 class RoofContainer extends Component {
