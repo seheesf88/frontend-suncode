@@ -9,14 +9,15 @@ class CreateContainer extends Component {
     super()
     this.state = {
       house : {
+        houseImg:[],
         address : '',
         city:'',
         state: '',
         zipcode: '',
-        year: '',
-        sqft: '',
-        pic1: [],
-        memo: '',
+        houseYear: '',
+        houseSqft: '',
+        // pic1: [],
+        // memo: '',
       },
       preview1: null,
       preview2: null,
@@ -40,7 +41,7 @@ class CreateContainer extends Component {
   }
 
   handleClick = (e) => {
-    console.log('---->',e.target.id);
+    // console.log('---->',e.target.id);
     var h = document.getElementById(`input-${e.target.id}`)
     h.click();
 
@@ -56,14 +57,15 @@ class CreateContainer extends Component {
 
     this.setState({
       house : {
+        houseImg: null,
         address : '',
         city: '',
         state: '',
         zipcode: '',
-        year: '',
-        sqft: '',
-        pic1: null,
-        memo: '',
+        houseYear: '',
+        houseSqft: '',
+        // pic1: null,
+        // memo: '',
         userId: '',
       },
     })
@@ -72,8 +74,9 @@ class CreateContainer extends Component {
 
 
     fileSelectHandler = (e) => {
-      var file1, file2, file3, file4;
-
+      // var file1, file2, file3, file4;
+      var file1
+      console.log('&&&', e.target.files[0]);
       // var singleFile = ''
       switch (e.target.id) {
         case 'input-photoOne':
@@ -135,7 +138,7 @@ class CreateContainer extends Component {
       this.setState({
         house: {
           ...this.state.house,
-          pic1: [...this.state.house.pic1, e.target.files[0]]
+          houseImg: [...this.state.house.houseImg, e.target.files[0]]
         }
       })
     }
@@ -146,16 +149,16 @@ class CreateContainer extends Component {
 
         const data = new FormData();
 
-        for(let i = 0; i < this.state.house.pic1.length; i++){
-            data.append('photo', this.state.house.pic1[i]);
+        for(let i = 0; i < this.state.house.houseImg.length; i++){
+            data.append('houseImg', this.state.house.houseImg[i]);
         }
 
         data.append('address', this.state.house.address);
         data.append('city', this.state.house.city);
         data.append('state', this.state.house.state);
         data.append('zipcode', this.state.house.zipcode);
-        data.append('year', this.state.house.year);
-        data.append('sqft', this.state.house.sqft);
+        data.append('houseYear', this.state.house.houseYear);
+        data.append('houseSqft', this.state.house.houseSqft);
         // data.append('memo', this.state.house.memo);
         data.append('time', this.state.house.time);
 
@@ -175,9 +178,9 @@ class CreateContainer extends Component {
           }
         })
         .then(res => {
-          console.log('hi');
+
           // console.log(res.statusText, "here???", res.data.msg);
-          // this.props.history.push('/project/start');
+          this.props.history.push('/project/start');
         })
     }
 
@@ -205,20 +208,20 @@ class CreateContainer extends Component {
                   <div className="col">
                     <div className="form-group" id="col-left">
                       <label className="" htmlFor="state">STATE</label>
-                      <input name="state" id="state" type="text" className="form-control" placeholder="ex)CA" value={this.state.house.state} onChange={this.handleInput} />
+                      <input name="state" id="state" type="text" className="form-control" value={this.state.house.state} onChange={this.handleInput} />
                     </div>
                     <div className="form-group">
                       <label className="" htmlFor="zipcode">ZIPCODE</label>
-                      <input name="zipcode" id="zipcode" type="text" className="form-control" placeholder="ex)94612" value={this.state.house.zipcode} onChange={this.handleInput}  />
+                      <input name="zipcode" id="zipcode" type="text" className="form-control" value={this.state.house.zipcode} onChange={this.handleInput}  />
                     </div>
                   </div>
                   <div className="form-group">
-                    <label className="" htmlFor="year">YEAR BUILT</label>
-                    <input name="year" id="year" type="text" className="form-control" onChange={this.handleInput} value={this.state.house.year} placeholder="ex)YYYY" />
+                    <label className="" htmlFor="houseYear">YEAR BUILT</label>
+                    <input name="houseYear" id="houseYear" type="text" className="form-control" onChange={this.handleInput} value={this.state.house.houseYear}  />
                   </div>
                   <div className="form-group">
-                    <label className="" htmlFor="sqft">SQUARE FEET</label>
-                    <input name="sqft" id="sqft" type="text" className="form-control" onChange={this.handleInput} value={this.state.house.sqft} placeholder="ex)960" />
+                    <label className="" htmlFor="houseSqft">SQUARE FEET</label>
+                    <input name="houseSqft" id="houseSqft" type="text" className="form-control" onChange={this.handleInput} value={this.state.house.houseSqft}  />
                   </div>
 
                 </div>
