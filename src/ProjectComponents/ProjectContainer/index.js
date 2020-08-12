@@ -18,7 +18,7 @@ class ProjectContainer extends Component {
   }
 
   componentDidMount(){
-    this.getOneHouse();
+    // this.getOneHouse();
     this.getOneRoof();
 
   }
