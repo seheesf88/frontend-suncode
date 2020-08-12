@@ -1,22 +1,21 @@
 .myCasa_container {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  padding-top: 40px;
-  border: 1px red solid;
-
-  .myCasa_row {
+  flex-direction: column;
+  padding-top: 5%;
+  padding-left: 5%;
   width: 70%;
-  margin-left: 15%;
-  margin-right: 15%;
-  // justify-content: center;
-  // text-align: center;
+  margin-left: 10%;
+  .p1 {
+    margin-top: 4%;
+    margin-bottom: 15%;
   }
-  .h2 {
-    margin-bottom: 29px;
+  .text {
+    color: #979797
   }
-  .ji {
-    justify-content: center;
-    text-align: center;
+  .center {
+    align-self: center;
+    margin-top: 2%;
+    margin-bottom: 2%;
   }
+
 }

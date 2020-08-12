@@ -142,6 +142,7 @@ class CreateContainer extends Component {
 
 
     addHouse = async(updatedHouse) => {
+      console.log('hip!', updatedHouse);
 
         const data = new FormData();
 
@@ -161,20 +162,22 @@ class CreateContainer extends Component {
         let userId = localStorage.getItem('userId');
         data.append('userId', userId)
 
-        let username = localStorage.getItem('username');
-        data.append('username', username)
+        // let username = localStorage.getItem('username');
+        // data.append('username', username)
 
         const time = new Date();
         data.append('postingTime', time)
 
+        console.log('here', data);
         axios.post(`${process.env.REACT_APP_API}/api/v1/house`, data, {
           headers: {
             'content-type': 'multipart/form-data'
           }
         })
         .then(res => {
+          console.log('hi');
           // console.log(res.statusText, "here???", res.data.msg);
-          this.props.history.push('/project/create/roof');
+          // this.props.history.push('/project/start');
         })
     }
 
@@ -185,46 +188,45 @@ class CreateContainer extends Component {
 
       <div>
         <Nav />
-          <form onSubmit={this.handleSubmit} className="">
-            <div className="">
-                <div className="">
-                  <div className="">
-                    <div><img className="frames" id="photoOne" src={this.state.preview1} onClick={this.handleClick } height={100} width={100} /></div>
-                      <input name="photoOne" className="hide" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
-                  </div>
-                </div>
-                <div className="">
-                  <div>
-                    <label htmlFor="address">Address:</label>
+          <div className="title">Home Details</div>
+          <form onSubmit={this.handleSubmit} className="homedetails_container">
+                <div className="photo_mark">PHOTO</div>
+                <div><img className="frames" id="photoOne" src={this.state.preview1} onClick={this.handleClick } /></div>
+                  <input name="photoOne" className="hide" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
+                <div className="form_box">
+                  <div className="form-group">
+                    <label htmlFor="address">ADDRESS</label>
                     <input name="address" id="address" type="text" className="form-control" onChange={this.handleInput} placeholder="ex)1330 Broadway" value={this.state.house.address} />
                   </div>
-                  <div>
-                    <label htmlFor="city">City:</label>
+                  <div className="form-group">
+                    <label htmlFor="city">CITY</label>
                     <input name="city" id="city" type="text" className="form-control" onChange={this.handleInput} value={this.state.house.city} placeholder="ex)San Francisco" />
                   </div>
-                  <div>
-                    <label className="" htmlFor="state">State:</label>
-                    <input name="state" id="state" type="text" className="form-control" placeholder="ex)CA" value={this.state.house.state} onChange={this.handleInput} />
+                  <div className="col">
+                    <div className="form-group" id="col-left">
+                      <label className="" htmlFor="state">STATE</label>
+                      <input name="state" id="state" type="text" className="form-control" placeholder="ex)CA" value={this.state.house.state} onChange={this.handleInput} />
+                    </div>
+                    <div className="form-group">
+                      <label className="" htmlFor="zipcode">ZIPCODE</label>
+                      <input name="zipcode" id="zipcode" type="text" className="form-control" placeholder="ex)94612" value={this.state.house.zipcode} onChange={this.handleInput}  />
+                    </div>
                   </div>
                   <div className="form-group">
-                    <label className="" htmlFor="zipcode">Zipcode:</label>
-                    <input name="zipcode" id="zipcode" type="text" className="form-control" placeholder="ex)94612" value={this.state.house.zipcode} onChange={this.handleInput}  />
-                  </div>
-                  <div className="form-group">
-                    <label className="" htmlFor="year">Year:</label>
+                    <label className="" htmlFor="year">YEAR BUILT</label>
                     <input name="year" id="year" type="text" className="form-control" onChange={this.handleInput} value={this.state.house.year} placeholder="ex)YYYY" />
                   </div>
                   <div className="form-group">
-                    <label className="" htmlFor="sqft">Sq.ft.:</label>
+                    <label className="" htmlFor="sqft">SQUARE FEET</label>
                     <input name="sqft" id="sqft" type="text" className="form-control" onChange={this.handleInput} value={this.state.house.sqft} placeholder="ex)960" />
                   </div>
 
                 </div>
 
-              <div className="">
-                <button type="submit" className="submitBtn">Next</button>
+              <div className="form-group">
+                <button type="submit" className="btn">SAVE</button>
               </div>
-            </div>
+
           </form>
       </div>
     )

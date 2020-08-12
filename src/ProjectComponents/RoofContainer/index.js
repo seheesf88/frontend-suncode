@@ -130,7 +130,7 @@ class RoofContainer extends Component {
         })
         .then(res => {
           // console.log(res.statusText, "here???", res.data.msg);
-          this.props.history.push('/project/create/attic');
+          this.props.history.push('/project/start');
         })
     }
 

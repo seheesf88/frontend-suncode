@@ -15,7 +15,7 @@ const ProjectComponent = (props) => {
               <div className="p2">The app will analyze your data, rate your energy assets and provide you with personalized recommendations to improve comfort, increase efficiency, and lower your carbon footprint over a cost-effective timeline.</div>
               <div className="p3">To do the analysis requires information about your roof, attic insulation, water heater and space heater. Please be ready to photograph these areas. While the photos are important, it's ok to skip data you may not know. In some places, a best guess is required.</div>
               <div className="btn">
-                <Link to="/project/create" className="submitBtn">
+                <Link to="/project/start" className="submitBtn">
                 Next
                 </Link>
               </div>

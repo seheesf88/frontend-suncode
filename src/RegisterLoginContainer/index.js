@@ -19,7 +19,7 @@ class RegisterLoginContainer extends Component{
         lastName:'',
         phNumber:'',
         email: '',
-        pre_password: '',
+        // pre_password: '',
         password:'',
         emailNotice:'',
         mobileNotice:''
@@ -52,9 +52,9 @@ class RegisterLoginContainer extends Component{
     // strongRegex.test(updatedRegister.password)
     // console.log("yea??", strongRegex.test(updatedRegister.password));
     // ======================== if statement =========
-    if(this.state.register.pre_password !== this.state.register.password){
-        alert('password is not matching')
-    }
+    // if(this.state.register.pre_password !== this.state.register.password){
+    //     alert('password is not matching')
+    // }
 
     if(true){
       this.fetchRegister(updatedRegister)
@@ -64,7 +64,7 @@ class RegisterLoginContainer extends Component{
           lastName: '',
           email: '',
           phNumber: '',
-          pre_password: '',
+          // pre_password: '',
           password: '',
           emailNotice: '',
           mobileNotice: ''

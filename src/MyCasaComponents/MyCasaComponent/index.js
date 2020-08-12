@@ -93,20 +93,16 @@ class MyCasaComponent extends Component {
     console.log('what is this.house?->', this.state.allHouses);
     return(
       <div>
-      <Nav />
-      {
-        this.state.house === undefined
-      ?
-      <div className="myCasa_container">
-        <div className="myCasa_row">
-          <div className="h2">My Casa</div>
-          <div style={{marginBottom: 213}}>See the status of your house energy assets and how they compare on quality, efficiency and age to new technologies.</div>
-          <div className="ji">
-          <div style={{}}>You did not add any house information</div>
-          <div><Link to="/project" className="submitBtn" style={{width: '490px'}}>Add House</Link></div>
-          </div>
-        </div>
-      </div>
+        <Nav />
+        {
+          this.state.house === undefined
+          ?
+          <div className="myCasa_container">
+            <div className="h2">My Casa</div>
+            <div className="p1">See the status of your house energy assets and how they compare on quality, efficiency and age to new technologies.</div>
+            <div className="center text">You did not add any house information</div>
+            <div className="center"><Link to="/project" className="submitBtn" style={{width: '490px'}}>Add House</Link></div>
+         </div>
       :
       <div>show me the list of house.</div>
 

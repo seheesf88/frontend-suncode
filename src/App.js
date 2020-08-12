@@ -20,6 +20,7 @@ import Weatherization from './ElectrifyComponents/Weatherization';
 import MyCasaComponent from './MyCasaComponents/MyCasaComponent';
 
 import ProjectComponent from './ProjectComponents/ProjectComponent';
+import ProjectContainer from './ProjectComponents/ProjectContainer';
 import CreateContainer from './ProjectComponents/CreateContainer';
 import RoofContainer from './ProjectComponents/RoofContainer';
 import AtticContainer from './ProjectComponents/AtticContainer';
@@ -75,6 +76,7 @@ const App = (props) => {
 
 
         <Route exact path="/project" component={ ProjectComponent } />
+        <Route exact path="/project/start" component={ ProjectContainer } />
         <Route exact path="/project/create" component={ CreateContainer } />
         <Route exact path="/project/create/roof" component={ RoofContainer } />
         <Route exact path="/project/create/attic" component={ AtticContainer } />

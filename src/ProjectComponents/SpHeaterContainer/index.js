@@ -130,7 +130,7 @@ class SpHeaterContainer extends Component {
         })
         .then(res => {
           // console.log(res.statusText, "here???", res.data.msg);
-          this.props.history.push('/project/create/finish');
+          this.props.history.push('/project/start');
         })
     }
 
