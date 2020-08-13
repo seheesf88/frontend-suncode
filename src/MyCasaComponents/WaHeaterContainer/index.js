@@ -131,7 +131,7 @@ class WaHeaterContainer extends Component {
         })
         .then(res => {
           // console.log(res.statusText, "here???", res.data.msg);
-          this.props.history.push('/project/start');
+          this.props.history.push('/mycasa/start');
         })
     }
 

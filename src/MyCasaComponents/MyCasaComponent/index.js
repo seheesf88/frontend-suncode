@@ -55,7 +55,7 @@ class MyCasaComponent extends Component {
       }
 
       const houseParsed = await response.json();
-      console.log('just one house =>', houseParsed)
+
       this.setState({
           house: houseParsed.data,
           // authorId: localStorage.getItem('authorId')
@@ -81,7 +81,7 @@ class MyCasaComponent extends Component {
         allHouses: this.state.allHouses.filter((house) => house._id !== id)
       })
 
-      this.props.history.push('/create')
+      this.props.history.push('/mycasa/start')
 
     }catch(err){
       console.log(err)
@@ -95,13 +95,14 @@ class MyCasaComponent extends Component {
       <div>
         <Nav />
         {
-          this.state.house === undefined
+          // this.state.house === undefined
+          true
           ?
           <div className="myCasa_container">
             <div className="h2">My Casa</div>
             <div className="p1">See the status of your house energy assets and how they compare on quality, efficiency and age to new technologies.</div>
             <div className="center text">You did not add any house information</div>
-            <div className="center"><Link to="/project" className="submitBtn" style={{width: '490px'}}>Add House</Link></div>
+            <div className="center"><Link to="/mycasa/start" className="submitBtn" style={{width: '490px'}}>Add House</Link></div>
          </div>
       :
       <div>show me the list of house.</div>

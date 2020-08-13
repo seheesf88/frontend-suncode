@@ -18,14 +18,13 @@ import HotWater from './ElectrifyComponents/HotWater';
 import Weatherization from './ElectrifyComponents/Weatherization';
 
 import MyCasaComponent from './MyCasaComponents/MyCasaComponent';
-
-import ProjectComponent from './ProjectComponents/ProjectComponent';
-import ProjectContainer from './ProjectComponents/ProjectContainer';
-import CreateContainer from './ProjectComponents/CreateContainer';
-import RoofContainer from './ProjectComponents/RoofContainer';
-import AtticContainer from './ProjectComponents/AtticContainer';
-import WaHeaterContainer from './ProjectComponents/WaHeaterContainer';
-import SpHeaterContainer from './ProjectComponents/SpHeaterContainer';
+import MyCasaContainer from './MyCasaComponents/MyCasaContainer';
+import CreateContainer from './MyCasaComponents/CreateContainer';
+import RoofContainer from './MyCasaComponents/RoofContainer';
+import AtticContainer from './MyCasaComponents/AtticContainer';
+import WaHeaterContainer from './MyCasaComponents/WaHeaterContainer';
+import SpHeaterContainer from './MyCasaComponents/SpHeaterContainer';
+import UtilityContainer from './MyCasaComponents/UtilityContainer';
 //or
 import AdminHome from './AdminHome';
 
@@ -35,7 +34,7 @@ import MyAccountContainer from './MyAccountContainer';
 import ShowHouseContainer from './ShowHouseContainer';
 import EditHouseContainer from './EditHouseContainer';
 import ShowMyAccount from './ShowMyAccount';
-import ResourcesContainer from './ResourcesContainer';
+
 
 import HouseDetailContainer from './HomeOwnerComponents/HouseDetailContainer';
 
@@ -74,21 +73,17 @@ const App = (props) => {
 
         <Route exact path="/mycasa" component={ MyCasaComponent } />
 
-
-        <Route exact path="/project" component={ ProjectComponent } />
-        <Route exact path="/project/start" component={ ProjectContainer } />
-        <Route exact path="/project/create" component={ CreateContainer } />
-        <Route exact path="/project/create/roof" component={ RoofContainer } />
-        <Route exact path="/project/create/attic" component={ AtticContainer } />
-        <Route exact path="/project/create/waheater" component={ WaHeaterContainer } />
-        <Route exact path="/project/create/spheater" component={ SpHeaterContainer } />
-
+        <Route exact path="/mycasa/start" component={ MyCasaContainer } />
+        <Route exact path="/mycasa/create/home" component={ CreateContainer } />
+        <Route exact path="/mycasa/create/roof" component={ RoofContainer } />
+        <Route exact path="/mycasa/create/attic" component={ AtticContainer } />
+        <Route exact path="/mycasa/create/waheater" component={ WaHeaterContainer } />
+        <Route exact path="/mycasa/create/spheater" component={ SpHeaterContainer } />
+        <Route exact path="/mycasa/create/utility" component={ UtilityContainer } />
 
 
         <Route exact path="/house" component={ HouseDetailContainer } />
-
         <Route exact path="/adminhome" component={ AdminHome } />
-        <Route exact path="/resources" component={ ResourcesContainer } />
         <Route exact path="/myaccount" component={ ShowMyAccount } />
         <Route exact path="/myaccount/:id/edit" component={ MyAccountContainer } />
 

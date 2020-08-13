@@ -4,7 +4,7 @@ import axios from 'axios'
 import Nav from './../../Nav'
 // import './HouseDetailContainer.css';
 
-class AtticContainer extends Component {
+class UtilityContainer extends Component {
   constructor(){
     super()
     this.state = {
@@ -130,7 +130,7 @@ class AtticContainer extends Component {
         })
         .then(res => {
           // console.log(res.statusText, "here???", res.data.msg);
-          this.props.history.push('/project/create/waheater');
+          this.props.history.push('/mycasa/start');
         })
     }
 
@@ -172,7 +172,7 @@ class AtticContainer extends Component {
                   </div>
                 </div>
               <div className="">
-                <button type="submit" className="submitBtn">NEXT</button>
+                <button type="submit" className="submitBtn">this is utility</button>
               </div>
             </div>
           </form>
@@ -180,4 +180,4 @@ class AtticContainer extends Component {
     )
   }
 }
-export default AtticContainer
+export default UtilityContainer

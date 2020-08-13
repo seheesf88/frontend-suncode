@@ -86,7 +86,7 @@ class ProjectContainer extends Component {
         <div className="create_container">
           <div className="create_row">
             <div className="create_items">
-              <Link to="/project/create">
+              <Link to="/mycasa/create/home">
 
               { this.state.house.houseImg === undefined
               ?
@@ -98,7 +98,7 @@ class ProjectContainer extends Component {
               <div className="tag">Home Details</div>
             </div>
             <div className="create_items">
-              <Link className="link" to="/project/create/roof">
+              <Link className="link" to="/mycasa/create/roof">
                 { this.state.roof.roofImg === undefined
                 ?
                 <img className="img" src={`${process.env.REACT_APP_API}/` + this.state.roof.roofImg } />
@@ -109,7 +109,7 @@ class ProjectContainer extends Component {
               <div className="tag">Roof Details</div>
             </div>
             <div className="create_items">
-              <Link to="/project/create/attic">
+              <Link to="/mycasa/create/attic">
               { this.state.house.houseImg === undefined
               ?
               <img className="img" src={`${process.env.REACT_APP_API}/` + this.state.house.houseImg } />
@@ -122,12 +122,12 @@ class ProjectContainer extends Component {
           </div>
           <div className="create_row">
             <div className="create_items">
-              <Link to="/project/create/waheater">
+              <Link to="/mycasa/create/waheater">
               </Link>
               <div className="tag">Water Heater Details</div>
             </div>
-            <div className="create_items"><Link to="/project/create/spheater">Primary Heater Details</Link></div>
-            <div className="create_items"><Link to="">Utility Bills</Link></div>
+            <div className="create_items"><Link to="/mycasa/create/spheater">Primary Heater Details</Link></div>
+            <div className="create_items"><Link to="/mycasa/create/utility">Utility Bills</Link></div>
           </div>
         </div>
       </div>
