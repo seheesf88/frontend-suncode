@@ -13,13 +13,29 @@ class ProjectContainer extends Component{
     }
   }
 
+  componentDidMount(){
+    // this.getOneHouse()
+  }
+
 
   render(){
 
 
     return(
       <div>
-        toto
+        <div>Projects</div>
+        <div> Schedule repairs and upgrades at optimal times to maximize savings and prior to emergencies.</div>
+        <div>
+          <div>
+            <div>img</div>
+            <div>address</div>
+            <div>CHANGE/EDIT</div>
+          </div>
+          <div>
+            <div>Recommended Timeline</div>
+          </div>
+
+        </div>
       </div>
     )
   }

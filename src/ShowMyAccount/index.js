@@ -12,8 +12,10 @@ class ShowMyAccount extends Component{
       userinfo: {
         email:'',
         password: '',
-        username:'',
+        // username:'',
         name: '',
+        phNumber: '',
+        emailNotice: ''
       },
     }
   }
@@ -48,28 +50,37 @@ class ShowMyAccount extends Component{
 
 
   render(){
-    console.log(this.state.userinfo.username);
+    console.log('--->',typeof(this.state.userinfo.emailNotice));
     return(
       <div>
         <Nav />
-          <div className="myaccount">
-            <h2>My Account</h2>
-            <div><Link to={`/myaccount/${localStorage.getItem('userId')}/edit`}>Edit</Link></div>
+        <div className="myAccount_container">
+            <h2>Account</h2>
           </div>
-            <div className="myaccout-show">
-              <div className="myaccount-input">
-                <span>Username : </span>
-                <span>{this.state.userinfo.username}</span>
+
+              <div className="myAccount_items">
+                <span>Personal Information : </span>
+                <span>{this.state.userinfo.firstName}</span>
+                <span> {this.state.userinfo.lastName}</span>
               </div>
-              <div className="myaccount-input">
+              <div className="myAccount_items">
                 <span>Email : </span>
                 <span>{this.state.userinfo.email}</span>
               </div>
-              <div className="myaccount-input">
-                <span>Name : </span>
-                <span>{this.state.userinfo.name}</span>
+              <div className="myAccount_items">
+                <span>Phone Number : </span>
+                <span>{this.state.userinfo.phNumber}</span>
               </div>
-            </div>
+              <div className="">
+                <span>Email Notification: </span>
+                <span>{this.state.userinfo.emailNotice === 'on' ?
+                <span>ON</span>
+                :
+                <span>OFF</span>
+              }</span>
+              </div>
+          <div><Link to={`/myaccount/${localStorage.getItem('userId')}/edit`}>Edit</Link></div>
+
       </div>
     )
   }

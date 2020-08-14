@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Nav from './../../Nav';
+import { withRouter } from 'react-router-dom';
 import axios from 'axios'
 import Moment from 'react-moment';
 import './Create.scss';
@@ -235,7 +236,7 @@ class CreateContainer extends Component {
     )
   }
 }
-export default CreateContainer
+export default withRouter(CreateContainer)
 
 // import React, { Component } from 'react';
 // import Nav from '../../Nav'

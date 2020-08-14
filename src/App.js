@@ -25,14 +25,17 @@ import AtticContainer from './MyCasaComponents/AtticContainer';
 import WaHeaterContainer from './MyCasaComponents/WaHeaterContainer';
 import SpHeaterContainer from './MyCasaComponents/SpHeaterContainer';
 import UtilityContainer from './MyCasaComponents/UtilityContainer';
-//or
 
 import ProjectComponent from './ProjectComponents/ProjectComponent';
 import ProjectContainer from './ProjectComponents/ProjectContainer';
 
+import MyAccountContainer from './MyAccountContainer';
+
+
+
 import AdminHome from './AdminHome';
 
-import MyAccountContainer from './MyAccountContainer';
+
 
 // import PhotoContainer from './PhotoContainer';
 import ShowHouseContainer from './ShowHouseContainer';
