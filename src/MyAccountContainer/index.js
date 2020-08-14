@@ -29,7 +29,6 @@ class MyAccountContainer extends Component{
   editMyinfo = async(e) => {
     e.preventDefault();
     const userId = localStorage.getItem('userId')
-    console.log('????', userId);
 
     try{
       const response = await fetch(`${process.env.REACT_APP_API}/api/v1/users/${userId}`, {
@@ -60,7 +59,6 @@ class MyAccountContainer extends Component{
         <div className="editmyinfo">
           <h2>Edit Profile</h2>
           <form onSubmit={this.editMyinfo} className="form">
-            <div>Username: <input className="form-control" name="username" value={this.state.userInfo.username} onChange={this.handleEditFormInput}/></div>
             <div>Email:  <input className="form-control" name="email" value={this.state.userInfo.email} onChange={this.handleEditFormInput}/></div>
             <div>Password: <input className="form-control" name="password" value={this.state.userInfo.password} onChange={this.handleEditFormInput}/></div>
             <div>Name: <input className="form-control" name="name" value={this.state.userInfo.name} onChange={this.handleEditFormInput}/></div>

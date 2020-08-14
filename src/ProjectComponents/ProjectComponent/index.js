@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import Nav from './../../Nav';
-import AutoExam from './../AutoExam'
-import './MyCasa.scss';
+import ProjectContainer from './../ProjectContainer'
+
 import { Link, withRouter } from 'react-router-dom';
 
-class MyCasaComponent extends Component {
+class ProjectComponent extends Component {
   constructor(){
     super()
     this.state = {
@@ -97,16 +97,16 @@ class MyCasaComponent extends Component {
         <Nav />
         {
           // this.state.house === undefined
-          true
+          false
           ?
-          <div className="myCasa_container">
-            <div className="h2">My Casa</div>
-            <div className="p1">See the status of your house energy assets and how they compare on quality, efficiency and age to new technologies.</div>
-            <div className="center text">You did not add any house information</div>
-            <div className="center"><Link to="/mycasa/start" className="submitBtn" style={{width: '490px'}}>Add House</Link></div>
+          <div className="project_container">
+            <div className="h2">Projects</div>
+            <div className="p1">Schedule repairs and upgrades at optimal times to maximize savings and prior to emergencies.</div>
+            <div className="center text">YPlease, create a house first on My Casa page</div>
+
          </div>
       :
-        <AutoExam />
+        <ProjectContainer />
 
       }
 
@@ -115,4 +115,4 @@ class MyCasaComponent extends Component {
   }
 }
 
-export default withRouter(MyCasaComponent)
+export default withRouter(ProjectComponent)

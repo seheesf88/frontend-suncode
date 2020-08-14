@@ -3,9 +3,9 @@ import Nav from './../../Nav';
 import { Link } from 'react-router-dom';
 // import axios from 'axios'
 // import Moment from 'react-moment';
-import './ProjectContainer.scss';
+import './MyCasaContainer.scss';
 
-class ProjectContainer extends Component {
+class MyCasaContainer extends Component {
   constructor(){
     super()
     this.state = {
@@ -161,6 +161,6 @@ class ProjectContainer extends Component {
     )
   }
 }
-export default ProjectContainer
+export default MyCasaContainer
 
 //
