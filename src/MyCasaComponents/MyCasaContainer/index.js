@@ -13,7 +13,8 @@ class ProjectContainer extends Component {
       spheater:'',
       waheater:'',
       attic:'',
-      house: ''
+      house: '',
+      utility: '',
     }
   }
 
@@ -77,7 +78,7 @@ class ProjectContainer extends Component {
 
 
   render(){
-    console.log(this.state.house.houseImg === undefined);
+    console.log(this.state.roof.roofImg);
     return(
       <div>
         <Nav />
@@ -88,7 +89,7 @@ class ProjectContainer extends Component {
             <div className="create_items">
               <Link to="/mycasa/create/home">
 
-              { this.state.house.houseImg === undefined
+              { this.state.house.houseImg !== undefined
               ?
               <img className="img" src={`${process.env.REACT_APP_API}/` + this.state.house.houseImg } />
               :
@@ -99,7 +100,7 @@ class ProjectContainer extends Component {
             </div>
             <div className="create_items">
               <Link className="link" to="/mycasa/create/roof">
-                { this.state.roof.roofImg === undefined
+                { this.state.roof.roofImg !== undefined
                 ?
                 <img className="img" src={`${process.env.REACT_APP_API}/` + this.state.roof.roofImg } />
                 :
@@ -110,9 +111,9 @@ class ProjectContainer extends Component {
             </div>
             <div className="create_items">
               <Link to="/mycasa/create/attic">
-              { this.state.house.houseImg === undefined
+              { this.state.attic.atticImg !== undefined
               ?
-              <img className="img" src={`${process.env.REACT_APP_API}/` + this.state.house.houseImg } />
+              <img className="img" src={`${process.env.REACT_APP_API}/` + this.state.house.atticImg } />
               :
               <div className="noposting"></div>
               }
@@ -123,11 +124,37 @@ class ProjectContainer extends Component {
           <div className="create_row">
             <div className="create_items">
               <Link to="/mycasa/create/waheater">
+                { this.state.waheater.waheaterImg !== undefined
+                ?
+                <img className="img" src={`${process.env.REACT_APP_API}/` + this.state.waheater.waheaterImg } />
+                :
+                <div className="noposting"></div>
+                }
               </Link>
               <div className="tag">Water Heater Details</div>
             </div>
-            <div className="create_items"><Link to="/mycasa/create/spheater">Primary Heater Details</Link></div>
-            <div className="create_items"><Link to="/mycasa/create/utility">Utility Bills</Link></div>
+            <div className="create_items">
+              <Link to="/mycasa/create/spheater">
+                { this.state.spheater.spheaterImg !== undefined || null
+                ?
+                <img className="img" src={`${process.env.REACT_APP_API}/` + this.state.spheater.spheaterImg } />
+                :
+                <div className="noposting"></div>
+                }
+              </Link>
+              <div className="tag">Primary Heater Details</div>
+            </div>
+            <div className="create_items">
+              <Link to="/mycasa/create/utility">
+                { this.state.utility.utilityImg !== undefined || null
+                ?
+                <img className="img" src={`${process.env.REACT_APP_API}/` + this.state.utility.utilityImg } />
+                :
+                <div className="noposting"></div>
+                }
+              </Link>
+              <div className="tag">Utility Bills</div>
+            </div>
           </div>
         </div>
       </div>

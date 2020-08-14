@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import Nav from './../../Nav';
-import AutoExam from './../AutoExam'
-import './MyCasa.scss';
+// import './MyCasa.scss';
 import { Link, withRouter } from 'react-router-dom';
 
-class MyCasaComponent extends Component {
+class AutoExam extends Component {
   constructor(){
     super()
     this.state = {
@@ -18,7 +16,6 @@ class MyCasaComponent extends Component {
     this.getOneHouse()
     this.getAllHouses();
   }
-
 
 
   getAllHouses = async() => {
@@ -94,25 +91,11 @@ class MyCasaComponent extends Component {
     console.log('what is this.house?->', this.state.allHouses);
     return(
       <div>
-        <Nav />
-        {
-          // this.state.house === undefined
-          false
-          ?
-          <div className="myCasa_container">
-            <div className="h2">My Casa</div>
-            <div className="p1">See the status of your house energy assets and how they compare on quality, efficiency and age to new technologies.</div>
-            <div className="center text">You did not add any house information</div>
-            <div className="center"><Link to="/mycasa/start" className="submitBtn" style={{width: '490px'}}>Add House</Link></div>
-         </div>
-      :
-        <AutoExam />
-
-      }
-
+        exam result
       </div>
     )
   }
 }
 
-export default withRouter(MyCasaComponent)
+
+export default withRouter(AutoExam)
