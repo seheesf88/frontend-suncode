@@ -19,7 +19,7 @@ class MyCasaContainer extends Component {
   }
 
   componentDidMount(){
-    // this.getOneHouse();
+    this.getOneHouse();
     this.getOneRoof();
 
   }
@@ -87,15 +87,14 @@ class MyCasaContainer extends Component {
         <div className="create_container">
           <div className="create_row">
             <div className="create_items">
-              <Link to="/mycasa/create/home">
 
               { this.state.house.houseImg !== undefined
               ?
-              <img className="img" src={`${process.env.REACT_APP_API}/` + this.state.house.houseImg } />
+              <Link to="/mycasa/edit/home"><img className="img" src={`${process.env.REACT_APP_API}/` + this.state.house.houseImg } /></Link>
               :
-              <div className="noposting"></div>
+              <Link to="/mycasa/create/home"><div className="noposting"></div></Link>
               }
-              </Link>
+
               <div className="tag">Home Details</div>
             </div>
             <div className="create_items">

@@ -14,7 +14,7 @@ class AutoExam extends Component {
 
   componentDidMount(){
     this.getOneHouse()
-    this.getAllHouses();
+    // this.getAllHouses();
   }
 
 
@@ -88,7 +88,7 @@ class AutoExam extends Component {
 
 
   render(){
-    console.log('what is this.house?->', this.state.allHouses);
+    console.log('what is this.house?->', this.state.house);
     return(
       <div>
         exam result

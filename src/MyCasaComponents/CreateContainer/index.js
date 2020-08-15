@@ -21,9 +21,9 @@ class CreateContainer extends Component {
         // memo: '',
       },
       preview1: null,
-      preview2: null,
-      preview3: null,
-      preview4: null,
+      // preview2: null,
+      // preview3: null,
+      // preview4: null,
       selectedFile : null,
     }
   }
@@ -146,7 +146,6 @@ class CreateContainer extends Component {
 
 
     addHouse = async(updatedHouse) => {
-      console.log('hip!', updatedHouse);
 
         const data = new FormData();
 
@@ -161,7 +160,7 @@ class CreateContainer extends Component {
         data.append('houseYear', this.state.house.houseYear);
         data.append('houseSqft', this.state.house.houseSqft);
         // data.append('memo', this.state.house.memo);
-        data.append('time', this.state.house.time);
+        // data.append('time', this.state.house.time);
 
         let userId = localStorage.getItem('userId');
         data.append('userId', userId)

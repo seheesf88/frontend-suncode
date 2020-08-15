@@ -26,6 +26,9 @@ import WaHeaterContainer from './MyCasaComponents/WaHeaterContainer';
 import SpHeaterContainer from './MyCasaComponents/SpHeaterContainer';
 import UtilityContainer from './MyCasaComponents/UtilityContainer';
 
+// edit Components
+import EditHouseContainer from './EditCasaComponents/EditHouseContainer';
+
 import ProjectComponent from './ProjectComponents/ProjectComponent';
 import ProjectContainer from './ProjectComponents/ProjectContainer';
 
@@ -39,10 +42,7 @@ import AdminHome from './AdminHome';
 
 // import PhotoContainer from './PhotoContainer';
 import ShowHouseContainer from './ShowHouseContainer';
-import EditHouseContainer from './EditHouseContainer';
 import ShowMyAccount from './ShowMyAccount';
-
-
 import HouseDetailContainer from './HomeOwnerComponents/HouseDetailContainer';
 
 
@@ -87,6 +87,8 @@ const App = (props) => {
         <Route exact path="/mycasa/create/spheater" component={ SpHeaterContainer } />
         <Route exact path="/mycasa/create/utility" component={ UtilityContainer } />
 
+        <Route exact path="/mycasa/edit/home" component={ EditHouseContainer } />
+
         <Route exact path="/project" component={ ProjectComponent } />
 
         <Route exact path="/house" component={ HouseDetailContainer } />
@@ -95,7 +97,7 @@ const App = (props) => {
         <Route exact path="/myaccount/:id/edit" component={ MyAccountContainer } />
 
         <Route exact path="/:id" component={ ShowHouseContainer } />
-        <Route exact path="/:id/edit" component={ EditHouseContainer } />
+
         <Route component={ My404 } />
       </Switch>
     </main>

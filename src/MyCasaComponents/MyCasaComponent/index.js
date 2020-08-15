@@ -16,7 +16,7 @@ class MyCasaComponent extends Component {
 
   componentDidMount(){
     this.getOneHouse()
-    this.getAllHouses();
+    // this.getAllHouses();
   }
 
 
@@ -44,21 +44,24 @@ class MyCasaComponent extends Component {
     }
 
   getOneHouse = async() => {
-    const userId = window.location.pathname.split('/')[2];
+    // const userId = window.location.pathname.split('/')[2];
+    const userId = localStorage.getItem('userId')
 
     try{
-      const response = await fetch(`${process.env.REACT_APP_API}/api/v1/house/${userId}`,  {
+      const response = await fetch(`${process.env.REACT_APP_API}/api/v1/users/house/${userId}`,  {
         credentials: 'include'
       })
-          console.log('dfdfd', response);
+
       if(!response.ok){
         throw Error(response.statusText)
       }
 
       const houseParsed = await response.json();
-
+      console.log(houseParsed);
       this.setState({
-          house: houseParsed.data,
+          house: houseParsed.house,
+          roof: houseParsed.roof,
+          attic : houseParsed.attic
           // authorId: localStorage.getItem('authorId')
       })
 
@@ -82,7 +85,7 @@ class MyCasaComponent extends Component {
         allHouses: this.state.allHouses.filter((house) => house._id !== id)
       })
 
-      this.props.history.push('/mycasa/start')
+      this.props.history.push('/mycasa')
 
     }catch(err){
       console.log(err)
@@ -91,7 +94,7 @@ class MyCasaComponent extends Component {
 
 
   render(){
-
+    console.log(this.state.house);
     return(
       <div>
         <Nav />
