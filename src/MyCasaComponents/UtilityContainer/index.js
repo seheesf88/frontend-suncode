@@ -72,7 +72,7 @@ class UtilityContainer extends Component {
 
     fileSelectHandler = (e) => {
       var file6
-
+      console.log('here?');
       switch (e.target.id) {
         case 'input-photoSix':
             file6 = e.target.files[0];
@@ -152,7 +152,7 @@ class UtilityContainer extends Component {
                 <div className="">
                   <div className="">
                     <div><img className="frames" id="photoSix" src={this.state.preview6}  onClick={this.handleClick} height={100} width={100} /></div>
-                      <input name="photoSix" className="hide" id="input-photoThree" onChange={this.fileSelectHandler} type="file"/>
+                      <input name="photoSix" className="hide" id="input-photoSix" onChange={this.fileSelectHandler} type="file"/>
                   </div>
                 </div>
                 <div className="container-form-group">

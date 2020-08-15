@@ -100,13 +100,13 @@ class EditHouseContainer extends Component {
           <div className="photoFrames">
             <img height={100} width={100} src={`${process.env.REACT_APP_API}/` + this.state.house.houseImg} />
 
-            <div><img className="frames" id="photoOne" /></div>
-              <input name="photoOne" className="hide" id="input-photoOne" onChange={this.handleEditFormInput} type="file"/>
-
 
 
           </div>
           <form onSubmit={this.updateHouse}>
+
+                <input name="houseImg" className="hide" id="input-photoOne" onChange={this.handleEditFormInput} type="file"/>
+
               <div className="form-group">
                 <label htmlFor="address">ADDRESS</label>
                   <input name="address" id="address" type="text" className="form-control" onChange={this.handleEditFormInput} value={this.state.house.address} />

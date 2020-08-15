@@ -21,7 +21,7 @@ class MyCasaContainer extends Component {
   componentDidMount(){
     this.getOneHouse();
     this.getOneRoof();
-
+    this.getOneUtility();
   }
 
   getOneHouse = async() => {
@@ -66,6 +66,31 @@ class MyCasaContainer extends Component {
 
       this.setState({
           roof: houseParsed.data,
+          // authorId: localStorage.getItem('authorId')
+      })
+
+    }catch(err){
+      return err
+    }
+  }
+
+  getOneUtility = async() => {
+    // const userId = window.location.pathname.split('/')[2];
+    const userId = localStorage.getItem('userId')
+
+    try{
+      const response = await fetch(`${process.env.REACT_APP_API}/api/v1/utility/${userId}`,  {
+        credentials: 'include'
+      })
+
+      if(!response.ok){
+        throw Error(response.statusText)
+      }
+
+      const houseParsed = await response.json();
+
+      this.setState({
+          utility: houseParsed.data,
           // authorId: localStorage.getItem('authorId')
       })
 
@@ -144,14 +169,18 @@ class MyCasaContainer extends Component {
               <div className="tag">Primary Heater Details</div>
             </div>
             <div className="create_items">
-              <Link to="/mycasa/create/utility">
-                { this.state.utility.utilityImg !== undefined || null
+
+                { this.state.utility.utilityImg !== undefined
                 ?
-                <img className="img" src={`${process.env.REACT_APP_API}/` + this.state.utility.utilityImg } />
+                <Link to="/mycasa/edit/utility">
+                  <img className="img" src={`${process.env.REACT_APP_API}/` + this.state.utility.utilityImg } />
+                </Link>
                 :
-                <div className="noposting"></div>
+                <Link to="/mycasa/create/utility">
+                  <div className="noposting"></div>
+                </Link>
                 }
-              </Link>
+
               <div className="tag">Utility Bills</div>
             </div>
           </div>

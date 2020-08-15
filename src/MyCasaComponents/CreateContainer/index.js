@@ -160,7 +160,7 @@ class CreateContainer extends Component {
         data.append('houseYear', this.state.house.houseYear);
         data.append('houseSqft', this.state.house.houseSqft);
         // data.append('memo', this.state.house.memo);
-        // data.append('time', this.state.house.time);
+        data.append('time', this.state.house.time);
 
         let userId = localStorage.getItem('userId');
         data.append('userId', userId)
