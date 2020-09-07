@@ -29,7 +29,7 @@ class AtticContainer extends Component {
     const updatedChange = {
       ...this.state.attic
     }
-
+    console.log(e.target.name, e.target.value);
     updatedChange[e.target.name] = e.target.value;
 
     this.setState({

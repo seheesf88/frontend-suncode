@@ -44,21 +44,17 @@ class NavHome extends Component{
   }
 
   logout = async() => {
-    console.log('here?');
     const userId = localStorage.getItem('userId')
-    console.log('userId?', userId);
     try{
       const response = await fetch(`${process.env.REACT_APP_API}/api/v1/auth/logout`, {
         credentials: 'include'
       });
-      console.log('response', response);
-      console.log('true?', !response.ok);
+
       if(!response.ok){
         throw Error(response.statusText)
       }
 
       const responseParsed = await response.json();
-      console.log('responseParsed', responseParsed);
 
       if(response.status === 200){
         localStorage.removeItem('userId')

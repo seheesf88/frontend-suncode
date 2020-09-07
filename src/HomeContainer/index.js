@@ -1,21 +1,8 @@
 import React, { Component } from 'react';
 import Nav from '../Nav';
 import { Link } from 'react-router-dom';
-
 import ShowHouseContainer from '../ShowHouseContainer';
-
-// import ClothesDrying from '../ElectrifyComponents/ClothesDrying';
-// import ElectricalPanel from '../ElectrifyComponents/ElectricalPanel';
-// import HotWater from '../ElectrifyComponents/HotWater';
-// import Weatherization from '../ElectrifyComponents/Weatherization';
-// import EnergyGeneration from '../ElectrifyComponents/EnergyGeneration';
-// import HeatingCooling from '../ElectrifyComponents/HeatingCooling';
-// import Cooking from '../ElectrifyComponents/Cooking';
-// import ElectricVehicle from '../ElectrifyComponents/ElectricVehicle';
-
 import './Home.scss';
-
-
 
 class HomeContainer extends Component {
   constructor(){
@@ -146,11 +133,6 @@ class HomeContainer extends Component {
 
 
   render(){
-    // let photoplace = {
-    //   height: 200,
-    //   width: 500
-    // }
-// <Nav username={this.state.userinfo.username} email={this.state.userinfo.email} name={this.state.userinfo.name}/>
     return (
       <div>
         <Nav />
@@ -219,6 +201,3 @@ class HomeContainer extends Component {
 }
 
 export default HomeContainer
-
-
-  // <ShowHouseContainer deleteHouse={this.deleteHouse} />

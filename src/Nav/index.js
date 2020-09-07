@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import logo from './logo.png';
 import './Nav.scss';
-
-
-
 
 class Nav extends Component{
   constructor(){
@@ -21,7 +19,7 @@ class Nav extends Component{
 
   getUserInfo = async() => {
       const userId = localStorage.getItem('userId');
-      console.log(userId);
+
       try{
         const response = await fetch(`${process.env.REACT_APP_API}/api/v1/users/` + userId, {
           credentials: 'include'
@@ -74,9 +72,11 @@ class Nav extends Component{
   // } else if(props.location.pathname !== '/') {
   //   props.history.push('/')
   // }
+
   render(){
     const userId = localStorage.getItem('userId');
     const home = "/home"
+    console.log(logo);
 
     return(
       <div className="container">
@@ -89,7 +89,7 @@ class Nav extends Component{
               <div className="items_nav">
                 <Link to='/'>
                   <div className="container_logo">
-                    <div className="logo_img"><img src="Logo.png" /></div>
+                    <div className="logo_img"><img src={logo} /></div>
                     <div className="logo_text"><img src="electricasa.png" /></div>
                   </div>
                 </Link>
@@ -105,7 +105,7 @@ class Nav extends Component{
               <div className="items_nav">
                 <Link to='/'>
                   <div className="container_logo">
-                    <div className="logo_img"><img src="Logo.png" /></div>
+                    <div className="logo_img"><img src="logo.png" /></div>
                     <div className="logo_text"><img src="electricasa.png" /></div>
                   </div>
                 </Link>
@@ -137,48 +137,3 @@ class Nav extends Component{
 }
 
 export default withRouter(Nav);
-
-
-//
-// return(
-//   <div className="navBar">
-//     <div>
-//     { localStorage.getItem('userId') !== '5d7e9d844eb54d001728cf31'
-//     ?
-//
-//     <div className="nav true" >
-//       <div className="nav-item">
-//         <Link to={`${home}`} style={{ textDecoration: 'none' }}><div className="navItem">Home</div></Link>
-//       </div>
-//       <div className="nav-item">
-//         <Link to="/myaccount" style={{ textDecoration: 'none' }}><div className="navItem">My Account</div></Link>
-//       </div>
-//       <div className="nav-item">
-//         <Link to="/resources" style={{ textDecoration: 'none' }}><div className="navItem">Resources</div></Link>
-//       </div>
-//       <div className="nav-item">
-//         <input type="submit" value="Logout" className="logout" onClick={this.logout} />
-//       </div>
-//     </div>
-//     :
-//
-//     <div className="nav false" >
-//       <div className="nav-item">
-//         <Link to="/adminhome" style={{ textDecoration: 'none' }}><div className="navItem">House List</div></Link>
-//       </div>
-//       <div className="nav-item">
-//         <Link to="/myaccount" style={{ textDecoration: 'none' }}><div className="navItem">My Account</div></Link>
-//       </div>
-//       <div className="nav-item">
-//         <input type="submit" value="Logout" className="logout" onClick={this.logout} />
-//       </div>
-//     </div>
-//
-//     }
-//     </div>
-//   </div>
-// )
-// }
-// }
-//
-// export default withRouter(Nav);

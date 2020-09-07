@@ -12,9 +12,7 @@ class MainContainer extends Component {
       }
     }
 
-
   render(){
-    console.log('main component ->', localStorage.getItem('userId'));
     return (
       <div>
         <Nav />

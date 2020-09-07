@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-
 import Nav from '../Nav';
 import './MyAccount.css';
 
@@ -12,10 +11,6 @@ class MyAccountContainer extends Component{
       userInfo: {},
     }
   }
-
-  // componentDidMount(){
-  //   // this.editMyinfo()
-  // };
 
   handleEditFormInput = (e) => {
     this.setState({
@@ -56,13 +51,13 @@ class MyAccountContainer extends Component{
     return(
       <div>
         <Nav />
-        <div className="editmyinfo">
+        <div>
           <h2>Edit Profile</h2>
           <form onSubmit={this.editMyinfo} className="form">
-            <div>Email:  <input className="form-control" name="email" value={this.state.userInfo.email} onChange={this.handleEditFormInput}/></div>
-            <div>Password: <input className="form-control" name="password" value={this.state.userInfo.password} onChange={this.handleEditFormInput}/></div>
-            <div>Name: <input className="form-control" name="name" value={this.state.userInfo.name} onChange={this.handleEditFormInput}/></div>
-            <div className=""><button className="editBtn" type="submit">Edit</button></div>
+            <div>Email:  <input className="" name="email" value={this.state.userInfo.email} onChange={this.handleEditFormInput}/></div>
+            <div>Password: <input className="" name="password" value={this.state.userInfo.password} onChange={this.handleEditFormInput}/></div>
+            <div>Name: <input className="" name="name" value={this.state.userInfo.name} onChange={this.handleEditFormInput}/></div>
+            <div><button className="" type="submit">Edit</button></div>
           </form>
         </div>
       </div>

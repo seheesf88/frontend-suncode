@@ -24,7 +24,6 @@ class AdminHome extends Component {
 
   getUserInfo = async() =>{
       const userId = localStorage.getItem('userId');
-      console.log(userId);
       try{
         const response = await fetch(`${process.env.REACT_APP_API}/api/v1/users/` + userId, {
           credentials: 'include'
@@ -34,7 +33,6 @@ class AdminHome extends Component {
           throw Error(response.statusText)
         }
 
-        console.log('??????', response);
         const parsedResponse = await response.json();
 
         this.setState({
@@ -56,7 +54,6 @@ class AdminHome extends Component {
           throw Error(response.statusText)
         }
 
-        console.log('whay?');
         const responseParsed = await response.json();
 
         this.setState({

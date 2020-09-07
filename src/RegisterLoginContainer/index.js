@@ -19,7 +19,6 @@ class RegisterLoginContainer extends Component{
         lastName:'',
         phNumber:'',
         email: '',
-        // pre_password: '',
         password:'',
         emailNotice:'',
         mobileNotice:''
@@ -64,7 +63,6 @@ class RegisterLoginContainer extends Component{
           lastName: '',
           email: '',
           phNumber: '',
-          // pre_password: '',
           password: '',
           emailNotice: '',
           mobileNotice: ''
@@ -150,7 +148,6 @@ class RegisterLoginContainer extends Component{
 
      const parsedResponse = await response.json();
 
-     // if(parsedResponse.status !== 401){
      if(parsedResponse.status === 200){
        updatedLogin.successful = true;
        this.setState({
@@ -160,10 +157,6 @@ class RegisterLoginContainer extends Component{
 
       localStorage.setItem('userId', parsedResponse.userId)
       this.props.history.push('/home')
-
-      // this.props.history.push('/home/' + parsedResponse.userId)
-
-
 
      }else{
        alert('login fail')
@@ -183,7 +176,7 @@ class RegisterLoginContainer extends Component{
 
 
   render(){
-    // console.log(typeof this.state.register.emailNotice);
+
     const changeOne = (
       <button onClick={this.buttonChange} className="signupBtn">Sign up</button>
     );
@@ -191,10 +184,8 @@ class RegisterLoginContainer extends Component{
     const changeTwo = (
       <button onClick={this.buttonChange} id="logbtn">LOG IN</button>
     );
-
+    
     const pathname = window.location.pathname
-    console.log(this.state.mobileNotice);
-
 
     return(
       <div>

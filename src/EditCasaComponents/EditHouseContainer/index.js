@@ -9,7 +9,17 @@ class EditHouseContainer extends Component {
     super()
 
     this.state = {
-      house: '',
+      house : {
+        houseImg:[],
+        address : '',
+        city:'',
+        state: '',
+        zipcode: '',
+        houseYear: '',
+        houseSqft: '',
+      },
+      preview1: null,
+      selectedFile : null,
     }
   }
 
@@ -44,8 +54,89 @@ class EditHouseContainer extends Component {
   };
 
 
+  handleInput = (e) => {
+
+    const updatedChange = {
+      ...this.state.house
+    }
+    updatedChange[e.target.name] = e.target.value;
+
+    this.setState({
+      house: updatedChange
+    })
+  }
+
+  handleClick = (e) => {
+    // console.log('---->',e.target.id);
+    var h = document.getElementById(`input-${e.target.id}`)
+    h.click();
+
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const updatedHouse = {
+      ...this.state.house
+    }
+
+    this.addHouse(updatedHouse)
+
+    this.setState({
+      house : {
+        houseImg: null,
+        address : '',
+        city: '',
+        state: '',
+        zipcode: '',
+        houseYear: '',
+        houseSqft: '',
+        userId: '',
+      },
+    })
+  }
+
+
+
+    fileSelectHandler = (e) => {
+
+      var file1
+      console.log('&&&', e.target.files[0]);
+
+      switch (e.target.id) {
+        case 'input-photoOne':
+            file1 = e.target.files[0];
+          break;
+        default:
+          console.log('errorrrrr');
+          return 0;
+
+      }
+
+      var reader1 = new FileReader();
+      var url1 = typeof file1 !== 'undefined'? reader1.readAsDataURL(file1):null;
+
+
+      reader1.onloadend = function(e){
+        this.setState({
+          preview1: [reader1.result || null],
+        })
+      }.bind(this)
+
+
+      this.setState({
+        house: {
+          ...this.state.house,
+          houseImg: [...this.state.house.houseImg, e.target.files[0]]
+        }
+      })
+    }
+
+
+
+
+
   handleEditFormInput = (e) => {
-    console.log(e.target.name, e.target.value);
+
     this.setState({
       house: {
         ...this.state.house,
@@ -98,15 +189,14 @@ class EditHouseContainer extends Component {
       <div>
         <h1>Edit House</h1>
           <div className="photoFrames">
-            <img height={100} width={100} src={`${process.env.REACT_APP_API}/` + this.state.house.houseImg} />
+            // <img height={100} width={100} src={`${process.env.REACT_APP_API}/` + this.state.house.houseImg} />
 
 
 
           </div>
           <form onSubmit={this.updateHouse}>
-
-                <input name="houseImg" className="hide" id="input-photoOne" onChange={this.handleEditFormInput} type="file"/>
-
+              <div><img className="frames" id="photoOne" src={this.state.preview1} onClick={this.handleClick } /></div>
+                <input name="photoOne" className="hide" id="input-photoOne" onChange={this.fileSelectHandler} type="file"/>
               <div className="form-group">
                 <label htmlFor="address">ADDRESS</label>
                   <input name="address" id="address" type="text" className="form-control" onChange={this.handleEditFormInput} value={this.state.house.address} />

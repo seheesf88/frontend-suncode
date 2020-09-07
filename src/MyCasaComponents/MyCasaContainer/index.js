@@ -103,7 +103,7 @@ class MyCasaContainer extends Component {
 
 
   render(){
-    console.log(this.state.roof.roofImg);
+    console.log(this.state.house);
     return(
       <div>
         <Nav />
@@ -113,7 +113,7 @@ class MyCasaContainer extends Component {
           <div className="create_row">
             <div className="create_items">
 
-              { this.state.house.houseImg !== undefined
+              { this.state.house !== null
               ?
               <Link to="/mycasa/edit/home"><img className="img" src={`${process.env.REACT_APP_API}/` + this.state.house.houseImg } /></Link>
               :
