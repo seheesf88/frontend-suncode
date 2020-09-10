@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Nav from './../../Nav';
 import { Link } from 'react-router-dom';
+import { Collapse, Button } from 'react-bootstrap';
 // import axios from 'axios'
 // import Moment from 'react-moment';
 import './MyCasaContainer.scss';
@@ -15,6 +16,7 @@ class MyCasaContainer extends Component {
       attic:'',
       house: '',
       utility: '',
+      // open: false
     }
   }
 
@@ -179,9 +181,8 @@ class MyCasaContainer extends Component {
 
 
 
-
   render(){
-    console.log('>>',this.state.attic );
+
     return(
       <div>
         <Nav />
@@ -193,7 +194,7 @@ class MyCasaContainer extends Component {
 
               { this.state.house !== null
               ?
-              <Link to="/mycasa/edit/home"><img className="img" src={`${process.env.REACT_APP_API}/` + this.state.house.houseImg } /></Link>
+              <Link to="/mycasa/show/home"><img className="img" src={`${process.env.REACT_APP_API}/` + this.state.house.houseImg } /></Link>
               :
               <Link to="/mycasa/create/home"><div className="noposting"></div></Link>
               }
@@ -204,7 +205,9 @@ class MyCasaContainer extends Component {
               <Link className="link" to="/mycasa/create/roof">
                 { this.state.roof !== null
                 ?
+
                 <img className="img" src={`${process.env.REACT_APP_API}/` + this.state.roof.roofImg } />
+
                 :
                 <div className="noposting"></div>
                 }

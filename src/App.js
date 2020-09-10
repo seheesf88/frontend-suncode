@@ -26,6 +26,10 @@ import WaHeaterContainer from './MyCasaComponents/WaHeaterContainer';
 import SpHeaterContainer from './MyCasaComponents/SpHeaterContainer';
 import UtilityContainer from './MyCasaComponents/UtilityContainer';
 
+//show components
+import HouseComponent from './ShowCasaContainer/HouseComponent';
+
+
 // edit Components
 import EditHouseContainer from './EditCasaComponents/EditHouseContainer';
 
@@ -86,6 +90,9 @@ const App = (props) => {
         <Route exact path="/mycasa/create/waheater" component={ WaHeaterContainer } />
         <Route exact path="/mycasa/create/spheater" component={ SpHeaterContainer } />
         <Route exact path="/mycasa/create/utility" component={ UtilityContainer } />
+
+        <Route exact path="/mycasa/show/home" component={ HouseComponent } />
+
 
         <Route exact path="/mycasa/edit/home" component={ EditHouseContainer } />
 
