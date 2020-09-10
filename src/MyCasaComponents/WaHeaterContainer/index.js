@@ -110,7 +110,6 @@ class WaHeaterContainer extends Component {
             data.append('waheaterImg', this.state.waheater.waheaterImg[i]);
         }
 
-        console.log('hihih', this.state.waheater.waheaterType);
         data.append('waheaterType', this.state.waheater.waheaterType);
         data.append('waheaterBrand', this.state.waheater.waheaterBrand);
         data.append('waheaterYear', this.state.waheater.waheaterYear);

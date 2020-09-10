@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import logo from './logo.png';
 import './Nav.scss';
 
 class Nav extends Component{
@@ -76,7 +75,6 @@ class Nav extends Component{
   render(){
     const userId = localStorage.getItem('userId');
     const home = "/home"
-    console.log(logo);
 
     return(
       <div className="container">
@@ -89,8 +87,8 @@ class Nav extends Component{
               <div className="items_nav">
                 <Link to='/'>
                   <div className="container_logo">
-                    <div className="logo_img"><img src={logo} /></div>
-                    <div className="logo_text"><img src="electricasa.png" /></div>
+                    <div className="logo_img"><img src={process.env.PUBLIC_URL + '/logo.png'}/></div>
+                    <div className="logo_text"><img src={process.env.PUBLIC_URL + '/electricasa.png'}/></div>
                   </div>
                 </Link>
               </div>
@@ -105,8 +103,8 @@ class Nav extends Component{
               <div className="items_nav">
                 <Link to='/'>
                   <div className="container_logo">
-                    <div className="logo_img"><img src="logo.png" /></div>
-                    <div className="logo_text"><img src="electricasa.png" /></div>
+                    <div className="logo_img"><img src={process.env.PUBLIC_URL + '/logo.png'}/></div>
+                    <div className="logo_text"><img src={process.env.PUBLIC_URL + '/electricasa.png'}/></div>
                   </div>
                 </Link>
               </div>
