@@ -21,6 +21,9 @@ class MyCasaContainer extends Component {
   componentDidMount(){
     this.getOneHouse();
     this.getOneRoof();
+    this.getOneAttic();
+    this.getOneWaheater();
+    this.getOneSpheather();
     this.getOneUtility();
   }
 
@@ -74,6 +77,81 @@ class MyCasaContainer extends Component {
     }
   }
 
+  getOneAttic = async() => {
+    // const userId = window.location.pathname.split('/')[2];
+    const userId = localStorage.getItem('userId')
+
+    try{
+      const response = await fetch(`${process.env.REACT_APP_API}/api/v1/attic/${userId}`,  {
+        credentials: 'include'
+      })
+
+      if(!response.ok){
+        throw Error(response.statusText)
+      }
+
+      const houseParsed = await response.json();
+
+      this.setState({
+          attic: houseParsed.data,
+          // authorId: localStorage.getItem('authorId')
+      })
+
+    }catch(err){
+      return err
+    }
+  }
+
+  getOneWaheater = async() => {
+    // const userId = window.location.pathname.split('/')[2];
+    const userId = localStorage.getItem('userId')
+
+    try{
+      const response = await fetch(`${process.env.REACT_APP_API}/api/v1/waheater/${userId}`,  {
+        credentials: 'include'
+      })
+
+      if(!response.ok){
+        throw Error(response.statusText)
+      }
+
+      const houseParsed = await response.json();
+
+      this.setState({
+          waheater: houseParsed.data,
+          // authorId: localStorage.getItem('authorId')
+      })
+
+    }catch(err){
+      return err
+    }
+  }
+
+  getOneSpheather = async() => {
+    // const userId = window.location.pathname.split('/')[2];
+    const userId = localStorage.getItem('userId')
+
+    try{
+      const response = await fetch(`${process.env.REACT_APP_API}/api/v1/spheater/${userId}`,  {
+        credentials: 'include'
+      })
+
+      if(!response.ok){
+        throw Error(response.statusText)
+      }
+
+      const houseParsed = await response.json();
+
+      this.setState({
+          spheater: houseParsed.data,
+          // authorId: localStorage.getItem('authorId')
+      })
+
+    }catch(err){
+      return err
+    }
+  }
+
   getOneUtility = async() => {
     // const userId = window.location.pathname.split('/')[2];
     const userId = localStorage.getItem('userId')
@@ -103,7 +181,7 @@ class MyCasaContainer extends Component {
 
 
   render(){
-    console.log(this.state.house);
+    console.log('>>',this.state.attic );
     return(
       <div>
         <Nav />
@@ -124,7 +202,7 @@ class MyCasaContainer extends Component {
             </div>
             <div className="create_items">
               <Link className="link" to="/mycasa/create/roof">
-                { this.state.roof.roofImg !== undefined
+                { this.state.roof !== null
                 ?
                 <img className="img" src={`${process.env.REACT_APP_API}/` + this.state.roof.roofImg } />
                 :
@@ -134,21 +212,21 @@ class MyCasaContainer extends Component {
               <div className="tag">Roof Details</div>
             </div>
             <div className="create_items">
-              <Link to="/mycasa/create/attic">
-              { this.state.attic.atticImg !== undefined
-              ?
-              <img className="img" src={`${process.env.REACT_APP_API}/` + this.state.house.atticImg } />
-              :
-              <div className="noposting"></div>
-              }
-              </Link>
+                <Link to="/mycasa/create/attic">
+                { this.state.attic !== null
+                ?
+                <img className="img" src={`${process.env.REACT_APP_API}/` + this.state.attic.atticImg } />
+                :
+                <div className="noposting"></div>
+                }
+                </Link>
               <div className="tag">Attic Insulation Details</div>
               </div>
           </div>
           <div className="create_row">
             <div className="create_items">
               <Link to="/mycasa/create/waheater">
-                { this.state.waheater.waheaterImg !== undefined
+                { this.state.waheater !== null
                 ?
                 <img className="img" src={`${process.env.REACT_APP_API}/` + this.state.waheater.waheaterImg } />
                 :
@@ -159,7 +237,7 @@ class MyCasaContainer extends Component {
             </div>
             <div className="create_items">
               <Link to="/mycasa/create/spheater">
-                { this.state.spheater.spheaterImg !== undefined || null
+                { this.state.spheater !== null
                 ?
                 <img className="img" src={`${process.env.REACT_APP_API}/` + this.state.spheater.spheaterImg } />
                 :
@@ -169,18 +247,14 @@ class MyCasaContainer extends Component {
               <div className="tag">Primary Heater Details</div>
             </div>
             <div className="create_items">
-
-                { this.state.utility.utilityImg !== undefined
+              <Link to="/mycasa/create/utility">
+                { this.state.utility !== null
                 ?
-                <Link to="/mycasa/edit/utility">
-                  <img className="img" src={`${process.env.REACT_APP_API}/` + this.state.utility.utilityImg } />
-                </Link>
+                <div className="frame"><img className="img" src={`${process.env.REACT_APP_API}/` + this.state.utility.utilityImg } /></div>
                 :
-                <Link to="/mycasa/create/utility">
-                  <div className="noposting"></div>
-                </Link>
+                <div className="noposting"></div>
                 }
-
+              </Link>
               <div className="tag">Utility Bills</div>
             </div>
           </div>
