@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Nav from './../../Nav';
 import { Link } from 'react-router-dom';
-import { Collapse, Button } from 'react-bootstrap';
+import { Collapse, Button, Accordion, Card } from 'react-bootstrap';
 // import axios from 'axios'
 // import Moment from 'react-moment';
 import './MyCasaContainer.scss';
@@ -182,7 +182,8 @@ class MyCasaContainer extends Component {
 
 
   render(){
-    console.log('this start', this.state.spheater)
+    console.log('this start', this.state.house)
+
 
     return(
       <div>
@@ -195,7 +196,9 @@ class MyCasaContainer extends Component {
 
               { this.state.house !== null
               ?
-              <Link to="/mycasa/show/home"><img className="img" src={`${process.env.REACT_APP_API}/` + this.state.house.houseImg } /></Link>
+              <Link to="/mycasa/show/house">
+                <img className="img" src={`${process.env.REACT_APP_API}/` + this.state.house.houseImg } />
+              </Link>
               :
               <Link to="/mycasa/create/home"><div className="noposting"></div></Link>
               }

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Nav from './../../Nav';
 import { Link, withRouter } from 'react-router-dom';
 
-class HouseComponent extends Component {
+class HouseContainer extends Component {
   constructor(){
     super()
     this.state = {
@@ -11,7 +11,7 @@ class HouseComponent extends Component {
   }
 
   componentDidMount(){
-    this.getOneHouse()
+    this.getOneHouse();
   }
 
   getOneHouse = async() => {
@@ -38,6 +38,8 @@ class HouseComponent extends Component {
   }
 
 
+
+
   deleteHouse = async(id, e) => {
     // e.preventDefault();
     try {
@@ -46,13 +48,9 @@ class HouseComponent extends Component {
         // credentials: 'include'
       })
 
-
       // const parsedResponse = await deleteHouse.json();
-      this.setState({
-        allHouses: this.state.allHouses.filter((house) => house._id !== id)
-      })
 
-      // this.props.history.push('/create')
+      this.props.history.push('/mycasa')
 
     }catch(err){
       console.log(err)
@@ -63,7 +61,10 @@ class HouseComponent extends Component {
   render(){
     return(
       <div>
+        <Nav />
         <div>Show house</div>
+          <Link to={`/mycasa/edit/house`}>Edit</Link>
+          <button onClick={this.deleteHouse.bind(null, this.state.house._id)}>delete</button>
           <div>{this.state.house.address}</div>
           <div>{this.state.house.city}</div>
           <div>{this.state.house.state}</div>
@@ -75,6 +76,6 @@ class HouseComponent extends Component {
   }
 }
 
-export default withRouter(HouseComponent)
+export default withRouter(HouseContainer)
 
 //<div><img src={`${process.env.REACT_APP_API}/` + this.state.house.houseImg} /></div>

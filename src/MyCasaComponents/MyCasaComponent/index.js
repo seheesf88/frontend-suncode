@@ -97,6 +97,7 @@ class MyCasaComponent extends Component {
     console.log(this.state.house);
     return(
       <div>
+
         {
           this.state.house === undefined
 

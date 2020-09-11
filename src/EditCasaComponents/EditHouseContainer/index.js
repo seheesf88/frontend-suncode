@@ -10,7 +10,7 @@ class EditHouseContainer extends Component {
 
     this.state = {
       house : {
-        houseImg:[],
+        houseImg: null,
         address : '',
         city:'',
         state: '',
@@ -126,7 +126,8 @@ class EditHouseContainer extends Component {
       this.setState({
         house: {
           ...this.state.house,
-          houseImg: [...this.state.house.houseImg, e.target.files[0]]
+          // houseImg: [this.state.house.houseImg, e.target.files[0]]
+          houseImg: file1
         }
       })
     }
@@ -148,9 +149,9 @@ class EditHouseContainer extends Component {
 //edit house info
   updateHouse = async (e) => {
     e.preventDefault();
-    // const houseId = window.location.pathname.split('/')[1];
 
     let userId = localStorage.getItem('userId');
+    console.log('jjj', this.state.house.houseImg);
     try{
         const response = await fetch(`${process.env.REACT_APP_API}/api/v1/house/${userId}`, {
           method: 'PUT',
@@ -160,7 +161,7 @@ class EditHouseContainer extends Component {
             'Content-Type' : 'application/json'
           }
         });
-        console.log(response);
+        console.log('---', response);
         if(!response.ok){
           throw Error(response.statusText)
         }

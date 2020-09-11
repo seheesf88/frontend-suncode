@@ -27,7 +27,7 @@ import SpHeaterContainer from './MyCasaComponents/SpHeaterContainer';
 import UtilityContainer from './MyCasaComponents/UtilityContainer';
 
 //show components
-import HouseComponent from './ShowCasaContainer/HouseComponent';
+import HouseContainer from './ShowCasaComponents/HouseContainer';
 
 
 // edit Components
@@ -91,10 +91,10 @@ const App = (props) => {
         <Route exact path="/mycasa/create/spheater" component={ SpHeaterContainer } />
         <Route exact path="/mycasa/create/utility" component={ UtilityContainer } />
 
-        <Route exact path="/mycasa/show/home" component={ HouseComponent } />
+        <Route exact path="/mycasa/show/house" component={ HouseContainer } />
 
 
-        <Route exact path="/mycasa/edit/home" component={ EditHouseContainer } />
+        <Route exact path="/mycasa/edit/house" component={ EditHouseContainer } />
 
         <Route exact path="/project" component={ ProjectComponent } />
 
