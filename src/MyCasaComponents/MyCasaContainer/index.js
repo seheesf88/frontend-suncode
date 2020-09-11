@@ -182,6 +182,7 @@ class MyCasaContainer extends Component {
 
 
   render(){
+    console.log('this start', this.state.spheater)
 
     return(
       <div>
@@ -242,7 +243,7 @@ class MyCasaContainer extends Component {
               <Link to="/mycasa/create/spheater">
                 { this.state.spheater !== null
                 ?
-                <img className="img" src={`${process.env.REACT_APP_API}/` + this.state.spheater.spheaterImg } />
+                <img className="img" src={`${process.env.REACT_APP_API}/` + this.state.spheater.spHeaterImg } />
                 :
                 <div className="noposting"></div>
                 }

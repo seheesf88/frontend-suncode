@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Nav from './../../Nav';
-import AutoExam from './../AutoExam'
+import MyCasaContainer from './../MyCasaContainer'
 import './MyCasa.scss';
 import { Link, withRouter } from 'react-router-dom';
 
@@ -97,19 +97,21 @@ class MyCasaComponent extends Component {
     console.log(this.state.house);
     return(
       <div>
-        <Nav />
         {
-          // this.state.house === undefined
-          true
+          this.state.house === undefined
+
           ?
+          <div>
+          <Nav />
           <div className="myCasa_container">
             <div className="h2">My Casa</div>
             <div className="p1">See the status of your house energy assets and how they compare on quality, efficiency and age to new technologies.</div>
             <div className="center text">You did not add any house information</div>
             <div className="center"><Link to="/mycasa/start" className="submitBtn" style={{width: '490px'}}>Add House</Link></div>
+          </div>
          </div>
       :
-        <AutoExam />
+        <MyCasaContainer />
 
       }
 

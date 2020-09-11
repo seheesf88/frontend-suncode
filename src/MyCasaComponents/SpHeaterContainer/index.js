@@ -42,7 +42,6 @@ class SpHeaterContainer extends Component {
 
     var h = document.getElementById(`input-${e.target.id}`)
     h.click();
-    //once click the box,
   }
 
   handleSubmit = (e) => {
@@ -68,7 +67,7 @@ class SpHeaterContainer extends Component {
 
     fileSelectHandler = (e) => {
       var file5
-
+      console.log('hhh');
       switch (e.target.id) {
         case 'input-photoFive':
             file5 = e.target.files[0];
@@ -105,9 +104,10 @@ class SpHeaterContainer extends Component {
     addspheater = async(updatedSpheater) => {
 
         const data = new FormData();
-
+                console.log('---', this.state.spheater.spHeaterImg);
         for(let i = 0; i < this.state.spheater.spHeaterImg.length; i++){
-            data.append('waheaterImg', this.state.spheater.spHeaterImg[i]);
+
+            data.append('spHeaterImg', this.state.spheater.spHeaterImg[i]);
         }
 
         data.append('spHeaterType', this.state.spheater.spHeaterType);
@@ -145,7 +145,7 @@ class SpHeaterContainer extends Component {
             <div className="">
                 <div className="">
                   <div className="">
-                    <div><img className="frames" id="photoFive" src={this.state.preview3}  onClick={this.handleClick } height={100} width={100} /></div>
+                    <div><img className="frames" id="photoFive" src={this.state.preview5}  onClick={this.handleClick } height={100} width={100} /></div>
                       <input name="photoFive" className="hide" id="input-photoFive" onChange={this.fileSelectHandler} type="file"/>
                   </div>
                 </div>
