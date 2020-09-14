@@ -147,6 +147,7 @@ class CreateContainer extends Component {
 
     addHouse = async(updatedHouse) => {
 
+console.log('jjj', this.state.house.houseImg);
         const data = new FormData();
 
         for(let i = 0; i < this.state.house.houseImg.length; i++){
@@ -171,7 +172,7 @@ class CreateContainer extends Component {
         const time = new Date();
         data.append('postingTime', time)
 
-        console.log('here', data);
+        console.log('here in post request', data);
         axios.post(`${process.env.REACT_APP_API}/api/v1/house`, data, {
           headers: {
             'content-type': 'multipart/form-data'

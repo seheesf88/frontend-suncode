@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Nav from './../../Nav';
+import axios from 'axios'
 // import EditHouseComponent from '../EditHouseComponent';
 import './EditHouse.scss';
 
@@ -42,7 +43,7 @@ class EditHouseContainer extends Component {
       }
 
       const houseParsed = await response.json();
-      console.log('what is houseParsed =====>', houseParsed.data);
+
 
       this.setState({
         house: houseParsed.data
@@ -75,10 +76,12 @@ class EditHouseContainer extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+
     const updatedHouse = {
       ...this.state.house
     }
 
+    console.log('~~~~', updatedHouse);
     this.addHouse(updatedHouse)
 
     this.setState({
@@ -105,6 +108,7 @@ class EditHouseContainer extends Component {
       switch (e.target.id) {
         case 'input-photoOne':
             file1 = e.target.files[0];
+            console.log('jh?');
           break;
         default:
           console.log('errorrrrr');
@@ -122,12 +126,13 @@ class EditHouseContainer extends Component {
         })
       }.bind(this)
 
-
+      console.log(file1, e.target.files[0]);
+      console.log('0000', this.state.house.houseImg);
       this.setState({
         house: {
           ...this.state.house,
-          // houseImg: [this.state.house.houseImg, e.target.files[0]]
-          houseImg: file1
+          houseImg: e.target.files[0]
+          //여기서 부터 시작할것, 이 위에 코드가 망가진 것이다.
         }
       })
     }
@@ -146,39 +151,76 @@ class EditHouseContainer extends Component {
     })
   }
 
-//edit house info
-  updateHouse = async (e) => {
-    e.preventDefault();
+// //edit house info
+//   updateHouse = async (e) => {
+//     e.preventDefault();
+//
+//     let userId = localStorage.getItem('userId');
+//     console.log('jjj', this.state.house.houseImg);
+//     try{
+//         const response = await fetch(`${process.env.REACT_APP_API}/api/v1/house/${userId}`, {
+//           method: 'PUT',
+//           credentials: 'include',
+//           body: JSON.stringify(this.state.house),
+//           headers: {
+//             'Content-Type' : 'application/json'
+//           }
+//         });
+//         console.log('---',  response);
+//         if(!response.ok){
+//           throw Error(response.statusText)
+//         }
+//
+//
+//
+//         // if(userId === '5d7e9d844eb54d001728cf31') {
+//         // // if(username === 'admin') {
+//         //     this.props.history.push('/adminHome')
+//         // }else {
+//             this.props.history.push('/mycasa/start' );
+//         // }
+//
+//
+//       } catch(err) {
+//         return err
+//       }
+//     }
 
-    let userId = localStorage.getItem('userId');
-    console.log('jjj', this.state.house.houseImg);
-    try{
-        const response = await fetch(`${process.env.REACT_APP_API}/api/v1/house/${userId}`, {
-          method: 'PUT',
-          credentials: 'include',
-          body: JSON.stringify(this.state.house),
+
+    updateHouse = async(e) => {
+         e.preventDefault();
+
+         console.log('jhihi', this.state.house.houseImg);
+        const data = new FormData();
+
+        data.append('houseImg', this.state.house.houseImg);
+        data.append('address', this.state.house.address);
+        data.append('city', this.state.house.city);
+        data.append('state', this.state.house.state);
+        data.append('zipcode', this.state.house.zipcode);
+        data.append('houseYear', this.state.house.houseYear);
+        data.append('houseSqft', this.state.house.houseSqft);
+        // data.append('memo', this.state.house.memo);
+        data.append('time', this.state.house.time);
+
+        let userId = localStorage.getItem('userId');
+        data.append('userId', userId)
+
+        const time = new Date();
+        data.append('postingTime', time)
+
+        console.log('here data', data.houseImg);
+
+        axios.put(`${process.env.REACT_APP_API}/api/v1/house/${userId}`, data, {
           headers: {
-            'Content-Type' : 'application/json'
+            'Content-Type': 'multipart/form-data'
           }
-        });
-        console.log('---', response);
-        if(!response.ok){
-          throw Error(response.statusText)
-        }
+        })
+        .then(res => {
 
-
-
-        // if(userId === '5d7e9d844eb54d001728cf31') {
-        // // if(username === 'admin') {
-        //     this.props.history.push('/adminHome')
-        // }else {
-            this.props.history.push('/mycasa/start' );
-        // }
-
-
-      } catch(err) {
-        return err
-      }
+          // console.log(res.statusText, "here???", res.data.msg);
+          this.props.history.push('/mycasa/start');
+        })
     }
 
   render(){

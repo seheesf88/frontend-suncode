@@ -182,9 +182,6 @@ class MyCasaContainer extends Component {
 
 
   render(){
-    console.log('this start', this.state.house)
-
-
     return(
       <div>
         <Nav />
