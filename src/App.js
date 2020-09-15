@@ -38,16 +38,11 @@ import ProjectContainer from './ProjectComponents/ProjectContainer';
 
 import MyAccountContainer from './MyAccountContainer';
 
-
-
-import AdminHome from './AdminHome';
-
-
-
+//import AdminHome from './AdminHome';
 // import PhotoContainer from './PhotoContainer';
-import ShowHouseContainer from './ShowHouseContainer';
-import ShowMyAccount from './ShowMyAccount';
-import HouseDetailContainer from './HomeOwnerComponents/HouseDetailContainer';
+//import ShowHouseContainer from './ShowHouseContainer';
+//import ShowMyAccount from './ShowMyAccount';
+//import HouseDetailContainer from './HomeOwnerComponents/HouseDetailContainer';
 
 
 const My404 = () => {
@@ -92,19 +87,9 @@ const App = (props) => {
         <Route exact path="/mycasa/create/utility" component={ UtilityContainer } />
 
         <Route exact path="/mycasa/show/house" component={ HouseContainer } />
-
-
         <Route exact path="/mycasa/edit/house" component={ EditHouseContainer } />
-
         <Route exact path="/project" component={ ProjectComponent } />
-
-        <Route exact path="/house" component={ HouseDetailContainer } />
-        <Route exact path="/adminhome" component={ AdminHome } />
-        <Route exact path="/myaccount" component={ ShowMyAccount } />
         <Route exact path="/myaccount/:id/edit" component={ MyAccountContainer } />
-
-        <Route exact path="/:id" component={ ShowHouseContainer } />
-
         <Route component={ My404 } />
       </Switch>
     </main>
