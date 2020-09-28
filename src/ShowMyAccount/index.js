@@ -12,7 +12,6 @@ class ShowMyAccount extends Component{
       userinfo: {
         email:'',
         password: '',
-        // username:'',
         name: '',
         phNumber: '',
         emailNotice: ''

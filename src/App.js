@@ -38,12 +38,6 @@ import ProjectContainer from './ProjectComponents/ProjectContainer';
 
 import MyAccountContainer from './MyAccountContainer';
 
-//import AdminHome from './AdminHome';
-// import PhotoContainer from './PhotoContainer';
-//import ShowHouseContainer from './ShowHouseContainer';
-//import ShowMyAccount from './ShowMyAccount';
-//import HouseDetailContainer from './HomeOwnerComponents/HouseDetailContainer';
-
 
 const My404 = () => {
   return (
