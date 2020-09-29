@@ -36,7 +36,7 @@ import EditHouseContainer from './EditCasaComponents/EditHouseContainer';
 import ProjectComponent from './ProjectComponents/ProjectComponent';
 import ProjectContainer from './ProjectComponents/ProjectContainer';
 
-import MyAccountContainer from './MyAccountContainer';
+import MyAccountContainer from './MyAccountComponents/MyAccountContainer';
 
 
 const My404 = () => {
@@ -83,7 +83,9 @@ const App = (props) => {
         <Route exact path="/mycasa/show/house" component={ HouseContainer } />
         <Route exact path="/mycasa/edit/house" component={ EditHouseContainer } />
         <Route exact path="/project" component={ ProjectComponent } />
-        <Route exact path="/myaccount/:id/edit" component={ MyAccountContainer } />
+
+        <Route exact path="/myaccount/:id" component={ MyAccountContainer } />
+
         <Route component={ My404 } />
       </Switch>
     </main>
@@ -91,15 +93,3 @@ const App = (props) => {
 }
 
 export default withRouter(App)
-// export default App;
-//
-// <Route exact path="/" component={ MainContainer } />
-// <Route exact path="/quiz" component={ QuizContainer } />
-
-// function App() {
-//   return (
-//     <div className="App">
-//
-//     </div>
-//   );
-// }

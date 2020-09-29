@@ -55,7 +55,6 @@ class Nav extends Component{
 
       if(response.status === 200){
         localStorage.removeItem('userId')
-        localStorage.removeItem('username')
         this.props.history.push('/login')
       }
 
@@ -119,7 +118,7 @@ class Nav extends Component{
                   <Link to='/project' style={{textDecoration : 'none', color:'black', fontSize:'16px'}}>Projects</Link>
                 </div>
                 <div className="item_nav">
-                  <Link to='/myaccount' style={{textDecoration : 'none', color:'black', fontSize:'16px'}}>Account</Link>
+                  <Link to={`/myaccount/${userId}` }style={{textDecoration : 'none', color:'black', fontSize:'16px'}}>Account</Link>
                 </div>
                 <div className="item_nav">
                   <input type="submit" value="Logout" className="logout_btn" onClick={this.logout} />

@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import Nav from '../Nav';
-import './MyAccount.css';
 
 
-class MyAccountContainer extends Component{
+class MyAccountEdit extends Component{
   constructor(){
     super();
     this.state = {
@@ -26,7 +25,7 @@ class MyAccountContainer extends Component{
     const userId = localStorage.getItem('userId')
 
     try{
-      const response = await fetch(`${process.env.REACT_APP_API}/api/v1/users/${userId}`, {
+      const response = await fetch(`${process.env.REACT_APP_API}/api/v1/auth/${userId}`, {
         method: 'PUT',
         credentials: 'include',
         body: JSON.stringify(this.state.userInfo),
@@ -52,7 +51,7 @@ class MyAccountContainer extends Component{
       <div>
         <Nav />
         <div>
-          <h2>Edit Profile</h2>
+          <h2>Edit</h2>
           <form onSubmit={this.editMyinfo} className="form">
             <div>Email:  <input className="" name="email" value={this.state.userInfo.email} onChange={this.handleEditFormInput}/></div>
             <div>Password: <input className="" name="password" value={this.state.userInfo.password} onChange={this.handleEditFormInput}/></div>
