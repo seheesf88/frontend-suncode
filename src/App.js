@@ -29,7 +29,6 @@ import UtilityContainer from './MyCasaComponents/UtilityContainer';
 //show components
 import HouseContainer from './ShowCasaComponents/HouseContainer';
 
-
 // edit Components
 import EditHouseContainer from './EditCasaComponents/EditHouseContainer';
 

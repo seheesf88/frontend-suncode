@@ -48,7 +48,7 @@ class MyCasaComponent extends Component {
     const userId = localStorage.getItem('userId')
 
     try{
-      const response = await fetch(`${process.env.REACT_APP_API}/api/v1/users/house/${userId}`,  {
+      const response = await fetch(`${process.env.REACT_APP_API}/api/v1/users/${userId}`,  {
         credentials: 'include'
       })
 
@@ -94,13 +94,18 @@ class MyCasaComponent extends Component {
 
 
   render(){
-    console.log(this.state.house);
+    console.log('ddd',this.state.house);
     return(
       <div>
 
-        {
-          this.state.house === undefined
-
+        { <div>
+          this.state.house.house === null &&
+          this.state.house.attic === null &&
+          this.state.house.roof === null &&
+          this.state.house.waHeater === null &&
+          this.state.house.spHeater === null &&
+          this.state.house.utility === null
+          </div>
           ?
           <div>
           <Nav />

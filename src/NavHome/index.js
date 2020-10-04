@@ -21,7 +21,7 @@ class NavHome extends Component{
 
   getUserInfo = async() => {
       const userId = localStorage.getItem('userId');
-      console.log(userId);
+  
       try{
         const response = await fetch(`${process.env.REACT_APP_API}/api/v1/users/` + userId, {
           credentials: 'include'
