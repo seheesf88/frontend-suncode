@@ -65,6 +65,7 @@ class HouseContainer extends Component {
         <div>Show house</div>
           <Link to={`/mycasa/edit/house`}>Edit</Link>
           <button onClick={this.deleteHouse.bind(null, this.state.house._id)}>delete</button>
+          <img className="img" src={`${process.env.REACT_APP_API}/` + this.state.house.houseImg } />
           <div>{this.state.house.address}</div>
           <div>{this.state.house.city}</div>
           <div>{this.state.house.state}</div>

@@ -147,7 +147,7 @@ class CreateContainer extends Component {
 
     addHouse = async(updatedHouse) => {
 
-console.log('jjj', this.state.house.houseImg);
+
         const data = new FormData();
 
         for(let i = 0; i < this.state.house.houseImg.length; i++){
@@ -160,27 +160,20 @@ console.log('jjj', this.state.house.houseImg);
         data.append('zipcode', this.state.house.zipcode);
         data.append('houseYear', this.state.house.houseYear);
         data.append('houseSqft', this.state.house.houseSqft);
-        // data.append('memo', this.state.house.memo);
         data.append('time', this.state.house.time);
 
         let userId = localStorage.getItem('userId');
         data.append('userId', userId)
 
-        // let username = localStorage.getItem('username');
-        // data.append('username', username)
-
         const time = new Date();
         data.append('postingTime', time)
 
-        console.log('here in post request', data);
         axios.post(`${process.env.REACT_APP_API}/api/v1/house`, data, {
           headers: {
             'content-type': 'multipart/form-data'
           }
         })
         .then(res => {
-
-          // console.log(res.statusText, "here???", res.data.msg);
           this.props.history.push('/mycasa/start');
         })
     }

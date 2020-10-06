@@ -94,18 +94,12 @@ class MyCasaComponent extends Component {
 
 
   render(){
-    console.log('ddd',this.state.house);
+
     return(
       <div>
 
-        { <div>
-          this.state.house.house === null &&
-          this.state.house.attic === null &&
-          this.state.house.roof === null &&
-          this.state.house.waHeater === null &&
-          this.state.house.spHeater === null &&
-          this.state.house.utility === null
-          </div>
+        {
+            this.state.house
           ?
           <div>
           <Nav />

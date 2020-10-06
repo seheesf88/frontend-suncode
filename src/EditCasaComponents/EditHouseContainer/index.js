@@ -232,7 +232,7 @@ class EditHouseContainer extends Component {
       <div>
         <h1>Edit House</h1>
           <div className="photoFrames">
-            // <img height={100} width={100} src={`${process.env.REACT_APP_API}/` + this.state.house.houseImg} />
+            <img height={100} width={100} src={`${process.env.REACT_APP_API}/` + this.state.house.houseImg} />
 
 
 
